@@ -1,0 +1,728 @@
+{
+  "scope": "Five fixed smoke examples; counts use our explicitly supported checks, not an independent quality or win-rate benchmark. Data-option expansion is part of the revised build.",
+  "cases": [
+    {
+      "locks": [
+        "Charizard"
+      ],
+      "previous": {
+        "team": [
+          {
+            "species": "Charizard",
+            "item": "Charcoal",
+            "moves": [
+              "Heat Wave",
+              "Overheat",
+              "Weather Ball",
+              "Dragon Pulse"
+            ]
+          },
+          {
+            "species": "Indeedee-F",
+            "item": "Psychic Seed",
+            "moves": [
+              "Follow Me",
+              "Trick Room",
+              "Helping Hand",
+              "Psychic"
+            ]
+          },
+          {
+            "species": "Sneasler",
+            "item": "Focus Sash",
+            "moves": [
+              "Close Combat",
+              "Dire Claw",
+              "Protect",
+              "Fake Out"
+            ]
+          },
+          {
+            "species": "Torkoal",
+            "item": "Choice Specs",
+            "moves": [
+              "Eruption",
+              "Earth Power",
+              "Heat Wave",
+              "Overheat"
+            ]
+          },
+          {
+            "species": "Archaludon",
+            "item": "Assault Vest",
+            "moves": [
+              "Electro Shot",
+              "Flash Cannon",
+              "Body Press",
+              "Draco Meteor"
+            ]
+          },
+          {
+            "species": "Porygon2",
+            "item": "Covert Cloak",
+            "moves": [
+              "Trick Room",
+              "Recover",
+              "Ice Beam",
+              "Tera Blast"
+            ]
+          }
+        ],
+        "legal": true,
+        "seconds": 0.562,
+        "supported_conflicts": [
+          "conditional_unburden",
+          "double_room",
+          "electro_shot_charge",
+          "psychic_priority"
+        ]
+      },
+      "revised": {
+        "team": [
+          {
+            "species": "Charizard",
+            "item": "Choice Specs",
+            "moves": [
+              "Heat Wave",
+              "Overheat",
+              "Weather Ball",
+              "Dragon Pulse"
+            ]
+          },
+          {
+            "species": "Electabuzz",
+            "item": "Eviolite",
+            "moves": [
+              "Follow Me",
+              "Protect",
+              "Electroweb",
+              "Taunt"
+            ]
+          },
+          {
+            "species": "Rillaboom",
+            "item": "Assault Vest",
+            "moves": [
+              "Grassy Glide",
+              "Fake Out",
+              "Wood Hammer",
+              "U-turn"
+            ]
+          },
+          {
+            "species": "Torkoal",
+            "item": "Charcoal",
+            "moves": [
+              "Eruption",
+              "Protect",
+              "Earth Power",
+              "Heat Wave"
+            ]
+          },
+          {
+            "species": "Gallade",
+            "item": "Clear Amulet",
+            "moves": [
+              "Sacred Sword",
+              "Psycho Cut",
+              "Trick Room",
+              "Protect"
+            ]
+          },
+          {
+            "species": "Maushold",
+            "item": "Wide Lens",
+            "moves": [
+              "Follow Me",
+              "Protect",
+              "Population Bomb",
+              "Taunt"
+            ]
+          }
+        ],
+        "legal": true,
+        "seconds": 3.891,
+        "supported_conflicts": []
+      }
+    },
+    {
+      "locks": [
+        "Sneasler"
+      ],
+      "previous": {
+        "team": [
+          {
+            "species": "Sneasler",
+            "item": "Clear Amulet",
+            "moves": [
+              "Close Combat",
+              "Dire Claw",
+              "Protect",
+              "Fake Out"
+            ]
+          },
+          {
+            "species": "Indeedee-F",
+            "item": "Psychic Seed",
+            "moves": [
+              "Follow Me",
+              "Trick Room",
+              "Helping Hand",
+              "Psychic"
+            ]
+          },
+          {
+            "species": "Ninetales-Alola",
+            "item": "Light Clay",
+            "moves": [
+              "Blizzard",
+              "Aurora Veil",
+              "Freeze-Dry",
+              "Moonblast"
+            ]
+          },
+          {
+            "species": "Garchomp",
+            "item": "Choice Band",
+            "moves": [
+              "Earthquake",
+              "Dragon Claw",
+              "Stomping Tantrum",
+              "Rock Slide"
+            ]
+          },
+          {
+            "species": "Maushold",
+            "item": "Safety Goggles",
+            "moves": [
+              "Follow Me",
+              "Protect",
+              "Population Bomb",
+              "Taunt"
+            ]
+          },
+          {
+            "species": "Pelipper",
+            "item": "Covert Cloak",
+            "moves": [
+              "Hurricane",
+              "Weather Ball",
+              "Tailwind",
+              "Protect"
+            ]
+          }
+        ],
+        "legal": true,
+        "seconds": 0.656,
+        "supported_conflicts": [
+          "ally_spread",
+          "competing_weather",
+          "psychic_priority",
+          "unsupported_room"
+        ]
+      },
+      "revised": {
+        "team": [
+          {
+            "species": "Sneasler",
+            "item": "Focus Sash",
+            "moves": [
+              "Close Combat",
+              "Dire Claw",
+              "Protect",
+              "Fake Out"
+            ]
+          },
+          {
+            "species": "Porygon2",
+            "item": "Eviolite",
+            "moves": [
+              "Trick Room",
+              "Recover",
+              "Ice Beam",
+              "Protect"
+            ]
+          },
+          {
+            "species": "Grimmsnarl",
+            "item": "Light Clay",
+            "moves": [
+              "Light Screen",
+              "Reflect",
+              "Spirit Break",
+              "Parting Shot"
+            ]
+          },
+          {
+            "species": "Farigiraf",
+            "item": "Throat Spray",
+            "moves": [
+              "Trick Room",
+              "Hyper Voice",
+              "Protect",
+              "Psychic"
+            ]
+          },
+          {
+            "species": "Ursaluna",
+            "item": "Flame Orb",
+            "moves": [
+              "Facade",
+              "Protect",
+              "Headlong Rush",
+              "Substitute"
+            ]
+          },
+          {
+            "species": "Hatterene",
+            "item": "Life Orb",
+            "moves": [
+              "Dazzling Gleam",
+              "Trick Room",
+              "Expanding Force",
+              "Protect"
+            ]
+          }
+        ],
+        "legal": true,
+        "seconds": 5.141,
+        "supported_conflicts": [
+          "conditional_unburden",
+          "double_room"
+        ]
+      }
+    },
+    {
+      "locks": [
+        "Garchomp"
+      ],
+      "previous": {
+        "team": [
+          {
+            "species": "Garchomp",
+            "item": "Bright Powder",
+            "moves": [
+              "Earthquake",
+              "Dragon Claw",
+              "Stomping Tantrum",
+              "Protect"
+            ]
+          },
+          {
+            "species": "Indeedee-F",
+            "item": "Psychic Seed",
+            "moves": [
+              "Follow Me",
+              "Trick Room",
+              "Helping Hand",
+              "Psychic"
+            ]
+          },
+          {
+            "species": "Incineroar",
+            "item": "Safety Goggles",
+            "moves": [
+              "Fake Out",
+              "Knock Off",
+              "Flare Blitz",
+              "Parting Shot"
+            ]
+          },
+          {
+            "species": "Ninetales-Alola",
+            "item": "Light Clay",
+            "moves": [
+              "Blizzard",
+              "Aurora Veil",
+              "Freeze-Dry",
+              "Moonblast"
+            ]
+          },
+          {
+            "species": "Dondozo",
+            "item": "Covert Cloak",
+            "moves": [
+              "Protect",
+              "Wave Crash",
+              "Yawn",
+              "Order Up"
+            ]
+          },
+          {
+            "species": "Sneasler",
+            "item": "Focus Sash",
+            "moves": [
+              "Close Combat",
+              "Dire Claw",
+              "Protect",
+              "Fake Out"
+            ]
+          }
+        ],
+        "legal": true,
+        "seconds": 0.656,
+        "supported_conflicts": [
+          "ally_spread",
+          "conditional_unburden",
+          "psychic_priority"
+        ]
+      },
+      "revised": {
+        "team": [
+          {
+            "species": "Garchomp",
+            "item": "Life Orb",
+            "moves": [
+              "Dragon Claw",
+              "Stomping Tantrum",
+              "Protect",
+              "Rock Slide"
+            ]
+          },
+          {
+            "species": "Electabuzz",
+            "item": "Eviolite",
+            "moves": [
+              "Follow Me",
+              "Protect",
+              "Electroweb",
+              "Taunt"
+            ]
+          },
+          {
+            "species": "Incineroar",
+            "item": "Safety Goggles",
+            "moves": [
+              "Fake Out",
+              "Knock Off",
+              "Parting Shot",
+              "U-turn"
+            ]
+          },
+          {
+            "species": "Pelipper",
+            "item": "Focus Sash",
+            "moves": [
+              "Hurricane",
+              "Weather Ball",
+              "Tailwind",
+              "Protect"
+            ]
+          },
+          {
+            "species": "Basculegion",
+            "item": "Choice Band",
+            "moves": [
+              "Last Respects",
+              "Wave Crash",
+              "Aqua Jet",
+              "Tera Blast"
+            ]
+          },
+          {
+            "species": "Farigiraf",
+            "item": "Throat Spray",
+            "moves": [
+              "Trick Room",
+              "Hyper Voice",
+              "Protect",
+              "Psychic"
+            ]
+          }
+        ],
+        "legal": true,
+        "seconds": 4.656,
+        "supported_conflicts": []
+      }
+    },
+    {
+      "locks": [
+        "Pelipper",
+        "Archaludon"
+      ],
+      "previous": {
+        "team": [
+          {
+            "species": "Pelipper",
+            "item": "Focus Sash",
+            "moves": [
+              "Hurricane",
+              "Weather Ball",
+              "Tailwind",
+              "Protect"
+            ]
+          },
+          {
+            "species": "Archaludon",
+            "item": "Assault Vest",
+            "moves": [
+              "Electro Shot",
+              "Flash Cannon",
+              "Body Press",
+              "Draco Meteor"
+            ]
+          },
+          {
+            "species": "Basculegion",
+            "item": "Choice Band",
+            "moves": [
+              "Last Respects",
+              "Wave Crash",
+              "Aqua Jet",
+              "Flip Turn"
+            ]
+          },
+          {
+            "species": "Amoonguss",
+            "item": "Rocky Helmet",
+            "moves": [
+              "Spore",
+              "Rage Powder",
+              "Pollen Puff",
+              "Protect"
+            ]
+          },
+          {
+            "species": "Incineroar",
+            "item": "Safety Goggles",
+            "moves": [
+              "Fake Out",
+              "Knock Off",
+              "Flare Blitz",
+              "Parting Shot"
+            ]
+          },
+          {
+            "species": "Grimmsnarl",
+            "item": "Covert Cloak",
+            "moves": [
+              "Light Screen",
+              "Reflect",
+              "Spirit Break",
+              "Thunder Wave"
+            ]
+          }
+        ],
+        "legal": true,
+        "seconds": 0.657,
+        "supported_conflicts": [
+          "rain_fire"
+        ]
+      },
+      "revised": {
+        "team": [
+          {
+            "species": "Pelipper",
+            "item": "Focus Sash",
+            "moves": [
+              "Hurricane",
+              "Weather Ball",
+              "Tailwind",
+              "Protect"
+            ]
+          },
+          {
+            "species": "Archaludon",
+            "item": "Assault Vest",
+            "moves": [
+              "Electro Shot",
+              "Flash Cannon",
+              "Body Press",
+              "Draco Meteor"
+            ]
+          },
+          {
+            "species": "Basculegion",
+            "item": "Choice Band",
+            "moves": [
+              "Last Respects",
+              "Wave Crash",
+              "Flip Turn",
+              "Tera Blast"
+            ]
+          },
+          {
+            "species": "Amoonguss",
+            "item": "Sitrus Berry",
+            "moves": [
+              "Spore",
+              "Rage Powder",
+              "Pollen Puff",
+              "Protect"
+            ]
+          },
+          {
+            "species": "Grimmsnarl",
+            "item": "Light Clay",
+            "moves": [
+              "Light Screen",
+              "Reflect",
+              "Spirit Break",
+              "Fake Out"
+            ]
+          },
+          {
+            "species": "Porygon2",
+            "item": "Eviolite",
+            "moves": [
+              "Trick Room",
+              "Recover",
+              "Ice Beam",
+              "Protect"
+            ]
+          }
+        ],
+        "legal": true,
+        "seconds": 3.812,
+        "supported_conflicts": []
+      }
+    },
+    {
+      "locks": [
+        "Charizard",
+        "Venusaur",
+        "Blastoise"
+      ],
+      "previous": {
+        "team": [
+          {
+            "species": "Charizard",
+            "item": "Choice Specs",
+            "moves": [
+              "Heat Wave",
+              "Overheat",
+              "Weather Ball",
+              "Dragon Pulse"
+            ]
+          },
+          {
+            "species": "Venusaur",
+            "item": "Covert Cloak",
+            "moves": [
+              "Sludge Bomb",
+              "Sleep Powder",
+              "Protect",
+              "Weather Ball"
+            ]
+          },
+          {
+            "species": "Blastoise",
+            "item": "Assault Vest",
+            "moves": [
+              "Water Spout",
+              "Ice Beam",
+              "Muddy Water",
+              "Water Pledge"
+            ]
+          },
+          {
+            "species": "Indeedee-F",
+            "item": "Psychic Seed",
+            "moves": [
+              "Follow Me",
+              "Trick Room",
+              "Helping Hand",
+              "Psychic"
+            ]
+          },
+          {
+            "species": "Torkoal",
+            "item": "Charcoal",
+            "moves": [
+              "Eruption",
+              "Protect",
+              "Earth Power",
+              "Heat Wave"
+            ]
+          },
+          {
+            "species": "Archaludon",
+            "item": "Leftovers",
+            "moves": [
+              "Electro Shot",
+              "Flash Cannon",
+              "Body Press",
+              "Draco Meteor"
+            ]
+          }
+        ],
+        "legal": true,
+        "seconds": 0.547,
+        "supported_conflicts": [
+          "electro_shot_charge",
+          "sun_water"
+        ]
+      },
+      "revised": {
+        "team": [
+          {
+            "species": "Charizard",
+            "item": "Choice Specs",
+            "moves": [
+              "Heat Wave",
+              "Overheat",
+              "Weather Ball",
+              "Dragon Pulse"
+            ]
+          },
+          {
+            "species": "Venusaur",
+            "item": "Covert Cloak",
+            "moves": [
+              "Sludge Bomb",
+              "Sleep Powder",
+              "Protect",
+              "Weather Ball"
+            ]
+          },
+          {
+            "species": "Blastoise",
+            "item": "Mystic Water",
+            "moves": [
+              "Water Spout",
+              "Protect",
+              "Shell Smash",
+              "Fake Out"
+            ]
+          },
+          {
+            "species": "Torkoal",
+            "item": "Charcoal",
+            "moves": [
+              "Eruption",
+              "Protect",
+              "Earth Power",
+              "Heat Wave"
+            ]
+          },
+          {
+            "species": "Porygon2",
+            "item": "Eviolite",
+            "moves": [
+              "Trick Room",
+              "Recover",
+              "Ice Beam",
+              "Protect"
+            ]
+          },
+          {
+            "species": "Farigiraf",
+            "item": "Throat Spray",
+            "moves": [
+              "Trick Room",
+              "Hyper Voice",
+              "Protect",
+              "Psychic"
+            ]
+          }
+        ],
+        "legal": true,
+        "seconds": 3.562,
+        "supported_conflicts": [
+          "double_room",
+          "sun_water"
+        ]
+      }
+    }
+  ]
+}

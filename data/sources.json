@@ -1,0 +1,37 @@
+{
+  "retrieved_date": "2026-10-23",
+  "format_id": "gen9vgc2024regh",
+  "format_scope": "Historical Scarlet/Violet VGC Regulation H, November 2024 ladder. Not current 2026 rules.",
+  "sources": [
+    {
+      "title": "Pokemon Showdown dex and validator",
+      "url": "https://github.com/smogon/pokemon-showdown",
+      "package": "pokemon-showdown@0.11.11",
+      "license": "MIT"
+    },
+    {
+      "title": "Historical Showdown format definition",
+      "commit": "9fa4647eb5967fe59a0d18ec63f5b23f6e231cff",
+      "url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/9fa4647eb5967fe59a0d18ec63f5b23f6e231cff/config/formats.ts",
+      "license": "MIT"
+    },
+    {
+      "title": "Smogon November 2024 VGC Regulation H ladder statistics",
+      "url": "https://www.smogon.com/stats/2024-11/chaos/gen9vgc2024regh-1500.json",
+      "sha256": "4ef0bd9769f4172a45e98ca774f8fb4ef86f18a3bf9cb5efe1ed7441fe27a934",
+      "battles": 965304,
+      "cutoff": 1500,
+      "interpretation": "Aggregate weighted ladder usage, not official tournament history or a win-rate predictor."
+    },
+    {
+      "title": "Official Pokemon Regulation H announcement",
+      "url": "https://sv-news.pokemon.co.jp/en/page/245.html"
+    }
+  ],
+  "files": {
+    "data/catalogue.json": "c8ced853f6f310df7b07fac5c12aa533bf03f64d9f30d5459082ab01a06b51cc",
+    "data/zetaris/pokedex/data.csv": "1488827600b250475a1495e296c69bfd732ac747f06d1bf035a95c98a8e7c29f",
+    "data/zetaris/reference/data.csv": "65d05fe986ae1c43f43cef29a153d0caa0d606f32d399505bfde243d7c13a9c5",
+    "data/zetaris/vgc_usage/data.csv": "c6551d05f66ddf57d6b581874b3f9fbdcb6dd989ef592169664887668e211541"
+  }
+}

@@ -1,0 +1,14 @@
+*.py text eol=lf
+*.js text eol=lf
+*.cjs text eol=lf
+*.mjs text eol=lf
+*.md text eol=lf
+*.bat text eol=crlf
+*.json text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+# Preserve exact bytes for source manifests and hashed upstream/snapshot files.
+data/** -text
+vendor/hmem/** -text
+historical-formats.ts -text
+historical-formats-source.json -text

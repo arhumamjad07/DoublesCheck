@@ -1,0 +1,35 @@
+# Service credentials and local settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+credentials*.json
+.vscode/
+.idea/
+
+# Private runtime state and generated user output
+logs/
+runs/
+.doublescheck-memory/
+*.log
+*.before-*
+
+# Installed dependencies and local Python state
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Reproducible raw source download and distribution archives
+usage-original.json
+*.zip
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+desktop.ini
