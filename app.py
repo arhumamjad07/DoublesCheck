@@ -1,4 +1,4 @@
-"""Local DoublesCheck interface. Bound to loopback, with model calls unavailable."""
+"""Loopback GUI with local planning and explicit bounded Nightshift AI mode."""
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from html import escape
 import json
@@ -24,16 +24,18 @@ def home():
     <main><nav style="display:flex;gap:24px;margin-bottom:24px"><a href="/">Build a team</a><a href="/status">Project status and next steps</a></nav><div class="brand">DOUBLES CHECK</div><h1>Keep your favourites.<br>Understand your team.</h1><p>A starting team for Pokemon doubles, with legal sets, roles, weaknesses and possible opening pairs you can inspect.</p><small>HISTORICAL FORMAT · Scarlet/Violet VGC Regulation H · November 2024 data</small>
     <form id="builder"><h2>Who are you building around?</h2><p class="muted">Choose one to six Pokemon. Leave slots empty and we will fill them. If you lock all six, we keep all six and review the team. Only species with a validated build in this snapshot appear in suggestions.</p><div class="grid">''' + "".join(f'<input aria-label="Favourite {i}" placeholder="{"Charizard, for example" if i==1 else "Optional favourite"}" name="favourite" list="pokemon" maxlength="60">' for i in range(1,7)) + '''</div><datalist id="pokemon">''' + options + '''</datalist>
     <p class="muted">Your first favourite is remembered for next time. Additional locked Pokemon apply to this run.</p><label for="avoid">Any teammate you want to avoid?</label><input id="avoid" list="pokemon" placeholder="Optional: a remembered preference" maxlength="60"><label class="check"><input type="checkbox" id="clear">Clear my previous avoided teammate</label>
-    <label for="mode">Data mode</label><select id="mode"><option value="zetaris">Connected data — use local Zetaris</option><option value="sample">Offline sample — no services or credentials needed</option></select><p class="muted">Both modes use the same sourced historical snapshot. This version makes no AI model requests and uses no model credits.</p><button type="submit">Build and check my team</button><div id="message" role="status"></div><ol id="progress" style="font-size:14px;color:#b2c6c6" aria-live="polite"></ol></form><footer>Independent fan project. No affiliation with Pokemon, Nintendo, Creatures or GAME FREAK.<br>Local planning and legality checks are a starting point, not a promise of competitive success.</footer></main>
+    <label for="mode">Data mode</label><select id="mode"><option value="zetaris">Connected data — use local Zetaris</option><option value="sample">Offline sample — no services or credentials needed</option></select><p class="muted">Both modes use the same sourced historical snapshot. Local planning makes no AI model calls. Offline sample always stays model-free.</p><label for="reasoning">Planning mode</label><select id="reasoning"><option value="local">Local planning - no model calls</option><option value="ai">Nightshift AI - approved NVIDIA Nemotron route, up to 8 requests</option></select><label for="objective">Coaching objective</label><select id="objective"><option value="simple">Beginner-friendly balanced play</option><option value="sun">Explore a sun mode</option><option value="rain">Explore a rain mode</option><option value="trick-room">Explore a slow Trick Room mode</option></select><p class="muted">AI mode sends your selected Pokemon and preferences to the NVIDIA model through your local Nightshift runtime. It requires connected Zetaris data. Provider limits still apply; it does not use your ChatGPT/Codex allowance. A failed AI run is withheld, with no silent local substitute.</p><button type="submit">Build and check my team</button><div id="message" role="status"></div><ol id="progress" style="font-size:14px;color:#b2c6c6" aria-live="polite"></ol></form><footer>Independent fan project. No affiliation with Pokemon, Nintendo, Creatures or GAME FREAK.<br>Local planning and legality checks are a starting point, not a promise of competitive success.</footer></main>
     <script>
 const form=document.querySelector('form'),button=document.querySelector('button'),message=document.querySelector('#message'),progressList=document.querySelector('#progress');
+const dataMode=document.querySelector('#mode'),reasoningMode=document.querySelector('#reasoning');
+dataMode.addEventListener('change',()=>{const offline=dataMode.value==='sample';reasoningMode.querySelector('[value=ai]').disabled=offline;if(offline)reasoningMode.value='local';});
 form.addEventListener('submit',async event=>{
   event.preventDefault();button.disabled=true;message.textContent='Loading data and checking your choices?';progressList.replaceChildren();
   const runId=crypto.randomUUID().replaceAll('-','');let polling=false;
   async function updateProgress(){if(polling)return;polling=true;try{const response=await fetch('/progress?run='+runId);if(!response.ok)return;const state=await response.json();const items=state.events.map(event=>{const li=document.createElement('li');li.textContent=event.label;return li;});progressList.replaceChildren(...items);}catch(error){}finally{polling=false;}}
   const timer=setInterval(updateProgress,700);
   try{
-    const response=await fetch('/build',{method:'POST',headers:{'Content-Type':'application/json','X-DoublesCheck-Token':''' + json.dumps(TOKEN) + '''},body:JSON.stringify({run_id:runId,favourites:[...document.querySelectorAll('[name=favourite]')].map(el=>el.value.trim()).filter(Boolean),avoided:document.querySelector('#avoid').value.trim()||null,clear:document.querySelector('#clear').checked,sample:document.querySelector('#mode').value==='sample'})});
+    const response=await fetch('/build',{method:'POST',headers:{'Content-Type':'application/json','X-DoublesCheck-Token':''' + json.dumps(TOKEN) + '''},body:JSON.stringify({run_id:runId,favourites:[...document.querySelectorAll('[name=favourite]')].map(el=>el.value.trim()).filter(Boolean),avoided:document.querySelector('#avoid').value.trim()||null,clear:document.querySelector('#clear').checked,sample:document.querySelector('#mode').value==='sample',ai:document.querySelector('#reasoning').value==='ai',objective:document.querySelector('#objective').value})});
     const data=await response.json();await updateProgress();if(!response.ok)throw Error(data.error);location.href=data.report;
   }catch(error){message.textContent=error.message;button.disabled=false;}finally{clearInterval(timer);}
 });
@@ -84,7 +86,10 @@ class Handler(BaseHTTPRequestHandler):
             if avoided is not None and (not isinstance(avoided, str) or len(avoided)>60): raise ValueError("Invalid avoided teammate.")
             if type(body.get("sample")) is not bool or type(body.get("clear")) is not bool: raise ValueError("Invalid data mode.")
             if avoided and body["clear"]: raise ValueError("Choose an avoided teammate or clear the previous one, not both.")
-            result, folder = execute(favourites, avoided, body["sample"], "default", clear_avoidance=body["clear"], run_id=body.get("run_id"))
+            ai = body.get("ai", False)
+            objective = body.get("objective", "simple")
+            if type(ai) is not bool or not isinstance(objective, str): raise ValueError("Invalid AI planning mode.")
+            result, folder = execute(favourites, avoided, body["sample"], "default", clear_avoidance=body["clear"], run_id=body.get("run_id"), ai=ai, objective=objective)
             self.respond(200, json.dumps({"report": f"/runs/{result['trace_id']}/report.html"}), "application/json")
         except (ValueError, RuntimeError) as error:
             self.respond(400, json.dumps({"error": str(error)}), "application/json")
@@ -93,7 +98,7 @@ class Handler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     server = ThreadingHTTPServer(("127.0.0.1", PORT), Handler)
-    print(f"DoublesCheck is ready: http://127.0.0.1:{PORT} — no model calls.", flush=True)
+    print(f"DoublesCheck is ready: http://127.0.0.1:{PORT} - local planning and explicit Nightshift AI.", flush=True)
     webbrowser.open(f"http://127.0.0.1:{PORT}")
     try: server.serve_forever()
     except KeyboardInterrupt: server.server_close()

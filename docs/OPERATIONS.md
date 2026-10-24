@@ -1,3 +1,7 @@
+> Current AI extension: explicitly selected `--ai`/Nightshift AI mode uses the
+> local runtime token and the pinned NVIDIA model. See [AI reasoning](AI_REASONING.md).
+> The legacy references below describe Demo 1; local/sample mode is still model-free.
+
 # Setup and operations
 
 ## Choose a mode
@@ -6,7 +10,8 @@
 | --- | --- | --- |
 | Offline sample | Python, Node and installed npm dependency | No service requests or model calls during a build |
 | Connected | The above, Python dependencies, local Zetaris/Docker and its token | Local Zetaris SQL requests; no model calls |
-| Legacy experiments | Separate settings and an explicit credit gate | Not part of Demo 1 setup; may use provider allowance if deliberately enabled |
+| Nightshift AI | Connected data, local runtime and token; explicit GUI mode or `--ai` | Up to eight requests to the pinned NVIDIA model through Nightshift |
+| Legacy experiments | Separate settings and a legacy credit gate | Historical experiments, separate from the current AI coach |
 
 Installing dependencies and refreshing public data require internet access.
 That is separate from the installed sample app's offline execution.
@@ -62,9 +67,9 @@ Copy `.env.example` to `.env` locally only for connected services.
 | `ZETARIS_ORG_ID` | Local organisation identifier, normally `1` |
 | `ZETARIS_API_KEY` | Your local Zetaris access token; private |
 | `DOUBLES_CHECK_NODE` | Optional path to a working Node executable |
-| `METERLESS_BASE_URL` | Retained legacy integration setting; unused by the main app |
-| `METERLESS_RUNTIME_TOKEN` | Legacy Nightshift credential; private and unused by the main app |
-| `METERLESS_MODEL` | Legacy route identifier; unused by the main app |
+| `METERLESS_BASE_URL` | Local Nightshift base for explicit AI mode |
+| `METERLESS_RUNTIME_TOKEN` | Local Nightshift runtime token for explicit AI mode; private |
+| `METERLESS_MODEL` | Legacy route identifier; the new coach pins the approved Nemotron model |
 
 No real credential is distributed. Do not add a provider key to a source file,
 example report, issue, screenshot or commit. Never publish `.env` contents.
@@ -113,12 +118,12 @@ vaults. Avoid entering personal or sensitive information as preferences.
 
 ## Costs
 
-The current GUI/CLI uses local computation. Docker/Zetaris queries, H-MEM retrieval
+The default local mode and Offline sample use local computation. Docker/Zetaris queries, H-MEM retrieval
 and Showdown validation do not consume ChatGPT or NVIDIA model tokens. They use
 your own hardware and electricity.
 
 Codex/ChatGPT usage while developing the project belongs to the coding assistant's
-own plan. A future app request routed through Nightshift would use the configured
+own plan. An explicitly selected AI request routed through Nightshift uses the approved
 provider's allowance/billing, separately from that plan. No provider's free quota
 or billing state has been verified for this milestone. The legacy model client is
 blocked before transport unless a deliberate opt-in is present. Demo 1 setup does
@@ -141,4 +146,4 @@ not require or enable that opt-in.
 
 Stop the application with Ctrl+C in its terminal. Stopping the separate Zetaris
 stack with `docker compose stop` preserves its volumes. Do not use volume deletion
-commands as a routine shutdown step. Nightshift need not run for Demo 1.
+commands as a routine shutdown step. Nightshift need not run for local planning or Offline sample. It must run for explicit AI coaching.

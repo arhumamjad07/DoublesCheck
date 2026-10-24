@@ -1,5 +1,28 @@
 # Changelog
 
+## Demo 2 — 24 October 2026
+
+Adds an explicitly selected Nightshift/NVIDIA coach to the existing local product.
+Git commit: `demo 2`. Milestone tag: `demo-2`.
+
+- Nemotron Planner/Builder chooses whitelisted tools, team/set changes and checked
+  evidence; a separate Critic role may block, require revision or approve.
+- Versioned full-set fingerprints, issued set IDs, unchanged-team detection,
+  original preferences and final independent legality remain code-enforced.
+- Streaming transport supports Nightshift's preliminary alias frames and requires
+  final concrete NVIDIA model identity. Incomplete/error streams are withheld.
+- Eight-request, twelve-tool, two-revision and time/input/output bounds; one
+  bounded JSON-format repair, no HTTP retry or different-provider fallback.
+- GUI/CLI opt-in, objectives, real progress, report evidence and actual-change counts.
+- Local/sample mode stays model-free. No new model provider or paid subscription.
+- 112 application tests and 13/13 H-MEM checks passed. Live verification is
+  recorded separately in `VERIFICATION.md`; scripted revision tests are labelled.
+- Two live balanced reviews passed. A rain-objective run was withheld on an
+  upstream error; complex-objective live adaptation remains unverified.
+
+This is a prototype feature milestone. It does not establish competitive team
+quality, a provider SLA or a completed hackathon submission.
+
 ## Demo 1 — 24 October 2026
 
 Initial public source milestone; implementation and its first recorded

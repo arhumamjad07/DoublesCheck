@@ -1,7 +1,7 @@
 {
   "name": "doublescheck",
-  "version": "0.2.0",
-  "description": "Local VGC team planning and legality with Meterless H-MEM",
+  "version": "0.3.0",
+  "description": "Checked VGC team planning with Meterless H-MEM and explicit Nightshift AI",
   "scripts": {
     "test": "node verify-hmem.cjs"
   },

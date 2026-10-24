@@ -1,0 +1,1814 @@
+{
+  "name": "DoublesCheck",
+  "trace_id": "961f5d9281f6439d8d626fedd9520f72",
+  "mode": "zetaris",
+  "data_source": "Zetaris: joined Pokedex and historical VGC usage",
+  "format": "[Gen 9] VGC 2024 Reg H",
+  "format_id": "gen9vgc2024regh",
+  "model_calls": 3,
+  "ai_coach": {
+    "status": "approved",
+    "execution": "live",
+    "objective": "Beginner-friendly balanced play",
+    "strategy": "balanced",
+    "provider": "Meterless Nightshift \u2192 NVIDIA Nemotron 3.5 Lightning",
+    "actual_models": [
+      "nvidia/nemotron-3.5-lightning-30b-a3b"
+    ],
+    "model_calls": 3,
+    "usage": [
+      {
+        "prompt_tokens": 1290,
+        "completion_tokens": 625,
+        "total_tokens": 1915
+      },
+      {
+        "prompt_tokens": 2002,
+        "completion_tokens": 2310,
+        "total_tokens": 4312
+      },
+      {
+        "prompt_tokens": 1976,
+        "completion_tokens": 1990,
+        "total_tokens": 3966
+      }
+    ],
+    "tool_calls": 1,
+    "tool_attempts": 1,
+    "revision_rounds": 0,
+    "team_version": 1,
+    "format_repairs": 0,
+    "changed_from_local_baseline": false,
+    "changes": [],
+    "selected_evidence": [
+      {
+        "id": "E1",
+        "version": 1,
+        "kind": "constraint",
+        "text": "Original locked species and recalled avoidance are satisfied; all six sourced sets passed historical Regulation H team validation."
+      },
+      {
+        "id": "E2",
+        "version": 1,
+        "kind": "member",
+        "text": "Charizard: Solar Power; Choice Specs; Timid; moves: Heat Wave, Overheat, Weather Ball, Dragon Pulse. Roles: attacker.",
+        "pokemon": [
+          "Charizard"
+        ]
+      }
+    ],
+    "acknowledged_cautions": [
+      {
+        "id": "E14",
+        "version": 1,
+        "kind": "caution",
+        "text": "Solar Power boosts Special Attack in sun but costs 1/8 of maximum HP at each turn's end. Plan a short attacking window rather than assuming it can stay in indefinitely.",
+        "code": "solar_power_hp",
+        "pokemon": [
+          "Charizard"
+        ]
+      },
+      {
+        "id": "E15",
+        "version": 1,
+        "kind": "caution",
+        "text": "Choice Specs locks Charizard into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position.",
+        "code": "choice_lock",
+        "pokemon": [
+          "Charizard"
+        ]
+      }
+    ],
+    "evidence_ledger": [
+      {
+        "id": "E1",
+        "version": 1,
+        "kind": "constraint",
+        "text": "Original locked species and recalled avoidance are satisfied; all six sourced sets passed historical Regulation H team validation."
+      },
+      {
+        "id": "E2",
+        "version": 1,
+        "kind": "member",
+        "text": "Charizard: Solar Power; Choice Specs; Timid; moves: Heat Wave, Overheat, Weather Ball, Dragon Pulse. Roles: attacker.",
+        "pokemon": [
+          "Charizard"
+        ]
+      },
+      {
+        "id": "E3",
+        "version": 1,
+        "kind": "speed",
+        "text": "Charizard has ordinary effective Speed 167 at neutral stages. Conditional examples: []. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Charizard"
+        ]
+      },
+      {
+        "id": "E4",
+        "version": 1,
+        "kind": "member",
+        "text": "Electabuzz: Vital Spirit; Eviolite; Bold; moves: Follow Me, Protect, Electroweb, Taunt. Roles: speed control, redirection.",
+        "pokemon": [
+          "Electabuzz"
+        ]
+      },
+      {
+        "id": "E5",
+        "version": 1,
+        "kind": "speed",
+        "text": "Electabuzz has ordinary effective Speed 133 at neutral stages. Conditional examples: []. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Electabuzz"
+        ]
+      },
+      {
+        "id": "E6",
+        "version": 1,
+        "kind": "member",
+        "text": "Rillaboom: Grassy Surge; Assault Vest; Adamant; moves: Grassy Glide, Fake Out, Wood Hammer, U-turn. Roles: Fake Out support, pivot, attacker.",
+        "pokemon": [
+          "Rillaboom"
+        ]
+      },
+      {
+        "id": "E7",
+        "version": 1,
+        "kind": "speed",
+        "text": "Rillaboom has ordinary effective Speed 115 at neutral stages. Conditional examples: []. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Rillaboom"
+        ]
+      },
+      {
+        "id": "E8",
+        "version": 1,
+        "kind": "member",
+        "text": "Torkoal: Drought; Charcoal; Quiet; moves: Eruption, Protect, Earth Power, Heat Wave. Roles: weather setter, attacker.",
+        "pokemon": [
+          "Torkoal"
+        ]
+      },
+      {
+        "id": "E9",
+        "version": 1,
+        "kind": "speed",
+        "text": "Torkoal has ordinary effective Speed 36 at neutral stages. Conditional examples: []. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Torkoal"
+        ]
+      },
+      {
+        "id": "E10",
+        "version": 1,
+        "kind": "member",
+        "text": "Gallade: Sharpness; Clear Amulet; Brave; moves: Sacred Sword, Psycho Cut, Trick Room, Protect. Roles: speed control.",
+        "pokemon": [
+          "Gallade"
+        ]
+      },
+      {
+        "id": "E11",
+        "version": 1,
+        "kind": "speed",
+        "text": "Gallade has ordinary effective Speed 90 at neutral stages. Conditional examples: []. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Gallade"
+        ]
+      },
+      {
+        "id": "E12",
+        "version": 1,
+        "kind": "member",
+        "text": "Maushold: Friend Guard; Wide Lens; Jolly; moves: Follow Me, Protect, Population Bomb, Taunt. Roles: redirection.",
+        "pokemon": [
+          "Maushold"
+        ]
+      },
+      {
+        "id": "E13",
+        "version": 1,
+        "kind": "speed",
+        "text": "Maushold has ordinary effective Speed 179 at neutral stages. Conditional examples: []. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Maushold"
+        ]
+      },
+      {
+        "id": "E14",
+        "version": 1,
+        "kind": "caution",
+        "text": "Solar Power boosts Special Attack in sun but costs 1/8 of maximum HP at each turn's end. Plan a short attacking window rather than assuming it can stay in indefinitely.",
+        "code": "solar_power_hp",
+        "pokemon": [
+          "Charizard"
+        ]
+      },
+      {
+        "id": "E15",
+        "version": 1,
+        "kind": "caution",
+        "text": "Choice Specs locks Charizard into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position.",
+        "code": "choice_lock",
+        "pokemon": [
+          "Charizard"
+        ]
+      },
+      {
+        "id": "E16",
+        "version": 1,
+        "kind": "opening",
+        "text": "Charizard + Torkoal: Torkoal supplies sun for Charizard's Solar Power; the weather must remain active. If the opponent cannot immediately remove Charizard, consider Heat Wave with it while Torkoal attacks or protects. Check opposing weather setters before committing to this mode. Conditions: Solar Power boosts Special Attack in sun but costs 1/8 of maximum HP at each turn's end. Plan a short attacking window rather than assuming it can stay in indefinitely. Choice Specs locks Charizard into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position.",
+        "pokemon": [
+          "Charizard",
+          "Torkoal"
+        ]
+      },
+      {
+        "id": "E17",
+        "version": 1,
+        "kind": "opening",
+        "text": "Electabuzz + Rillaboom: A utility or attacking opening to consider after checking the opposing six. Electabuzz can use Electroweb to lower the opponents' Speed by one stage if it hits and the effect is not blocked. Damage immunity or stat-drop protection can stop this plan; it is not an immediate guaranteed outspeed. Electabuzz can use Follow Me to draw eligible single-target attacks away from Rillaboom. Spread moves bypass redirection. On Rillaboom's first turn after entering, Fake Out can disrupt one opponent while Electabuzz acts. Ghost immunity, protection, Inner Focus and other effects can stop the flinch; it is not guaranteed. Conditions: ",
+        "pokemon": [
+          "Electabuzz",
+          "Rillaboom"
+        ]
+      },
+      {
+        "id": "E18",
+        "version": 1,
+        "kind": "opening",
+        "text": "Rillaboom + Maushold: Maushold's Friend Guard reduces damage to its ally while the ability is active; it does not protect Maushold itself. On Rillaboom's first turn after entering, Fake Out can disrupt one opponent while Maushold acts. Ghost immunity, protection, Inner Focus and other effects can stop the flinch; it is not guaranteed. Maushold can use Follow Me to draw eligible single-target attacks away from Rillaboom. Spread moves bypass redirection. Conditions: ",
+        "pokemon": [
+          "Rillaboom",
+          "Maushold"
+        ]
+      }
+    ],
+    "scope": "AI chose tools, team/set decisions and evidence; published factual text is drawn from checked tools. Planner and Critic are separate roles using the same model, not independent sources of truth. No private chain-of-thought is requested or published."
+  },
+  "engine": "Meterless H-MEM",
+  "locked": [
+    "Charizard"
+  ],
+  "legality": {
+    "status": "passed_showdown_validator",
+    "scope": "Historical Regulation H team and set rules; not official certification or current-event eligibility.",
+    "errors": []
+  },
+  "team": [
+    {
+      "name": "Charizard",
+      "species": "Charizard",
+      "ability": "Solar Power",
+      "item": "Choice Specs",
+      "level": 50,
+      "nature": "Timid",
+      "evs": {
+        "hp": 4,
+        "atk": 0,
+        "def": 0,
+        "spa": 252,
+        "spd": 0,
+        "spe": 252
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "teraType": "Ghost",
+      "moves": [
+        "Heat Wave",
+        "Overheat",
+        "Weather Ball",
+        "Dragon Pulse"
+      ],
+      "evidence": {
+        "ability_share": 0.9793505023739726,
+        "item_share": 0.7618193316989808,
+        "spread_share": 0.4580950132613879,
+        "move_shares": {
+          "Heat Wave": 0.9820179494283394,
+          "Overheat": 0.7206091350191115,
+          "Weather Ball": 0.6639183478299338,
+          "Dragon Pulse": 0.5601096064113428
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "gender": ""
+    },
+    {
+      "name": "Electabuzz",
+      "species": "Electabuzz",
+      "ability": "Vital Spirit",
+      "item": "Eviolite",
+      "level": 50,
+      "nature": "Bold",
+      "evs": {
+        "hp": 244,
+        "atk": 0,
+        "def": 180,
+        "spa": 4,
+        "spd": 20,
+        "spe": 60
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "teraType": "Ghost",
+      "moves": [
+        "Follow Me",
+        "Protect",
+        "Electroweb",
+        "Taunt"
+      ],
+      "evidence": {
+        "ability_share": 0.9306553316380825,
+        "item_share": 0.9982112810361546,
+        "spread_share": 0.045334072355874555,
+        "move_shares": {
+          "Follow Me": 0.9981416919985782,
+          "Protect": 0.835263670990816,
+          "Electroweb": 0.7466249278705623,
+          "Taunt": 0.7261071324200868
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "gender": ""
+    },
+    {
+      "name": "Rillaboom",
+      "species": "Rillaboom",
+      "ability": "Grassy Surge",
+      "item": "Assault Vest",
+      "level": 50,
+      "nature": "Adamant",
+      "evs": {
+        "hp": 252,
+        "atk": 116,
+        "def": 4,
+        "spa": 0,
+        "spd": 60,
+        "spe": 76
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "teraType": "Fire",
+      "moves": [
+        "Grassy Glide",
+        "Fake Out",
+        "Wood Hammer",
+        "U-turn"
+      ],
+      "evidence": {
+        "ability_share": 0.9965751332922904,
+        "item_share": 0.6689553457246352,
+        "spread_share": 0.07191695718152802,
+        "move_shares": {
+          "Grassy Glide": 0.9733677642133719,
+          "Fake Out": 0.9593231115275133,
+          "Wood Hammer": 0.8538239613441206,
+          "U-turn": 0.37493641030953284
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "gender": ""
+    },
+    {
+      "name": "Torkoal",
+      "species": "Torkoal",
+      "ability": "Drought",
+      "item": "Charcoal",
+      "level": 50,
+      "nature": "Quiet",
+      "evs": {
+        "hp": 252,
+        "atk": 0,
+        "def": 0,
+        "spa": 252,
+        "spd": 4,
+        "spe": 0
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "teraType": "Fire",
+      "moves": [
+        "Eruption",
+        "Protect",
+        "Earth Power",
+        "Heat Wave"
+      ],
+      "evidence": {
+        "ability_share": 0.997670109260247,
+        "item_share": 0.44061217883054343,
+        "spread_share": 0.5106552605822452,
+        "move_shares": {
+          "Eruption": 0.9116302777862055,
+          "Protect": 0.7198174441249126,
+          "Earth Power": 0.4067288569991445,
+          "Heat Wave": 0.34312381128791625
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "gender": ""
+    },
+    {
+      "name": "Gallade",
+      "species": "Gallade",
+      "ability": "Sharpness",
+      "item": "Clear Amulet",
+      "level": 50,
+      "nature": "Brave",
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 4,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "teraType": "Grass",
+      "moves": [
+        "Sacred Sword",
+        "Psycho Cut",
+        "Trick Room",
+        "Protect"
+      ],
+      "evidence": {
+        "ability_share": 0.9629772616566171,
+        "item_share": 0.6506223737102377,
+        "spread_share": 0.20977975128511028,
+        "move_shares": {
+          "Sacred Sword": 0.9826528330102331,
+          "Psycho Cut": 0.9661823308156297,
+          "Trick Room": 0.7163859732254653,
+          "Protect": 0.20175876580688598
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "gender": "M"
+    },
+    {
+      "name": "Maushold",
+      "species": "Maushold",
+      "ability": "Friend Guard",
+      "item": "Wide Lens",
+      "level": 50,
+      "nature": "Jolly",
+      "evs": {
+        "hp": 4,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 252
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "teraType": "Ghost",
+      "moves": [
+        "Follow Me",
+        "Protect",
+        "Population Bomb",
+        "Taunt"
+      ],
+      "evidence": {
+        "ability_share": 0.5488007646653241,
+        "item_share": 0.5260397744760125,
+        "spread_share": 0.2640796776106506,
+        "move_shares": {
+          "Follow Me": 0.9197068745897717,
+          "Protect": 0.8423328998001743,
+          "Population Bomb": 0.6122511186413115,
+          "Taunt": 0.6010740946241043
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "gender": "N"
+    }
+  ],
+  "showdown_export": "Charizard @ Choice Specs  \nAbility: Solar Power  \nLevel: 50  \nTera Type: Ghost  \nEVs: 4 HP / 252 SpA / 252 Spe  \nTimid Nature  \n- Heat Wave  \n- Overheat  \n- Weather Ball  \n- Dragon Pulse  \n\nElectabuzz @ Eviolite  \nAbility: Vital Spirit  \nLevel: 50  \nTera Type: Ghost  \nEVs: 244 HP / 180 Def / 4 SpA / 20 SpD / 60 Spe  \nBold Nature  \n- Follow Me  \n- Protect  \n- Electroweb  \n- Taunt  \n\nRillaboom @ Assault Vest  \nAbility: Grassy Surge  \nLevel: 50  \nTera Type: Fire  \nEVs: 252 HP / 116 Atk / 4 Def / 60 SpD / 76 Spe  \nAdamant Nature  \n- Grassy Glide  \n- Fake Out  \n- Wood Hammer  \n- U-turn  \n\nTorkoal @ Charcoal  \nAbility: Drought  \nLevel: 50  \nTera Type: Fire  \nEVs: 252 HP / 252 SpA / 4 SpD  \nQuiet Nature  \n- Eruption  \n- Protect  \n- Earth Power  \n- Heat Wave  \n\nGallade (M) @ Clear Amulet  \nAbility: Sharpness  \nLevel: 50  \nTera Type: Grass  \nEVs: 252 HP / 252 Atk / 4 Def  \nBrave Nature  \n- Sacred Sword  \n- Psycho Cut  \n- Trick Room  \n- Protect  \n\nMaushold @ Wide Lens  \nAbility: Friend Guard  \nLevel: 50  \nTera Type: Ghost  \nEVs: 4 HP / 252 Atk / 252 Spe  \nJolly Nature  \n- Follow Me  \n- Protect  \n- Population Bomb  \n- Taunt  \n\n",
+  "members": [
+    {
+      "name": "Charizard",
+      "locked": true,
+      "selection_reason": "You locked this Pokemon, so the search preserved it.",
+      "roles": [
+        "attacker"
+      ],
+      "types": [
+        "Fire",
+        "Flying"
+      ],
+      "usage_percent": 3.802,
+      "base_stats": {
+        "hp": 78,
+        "atk": 84,
+        "def": 78,
+        "spa": 109,
+        "spd": 85,
+        "spe": 100
+      },
+      "type_weaknesses": {
+        "Electric": 2,
+        "Rock": 4,
+        "Water": 2
+      },
+      "ability_description": "If Sunny Day is active, this Pokemon's Sp. Atk is 1.5x; loses 1/8 max HP per turn.",
+      "item_description": "Holder's Sp. Atk is 1.5x, but it can only select the first move it executes.",
+      "moves": [
+        {
+          "name": "Heat Wave",
+          "type": "Fire",
+          "category": "Special",
+          "power": 95,
+          "accuracy": 90,
+          "priority": 0,
+          "target": "allAdjacentFoes",
+          "description": "10% chance to burn the foe(s)."
+        },
+        {
+          "name": "Overheat",
+          "type": "Fire",
+          "category": "Special",
+          "power": 130,
+          "accuracy": 90,
+          "priority": 0,
+          "target": "normal",
+          "description": "Lowers the user's Sp. Atk by 2."
+        },
+        {
+          "name": "Weather Ball",
+          "type": "Normal",
+          "category": "Special",
+          "power": 50,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "Power doubles and type varies in each weather."
+        },
+        {
+          "name": "Dragon Pulse",
+          "type": "Dragon",
+          "category": "Special",
+          "power": 85,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "any",
+          "description": "No additional effect."
+        }
+      ],
+      "set": {
+        "name": "Charizard",
+        "species": "Charizard",
+        "ability": "Solar Power",
+        "item": "Choice Specs",
+        "level": 50,
+        "nature": "Timid",
+        "evs": {
+          "hp": 4,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 0,
+          "spe": 252
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "teraType": "Ghost",
+        "moves": [
+          "Heat Wave",
+          "Overheat",
+          "Weather Ball",
+          "Dragon Pulse"
+        ],
+        "evidence": {
+          "ability_share": 0.9793505023739726,
+          "item_share": 0.7618193316989808,
+          "spread_share": 0.4580950132613879,
+          "move_shares": {
+            "Heat Wave": 0.9820179494283394,
+            "Overheat": 0.7206091350191115,
+            "Weather Ball": 0.6639183478299338,
+            "Dragon Pulse": 0.5601096064113428
+          },
+          "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+        },
+        "gender": ""
+      },
+      "actual_stats": {
+        "hp": 154,
+        "atk": 93,
+        "def": 98,
+        "spa": 161,
+        "spd": 105,
+        "spe": 167
+      },
+      "speed": {
+        "base_stat": 167,
+        "ordinary_speed": 167,
+        "scenarios": [],
+        "scope": "Neutral stat stages; no paralysis, opponent effects or ability suppression. Listed conditional modifiers only. Trick Room changes order, not this number."
+      },
+      "spread_explanation": "Historical EV investment: 4 HP / 252 SPA / 252 SPE. Timid raises SPE and lowers ATK. These EVs produce the shown level-50 stats; no survival or knockout benchmark has been verified.",
+      "set_cautions": [
+        "This is a special-attacking set. The default 31 Attack IVs are not optimized; lower Attack can sometimes reduce Foul Play and confusion self-damage.",
+        "No personal protection move is selected. Plan switches and support carefully rather than assuming this Pokemon can Protect."
+      ],
+      "move_guidance": [
+        {
+          "move": "Heat Wave",
+          "guidance": "10% chance to burn the foe(s). It targets both adjacent opponents; redirection does not turn it into a single-target attack."
+        },
+        {
+          "move": "Overheat",
+          "guidance": "Lowers the user's Sp. Atk by 2."
+        },
+        {
+          "move": "Weather Ball",
+          "guidance": "Power doubles and type varies in each weather."
+        },
+        {
+          "move": "Dragon Pulse",
+          "guidance": "No additional effect."
+        }
+      ],
+      "historical_evidence": {
+        "ability_share": 0.9793505023739726,
+        "item_share": 0.7618193316989808,
+        "spread_share": 0.4580950132613879,
+        "move_shares": {
+          "Heat Wave": 0.9820179494283394,
+          "Overheat": 0.7206091350191115,
+          "Weather Ball": 0.6639183478299338,
+          "Dragon Pulse": 0.5601096064113428
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "heuristic_contribution": {
+        "historical_usage": 1.726,
+        "set_evidence_and_usability": -0.473,
+        "support_roles": 0.0,
+        "original_type_balance": -3.15,
+        "field_and_partner_interactions": 5.0,
+        "historical_cooccurrence": 0.941
+      }
+    },
+    {
+      "name": "Electabuzz",
+      "locked": false,
+      "selection_reason": "Adds speed control, redirection to the candidate team. Its original types resist or are immune to Electric, to which Charizard is weak. It also appears alongside a locked favourite in this historical ladder snapshot. This is a search heuristic, not proof it is the best partner.",
+      "roles": [
+        "speed control",
+        "redirection"
+      ],
+      "types": [
+        "Electric"
+      ],
+      "usage_percent": 6.385,
+      "base_stats": {
+        "hp": 65,
+        "atk": 83,
+        "def": 57,
+        "spa": 95,
+        "spd": 85,
+        "spe": 105
+      },
+      "type_weaknesses": {
+        "Ground": 2
+      },
+      "ability_description": "This Pokemon cannot fall asleep. Gaining this Ability while asleep cures it.",
+      "item_description": "If holder's species can evolve, its Defense and Sp. Def are 1.5x.",
+      "moves": [
+        {
+          "name": "Follow Me",
+          "type": "Normal",
+          "category": "Status",
+          "power": 0,
+          "accuracy": true,
+          "priority": 2,
+          "target": "self",
+          "description": "The foes' moves target the user on the turn used."
+        },
+        {
+          "name": "Protect",
+          "type": "Normal",
+          "category": "Status",
+          "power": 0,
+          "accuracy": true,
+          "priority": 4,
+          "target": "self",
+          "description": "Prevents moves from affecting the user this turn."
+        },
+        {
+          "name": "Electroweb",
+          "type": "Electric",
+          "category": "Special",
+          "power": 55,
+          "accuracy": 95,
+          "priority": 0,
+          "target": "allAdjacentFoes",
+          "description": "100% chance to lower the foe(s) Speed by 1."
+        },
+        {
+          "name": "Taunt",
+          "type": "Dark",
+          "category": "Status",
+          "power": 0,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "Target can't use status moves its next 3 turns."
+        }
+      ],
+      "set": {
+        "name": "Electabuzz",
+        "species": "Electabuzz",
+        "ability": "Vital Spirit",
+        "item": "Eviolite",
+        "level": 50,
+        "nature": "Bold",
+        "evs": {
+          "hp": 244,
+          "atk": 0,
+          "def": 180,
+          "spa": 4,
+          "spd": 20,
+          "spe": 60
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "teraType": "Ghost",
+        "moves": [
+          "Follow Me",
+          "Protect",
+          "Electroweb",
+          "Taunt"
+        ],
+        "evidence": {
+          "ability_share": 0.9306553316380825,
+          "item_share": 0.9982112810361546,
+          "spread_share": 0.045334072355874555,
+          "move_shares": {
+            "Follow Me": 0.9981416919985782,
+            "Protect": 0.835263670990816,
+            "Electroweb": 0.7466249278705623,
+            "Taunt": 0.7261071324200868
+          },
+          "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+        },
+        "gender": ""
+      },
+      "actual_stats": {
+        "hp": 171,
+        "atk": 92,
+        "def": 110,
+        "spa": 116,
+        "spd": 108,
+        "spe": 133
+      },
+      "speed": {
+        "base_stat": 133,
+        "ordinary_speed": 133,
+        "scenarios": [],
+        "scope": "Neutral stat stages; no paralysis, opponent effects or ability suppression. Listed conditional modifiers only. Trick Room changes order, not this number."
+      },
+      "spread_explanation": "Historical EV investment: 244 HP / 180 DEF / 4 SPA / 20 SPD / 60 SPE. Bold raises DEF and lowers ATK. These EVs produce the shown level-50 stats; no survival or knockout benchmark has been verified.",
+      "set_cautions": [
+        "This is a special-attacking set. The default 31 Attack IVs are not optimized; lower Attack can sometimes reduce Foul Play and confusion self-damage."
+      ],
+      "move_guidance": [
+        {
+          "move": "Follow Me",
+          "guidance": "The foes' moves target the user on the turn used."
+        },
+        {
+          "move": "Protect",
+          "guidance": "Prevents moves from affecting the user this turn. Use it to cover an exposed turn or let your partner act; repeated use is unreliable."
+        },
+        {
+          "move": "Electroweb",
+          "guidance": "100% chance to lower the foe(s) Speed by 1. It targets both adjacent opponents; redirection does not turn it into a single-target attack."
+        },
+        {
+          "move": "Taunt",
+          "guidance": "Target can't use status moves its next 3 turns."
+        }
+      ],
+      "historical_evidence": {
+        "ability_share": 0.9306553316380825,
+        "item_share": 0.9982112810361546,
+        "spread_share": 0.045334072355874555,
+        "move_shares": {
+          "Follow Me": 0.9981416919985782,
+          "Protect": 0.835263670990816,
+          "Electroweb": 0.7466249278705623,
+          "Taunt": 0.7261071324200868
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "heuristic_contribution": {
+        "historical_usage": 2.199,
+        "set_evidence_and_usability": -0.398,
+        "support_roles": 0.0,
+        "original_type_balance": 1.05,
+        "field_and_partner_interactions": 0.0,
+        "historical_cooccurrence": 0.649
+      }
+    },
+    {
+      "name": "Rillaboom",
+      "locked": false,
+      "selection_reason": "Adds Fake Out support, pivot, attacker to the candidate team. Its original types resist or are immune to Electric, Water, to which Charizard is weak. It also appears alongside a locked favourite in this historical ladder snapshot. This is a search heuristic, not proof it is the best partner.",
+      "roles": [
+        "Fake Out support",
+        "pivot",
+        "attacker"
+      ],
+      "types": [
+        "Grass"
+      ],
+      "usage_percent": 25.825,
+      "base_stats": {
+        "hp": 100,
+        "atk": 125,
+        "def": 90,
+        "spa": 60,
+        "spd": 70,
+        "spe": 85
+      },
+      "type_weaknesses": {
+        "Bug": 2,
+        "Fire": 2,
+        "Flying": 2,
+        "Ice": 2,
+        "Poison": 2
+      },
+      "ability_description": "On switch-in, this Pokemon summons Grassy Terrain.",
+      "item_description": "Holder's Sp. Def is 1.5x, but it can only select damaging moves.",
+      "moves": [
+        {
+          "name": "Grassy Glide",
+          "type": "Grass",
+          "category": "Physical",
+          "power": 55,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "User on Grassy Terrain: +1 priority."
+        },
+        {
+          "name": "Fake Out",
+          "type": "Normal",
+          "category": "Physical",
+          "power": 40,
+          "accuracy": 100,
+          "priority": 3,
+          "target": "normal",
+          "description": "Hits first. First turn out only. 100% flinch chance."
+        },
+        {
+          "name": "Wood Hammer",
+          "type": "Grass",
+          "category": "Physical",
+          "power": 120,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "Has 33% recoil."
+        },
+        {
+          "name": "U-turn",
+          "type": "Bug",
+          "category": "Physical",
+          "power": 70,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "User switches out after damaging the target."
+        }
+      ],
+      "set": {
+        "name": "Rillaboom",
+        "species": "Rillaboom",
+        "ability": "Grassy Surge",
+        "item": "Assault Vest",
+        "level": 50,
+        "nature": "Adamant",
+        "evs": {
+          "hp": 252,
+          "atk": 116,
+          "def": 4,
+          "spa": 0,
+          "spd": 60,
+          "spe": 76
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "teraType": "Fire",
+        "moves": [
+          "Grassy Glide",
+          "Fake Out",
+          "Wood Hammer",
+          "U-turn"
+        ],
+        "evidence": {
+          "ability_share": 0.9965751332922904,
+          "item_share": 0.6689553457246352,
+          "spread_share": 0.07191695718152802,
+          "move_shares": {
+            "Grassy Glide": 0.9733677642133719,
+            "Fake Out": 0.9593231115275133,
+            "Wood Hammer": 0.8538239613441206,
+            "U-turn": 0.37493641030953284
+          },
+          "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+        },
+        "gender": ""
+      },
+      "actual_stats": {
+        "hp": 207,
+        "atk": 176,
+        "def": 111,
+        "spa": 72,
+        "spd": 98,
+        "spe": 115
+      },
+      "speed": {
+        "base_stat": 115,
+        "ordinary_speed": 115,
+        "scenarios": [],
+        "scope": "Neutral stat stages; no paralysis, opponent effects or ability suppression. Listed conditional modifiers only. Trick Room changes order, not this number."
+      },
+      "spread_explanation": "Historical EV investment: 252 HP / 116 ATK / 4 DEF / 60 SPD / 76 SPE. Adamant raises ATK and lowers SPA. These EVs produce the shown level-50 stats; no survival or knockout benchmark has been verified.",
+      "set_cautions": [
+        "No personal protection move is selected. Plan switches and support carefully rather than assuming this Pokemon can Protect."
+      ],
+      "move_guidance": [
+        {
+          "move": "Grassy Glide",
+          "guidance": "User on Grassy Terrain: +1 priority."
+        },
+        {
+          "move": "Fake Out",
+          "guidance": "Hits first. First turn out only. 100% flinch chance."
+        },
+        {
+          "move": "Wood Hammer",
+          "guidance": "Has 33% recoil."
+        },
+        {
+          "move": "U-turn",
+          "guidance": "User switches out after damaging the target."
+        }
+      ],
+      "historical_evidence": {
+        "ability_share": 0.9965751332922904,
+        "item_share": 0.6689553457246352,
+        "spread_share": 0.07191695718152802,
+        "move_shares": {
+          "Grassy Glide": 0.9733677642133719,
+          "Fake Out": 0.9593231115275133,
+          "Wood Hammer": 0.8538239613441206,
+          "U-turn": 0.37493641030953284
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "heuristic_contribution": {
+        "historical_usage": 3.618,
+        "set_evidence_and_usability": -1.093,
+        "support_roles": 2.75,
+        "original_type_balance": -0.75,
+        "field_and_partner_interactions": 0.0,
+        "historical_cooccurrence": 0.979
+      }
+    },
+    {
+      "name": "Torkoal",
+      "locked": false,
+      "selection_reason": "Adds weather setter, attacker to the candidate team. Its Drought supplies sun for Charizard; that benefit depends on keeping the weather active. It also appears alongside a locked favourite in this historical ladder snapshot. This is a search heuristic, not proof it is the best partner.",
+      "roles": [
+        "weather setter",
+        "attacker"
+      ],
+      "types": [
+        "Fire"
+      ],
+      "usage_percent": 11.319,
+      "base_stats": {
+        "hp": 70,
+        "atk": 85,
+        "def": 140,
+        "spa": 85,
+        "spd": 70,
+        "spe": 20
+      },
+      "type_weaknesses": {
+        "Ground": 2,
+        "Rock": 2,
+        "Water": 2
+      },
+      "ability_description": "On switch-in, this Pokemon summons Sunny Day.",
+      "item_description": "Holder's Fire-type attacks have 1.2x power.",
+      "moves": [
+        {
+          "name": "Eruption",
+          "type": "Fire",
+          "category": "Special",
+          "power": 150,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "allAdjacentFoes",
+          "description": "Less power as user's HP decreases. Hits foe(s)."
+        },
+        {
+          "name": "Protect",
+          "type": "Normal",
+          "category": "Status",
+          "power": 0,
+          "accuracy": true,
+          "priority": 4,
+          "target": "self",
+          "description": "Prevents moves from affecting the user this turn."
+        },
+        {
+          "name": "Earth Power",
+          "type": "Ground",
+          "category": "Special",
+          "power": 90,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "10% chance to lower the target's Sp. Def by 1."
+        },
+        {
+          "name": "Heat Wave",
+          "type": "Fire",
+          "category": "Special",
+          "power": 95,
+          "accuracy": 90,
+          "priority": 0,
+          "target": "allAdjacentFoes",
+          "description": "10% chance to burn the foe(s)."
+        }
+      ],
+      "set": {
+        "name": "Torkoal",
+        "species": "Torkoal",
+        "ability": "Drought",
+        "item": "Charcoal",
+        "level": 50,
+        "nature": "Quiet",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 0
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "teraType": "Fire",
+        "moves": [
+          "Eruption",
+          "Protect",
+          "Earth Power",
+          "Heat Wave"
+        ],
+        "evidence": {
+          "ability_share": 0.997670109260247,
+          "item_share": 0.44061217883054343,
+          "spread_share": 0.5106552605822452,
+          "move_shares": {
+            "Eruption": 0.9116302777862055,
+            "Protect": 0.7198174441249126,
+            "Earth Power": 0.4067288569991445,
+            "Heat Wave": 0.34312381128791625
+          },
+          "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+        },
+        "gender": ""
+      },
+      "actual_stats": {
+        "hp": 177,
+        "atk": 105,
+        "def": 160,
+        "spa": 150,
+        "spd": 91,
+        "spe": 36
+      },
+      "speed": {
+        "base_stat": 36,
+        "ordinary_speed": 36,
+        "scenarios": [],
+        "scope": "Neutral stat stages; no paralysis, opponent effects or ability suppression. Listed conditional modifiers only. Trick Room changes order, not this number."
+      },
+      "spread_explanation": "Historical EV investment: 252 HP / 252 SPA / 4 SPD. Quiet raises SPA and lowers SPE. These EVs produce the shown level-50 stats; no survival or knockout benchmark has been verified.",
+      "set_cautions": [
+        "0 Speed EVs is not 0 Speed IVs. This build still has 31 Speed IVs; a dedicated Trick Room spread may want fewer, but IVs have not been optimized.",
+        "This is a special-attacking set. The default 31 Attack IVs are not optimized; lower Attack can sometimes reduce Foul Play and confusion self-damage."
+      ],
+      "move_guidance": [
+        {
+          "move": "Eruption",
+          "guidance": "Less power as user's HP decreases. Hits foe(s). It targets both adjacent opponents; redirection does not turn it into a single-target attack. Its power falls as your current HP falls, so protecting HP matters."
+        },
+        {
+          "move": "Protect",
+          "guidance": "Prevents moves from affecting the user this turn. Use it to cover an exposed turn or let your partner act; repeated use is unreliable."
+        },
+        {
+          "move": "Earth Power",
+          "guidance": "10% chance to lower the target's Sp. Def by 1."
+        },
+        {
+          "move": "Heat Wave",
+          "guidance": "10% chance to burn the foe(s). It targets both adjacent opponents; redirection does not turn it into a single-target attack."
+        }
+      ],
+      "historical_evidence": {
+        "ability_share": 0.997670109260247,
+        "item_share": 0.44061217883054343,
+        "spread_share": 0.5106552605822452,
+        "move_shares": {
+          "Eruption": 0.9116302777862055,
+          "Protect": 0.7198174441249126,
+          "Earth Power": 0.4067288569991445,
+          "Heat Wave": 0.34312381128791625
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "heuristic_contribution": {
+        "historical_usage": 2.762,
+        "set_evidence_and_usability": -0.214,
+        "support_roles": 2.0,
+        "original_type_balance": -4.05,
+        "field_and_partner_interactions": 9.5,
+        "historical_cooccurrence": 1.564
+      }
+    },
+    {
+      "name": "Gallade",
+      "locked": false,
+      "selection_reason": "Adds speed control to the candidate team. Its original types resist or are immune to Rock, to which Charizard is weak. It also appears alongside a locked favourite in this historical ladder snapshot. This is a search heuristic, not proof it is the best partner.",
+      "roles": [
+        "speed control"
+      ],
+      "types": [
+        "Psychic",
+        "Fighting"
+      ],
+      "usage_percent": 4.014,
+      "base_stats": {
+        "hp": 68,
+        "atk": 125,
+        "def": 65,
+        "spa": 65,
+        "spd": 115,
+        "spe": 80
+      },
+      "type_weaknesses": {
+        "Fairy": 2,
+        "Flying": 2,
+        "Ghost": 2
+      },
+      "ability_description": "This Pokemon's slicing moves have their power multiplied by 1.5.",
+      "item_description": "Prevents other Pokemon from lowering the holder's stat stages.",
+      "moves": [
+        {
+          "name": "Sacred Sword",
+          "type": "Fighting",
+          "category": "Physical",
+          "power": 90,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "Ignores the target's stat stage changes."
+        },
+        {
+          "name": "Psycho Cut",
+          "type": "Psychic",
+          "category": "Physical",
+          "power": 70,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "High critical hit ratio."
+        },
+        {
+          "name": "Trick Room",
+          "type": "Psychic",
+          "category": "Status",
+          "power": 0,
+          "accuracy": true,
+          "priority": -7,
+          "target": "all",
+          "description": "Goes last. For 5 turns, turn order is reversed."
+        },
+        {
+          "name": "Protect",
+          "type": "Normal",
+          "category": "Status",
+          "power": 0,
+          "accuracy": true,
+          "priority": 4,
+          "target": "self",
+          "description": "Prevents moves from affecting the user this turn."
+        }
+      ],
+      "set": {
+        "name": "Gallade",
+        "species": "Gallade",
+        "ability": "Sharpness",
+        "item": "Clear Amulet",
+        "level": 50,
+        "nature": "Brave",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 4,
+          "spa": 0,
+          "spd": 0,
+          "spe": 0
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "teraType": "Grass",
+        "moves": [
+          "Sacred Sword",
+          "Psycho Cut",
+          "Trick Room",
+          "Protect"
+        ],
+        "evidence": {
+          "ability_share": 0.9629772616566171,
+          "item_share": 0.6506223737102377,
+          "spread_share": 0.20977975128511028,
+          "move_shares": {
+            "Sacred Sword": 0.9826528330102331,
+            "Psycho Cut": 0.9661823308156297,
+            "Trick Room": 0.7163859732254653,
+            "Protect": 0.20175876580688598
+          },
+          "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+        },
+        "gender": "M"
+      },
+      "actual_stats": {
+        "hp": 175,
+        "atk": 194,
+        "def": 86,
+        "spa": 85,
+        "spd": 135,
+        "spe": 90
+      },
+      "speed": {
+        "base_stat": 90,
+        "ordinary_speed": 90,
+        "scenarios": [],
+        "scope": "Neutral stat stages; no paralysis, opponent effects or ability suppression. Listed conditional modifiers only. Trick Room changes order, not this number."
+      },
+      "spread_explanation": "Historical EV investment: 252 HP / 252 ATK / 4 DEF. Brave raises ATK and lowers SPE. These EVs produce the shown level-50 stats; no survival or knockout benchmark has been verified.",
+      "set_cautions": [
+        "0 Speed EVs is not 0 Speed IVs. This build still has 31 Speed IVs; a dedicated Trick Room spread may want fewer, but IVs have not been optimized."
+      ],
+      "move_guidance": [
+        {
+          "move": "Sacred Sword",
+          "guidance": "Ignores the target's stat stage changes."
+        },
+        {
+          "move": "Psycho Cut",
+          "guidance": "High critical hit ratio."
+        },
+        {
+          "move": "Trick Room",
+          "guidance": "Goes last. For 5 turns, turn order is reversed."
+        },
+        {
+          "move": "Protect",
+          "guidance": "Prevents moves from affecting the user this turn. Use it to cover an exposed turn or let your partner act; repeated use is unreliable."
+        }
+      ],
+      "historical_evidence": {
+        "ability_share": 0.9629772616566171,
+        "item_share": 0.6506223737102377,
+        "spread_share": 0.20977975128511028,
+        "move_shares": {
+          "Sacred Sword": 0.9826528330102331,
+          "Psycho Cut": 0.9661823308156297,
+          "Trick Room": 0.7163859732254653,
+          "Protect": 0.20175876580688598
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "heuristic_contribution": {
+        "historical_usage": 1.773,
+        "set_evidence_and_usability": -0.241,
+        "support_roles": 0.0,
+        "original_type_balance": 0.15,
+        "field_and_partner_interactions": 1.5,
+        "historical_cooccurrence": 0.803
+      }
+    },
+    {
+      "name": "Maushold",
+      "locked": false,
+      "selection_reason": "Adds redirection to the candidate team. It also appears alongside a locked favourite in this historical ladder snapshot. This is a search heuristic, not proof it is the best partner.",
+      "roles": [
+        "redirection"
+      ],
+      "types": [
+        "Normal"
+      ],
+      "usage_percent": 9.011,
+      "base_stats": {
+        "hp": 74,
+        "atk": 75,
+        "def": 70,
+        "spa": 65,
+        "spd": 75,
+        "spe": 111
+      },
+      "type_weaknesses": {
+        "Fighting": 2
+      },
+      "ability_description": "This Pokemon's allies receive 3/4 damage from other Pokemon's attacks.",
+      "item_description": "The accuracy of attacks by the holder is 1.1x.",
+      "moves": [
+        {
+          "name": "Follow Me",
+          "type": "Normal",
+          "category": "Status",
+          "power": 0,
+          "accuracy": true,
+          "priority": 2,
+          "target": "self",
+          "description": "The foes' moves target the user on the turn used."
+        },
+        {
+          "name": "Protect",
+          "type": "Normal",
+          "category": "Status",
+          "power": 0,
+          "accuracy": true,
+          "priority": 4,
+          "target": "self",
+          "description": "Prevents moves from affecting the user this turn."
+        },
+        {
+          "name": "Population Bomb",
+          "type": "Normal",
+          "category": "Physical",
+          "power": 20,
+          "accuracy": 90,
+          "priority": 0,
+          "target": "normal",
+          "description": "Hits 10 times. Each hit can miss."
+        },
+        {
+          "name": "Taunt",
+          "type": "Dark",
+          "category": "Status",
+          "power": 0,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "Target can't use status moves its next 3 turns."
+        }
+      ],
+      "set": {
+        "name": "Maushold",
+        "species": "Maushold",
+        "ability": "Friend Guard",
+        "item": "Wide Lens",
+        "level": 50,
+        "nature": "Jolly",
+        "evs": {
+          "hp": 4,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 0,
+          "spe": 252
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "teraType": "Ghost",
+        "moves": [
+          "Follow Me",
+          "Protect",
+          "Population Bomb",
+          "Taunt"
+        ],
+        "evidence": {
+          "ability_share": 0.5488007646653241,
+          "item_share": 0.5260397744760125,
+          "spread_share": 0.2640796776106506,
+          "move_shares": {
+            "Follow Me": 0.9197068745897717,
+            "Protect": 0.8423328998001743,
+            "Population Bomb": 0.6122511186413115,
+            "Taunt": 0.6010740946241043
+          },
+          "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+        },
+        "gender": "N"
+      },
+      "actual_stats": {
+        "hp": 150,
+        "atk": 127,
+        "def": 90,
+        "spa": 76,
+        "spd": 95,
+        "spe": 179
+      },
+      "speed": {
+        "base_stat": 179,
+        "ordinary_speed": 179,
+        "scenarios": [],
+        "scope": "Neutral stat stages; no paralysis, opponent effects or ability suppression. Listed conditional modifiers only. Trick Room changes order, not this number."
+      },
+      "spread_explanation": "Historical EV investment: 4 HP / 252 ATK / 252 SPE. Jolly raises SPE and lowers SPA. These EVs produce the shown level-50 stats; no survival or knockout benchmark has been verified.",
+      "set_cautions": [],
+      "move_guidance": [
+        {
+          "move": "Follow Me",
+          "guidance": "The foes' moves target the user on the turn used."
+        },
+        {
+          "move": "Protect",
+          "guidance": "Prevents moves from affecting the user this turn. Use it to cover an exposed turn or let your partner act; repeated use is unreliable."
+        },
+        {
+          "move": "Population Bomb",
+          "guidance": "Hits 10 times. Each hit can miss."
+        },
+        {
+          "move": "Taunt",
+          "guidance": "Target can't use status moves its next 3 turns."
+        }
+      ],
+      "historical_evidence": {
+        "ability_share": 0.5488007646653241,
+        "item_share": 0.5260397744760125,
+        "spread_share": 0.2640796776106506,
+        "move_shares": {
+          "Follow Me": 0.9197068745897717,
+          "Protect": 0.8423328998001743,
+          "Population Bomb": 0.6122511186413115,
+          "Taunt": 0.6010740946241043
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "heuristic_contribution": {
+        "historical_usage": 2.534,
+        "set_evidence_and_usability": -0.488,
+        "support_roles": 0.0,
+        "original_type_balance": -0.45,
+        "field_and_partner_interactions": 0.0,
+        "historical_cooccurrence": 0.445
+      }
+    }
+  ],
+  "weaknesses": [
+    {
+      "type": "Flying",
+      "weak": [
+        "Rillaboom",
+        "Gallade"
+      ],
+      "resist_or_immune": [
+        "Electabuzz"
+      ],
+      "severity": "watch"
+    },
+    {
+      "type": "Ground",
+      "weak": [
+        "Electabuzz",
+        "Torkoal"
+      ],
+      "resist_or_immune": [
+        "Charizard",
+        "Rillaboom"
+      ],
+      "severity": "watch"
+    },
+    {
+      "type": "Rock",
+      "weak": [
+        "Charizard",
+        "Torkoal"
+      ],
+      "resist_or_immune": [
+        "Gallade"
+      ],
+      "severity": "watch"
+    },
+    {
+      "type": "Water",
+      "weak": [
+        "Charizard",
+        "Torkoal"
+      ],
+      "resist_or_immune": [
+        "Rillaboom"
+      ],
+      "severity": "watch"
+    }
+  ],
+  "possible_leads": [
+    {
+      "pokemon": [
+        "Charizard",
+        "Torkoal"
+      ],
+      "score": 8,
+      "reasons": [
+        "Torkoal supplies sun for Charizard's Solar Power; the weather must remain active."
+      ],
+      "opening_actions": [
+        "If the opponent cannot immediately remove Charizard, consider Heat Wave with it while Torkoal attacks or protects. Check opposing weather setters before committing to this mode."
+      ],
+      "cautions": [
+        "Solar Power boosts Special Attack in sun but costs 1/8 of maximum HP at each turn's end. Plan a short attacking window rather than assuming it can stay in indefinitely.",
+        "Choice Specs locks Charizard into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position."
+      ],
+      "interaction_codes": [
+        "choice_lock",
+        "solar_power_hp"
+      ]
+    },
+    {
+      "pokemon": [
+        "Electabuzz",
+        "Rillaboom"
+      ],
+      "score": 6,
+      "reasons": [
+        "A utility or attacking opening to consider after checking the opposing six."
+      ],
+      "opening_actions": [
+        "Electabuzz can use Electroweb to lower the opponents' Speed by one stage if it hits and the effect is not blocked. Damage immunity or stat-drop protection can stop this plan; it is not an immediate guaranteed outspeed.",
+        "Electabuzz can use Follow Me to draw eligible single-target attacks away from Rillaboom. Spread moves bypass redirection.",
+        "On Rillaboom's first turn after entering, Fake Out can disrupt one opponent while Electabuzz acts. Ghost immunity, protection, Inner Focus and other effects can stop the flinch; it is not guaranteed."
+      ],
+      "cautions": [],
+      "interaction_codes": []
+    },
+    {
+      "pokemon": [
+        "Rillaboom",
+        "Maushold"
+      ],
+      "score": 6,
+      "reasons": [
+        "Maushold's Friend Guard reduces damage to its ally while the ability is active; it does not protect Maushold itself."
+      ],
+      "opening_actions": [
+        "On Rillaboom's first turn after entering, Fake Out can disrupt one opponent while Maushold acts. Ghost immunity, protection, Inner Focus and other effects can stop the flinch; it is not guaranteed.",
+        "Maushold can use Follow Me to draw eligible single-target attacks away from Rillaboom. Spread moves bypass redirection."
+      ],
+      "cautions": [],
+      "interaction_codes": []
+    }
+  ],
+  "four_of_six_examples": [
+    {
+      "lead": [
+        "Charizard",
+        "Torkoal"
+      ],
+      "back": [
+        "Electabuzz",
+        "Rillaboom"
+      ],
+      "reasons": [
+        "Electabuzz supplies speed control, redirection from the back; switching still costs positioning and may expose it to an attack.",
+        "Rillaboom supplies Fake Out support, pivot, attacker from the back; switching still costs positioning and may expose it to an attack."
+      ],
+      "cautions": [
+        "Solar Power boosts Special Attack in sun but costs 1/8 of maximum HP at each turn's end. Plan a short attacking window rather than assuming it can stay in indefinitely.",
+        "Choice Specs locks Charizard into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position."
+      ],
+      "note": "A conditional four-of-six practice plan, not an opponent-specific selection. Change it after inspecting the opponent's six."
+    },
+    {
+      "lead": [
+        "Electabuzz",
+        "Rillaboom"
+      ],
+      "back": [
+        "Torkoal",
+        "Maushold"
+      ],
+      "reasons": [
+        "Torkoal supplies weather setter, attacker from the back; switching still costs positioning and may expose it to an attack.",
+        "Maushold supplies redirection from the back; switching still costs positioning and may expose it to an attack."
+      ],
+      "cautions": [],
+      "note": "A conditional four-of-six practice plan, not an opponent-specific selection. Change it after inspecting the opponent's six."
+    },
+    {
+      "lead": [
+        "Rillaboom",
+        "Maushold"
+      ],
+      "back": [
+        "Electabuzz",
+        "Torkoal"
+      ],
+      "reasons": [
+        "Electabuzz supplies speed control, redirection from the back; switching still costs positioning and may expose it to an attack.",
+        "Torkoal supplies weather setter, attacker from the back; switching still costs positioning and may expose it to an attack."
+      ],
+      "cautions": [],
+      "note": "A conditional four-of-six practice plan, not an opponent-specific selection. Change it after inspecting the opponent's six."
+    }
+  ],
+  "warnings": [
+    "Historical Regulation H only; this is not a check against current 2026 tournament rules.",
+    "Sets combine historical aggregate choices; they are not proven winning sets, and a legal team is not necessarily strong.",
+    "Type charts describe original types before Terastallization and ignore abilities, items and field effects.",
+    "No damage simulation or battle win probability is computed. Leads and four-of-six selections are conditional practice plans.",
+    "IVs default to 31 because aggregate usage does not provide them. They are not optimized.",
+    "Speed examples cover listed conditions only, with neutral stat stages and no status or suppression. Unknown opponent sets prevent guaranteed move-order claims."
+  ],
+  "interactions": [
+    {
+      "code": "solar_power_hp",
+      "severity": "trade-off",
+      "pokemon": [
+        "Charizard"
+      ],
+      "explanation": "Solar Power boosts Special Attack in sun but costs 1/8 of maximum HP at each turn's end. Plan a short attacking window rather than assuming it can stay in indefinitely.",
+      "penalty": 0
+    },
+    {
+      "code": "choice_lock",
+      "severity": "trade-off",
+      "pokemon": [
+        "Charizard"
+      ],
+      "explanation": "Choice Specs locks Charizard into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position.",
+      "penalty": 0
+    }
+  ],
+  "speed_overview": {
+    "ordinary_order": [
+      {
+        "pokemon": "Maushold",
+        "speed": 179
+      },
+      {
+        "pokemon": "Charizard",
+        "speed": 167
+      },
+      {
+        "pokemon": "Electabuzz",
+        "speed": 133
+      },
+      {
+        "pokemon": "Rillaboom",
+        "speed": 115
+      },
+      {
+        "pokemon": "Gallade",
+        "speed": 90
+      },
+      {
+        "pokemon": "Torkoal",
+        "speed": 36
+      }
+    ],
+    "trick_room_setters": [
+      "Gallade"
+    ],
+    "explanation": "Higher effective Speed normally acts first within the same move-priority bracket. Ties are not guaranteed. Trick Room reverses Speed order within that bracket for five turns including the activation turn; priority moves still use their own bracket. Tailwind lasts four turns including its activation turn.",
+    "trick_room_plan": "Use the slow mode only when the opposing active Pokemon are faster. Keep fast partners for turns without Trick Room; do not set Tailwind automatically in the slow mode."
+  },
+  "team_evaluation": {
+    "components": {
+      "historical_usage": 14.613,
+      "set_evidence_and_usability": -2.905,
+      "support_roles": 9.25,
+      "original_type_balance": -10.8,
+      "field_and_partner_interactions": 6.5,
+      "historical_cooccurrence": 2.691
+    },
+    "score": 19.34897,
+    "scope": "Transparent bounded-search heuristic; neither a win probability nor a benchmark of competitive strength. The search does not examine every legal team."
+  },
+  "sources": [
+    {
+      "title": "Pokemon Showdown dex and validator",
+      "url": "https://github.com/smogon/pokemon-showdown",
+      "package": "pokemon-showdown@0.11.11",
+      "license": "MIT"
+    },
+    {
+      "title": "Historical Showdown format definition",
+      "commit": "9fa4647eb5967fe59a0d18ec63f5b23f6e231cff",
+      "url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/9fa4647eb5967fe59a0d18ec63f5b23f6e231cff/config/formats.ts",
+      "license": "MIT"
+    },
+    {
+      "title": "Smogon November 2024 VGC Regulation H ladder statistics",
+      "url": "https://www.smogon.com/stats/2024-11/chaos/gen9vgc2024regh-1500.json",
+      "sha256": "4ef0bd9769f4172a45e98ca774f8fb4ef86f18a3bf9cb5efe1ed7441fe27a934",
+      "battles": 965304,
+      "cutoff": 1500,
+      "interpretation": "Aggregate weighted ladder usage, not official tournament history or a win-rate predictor."
+    },
+    {
+      "title": "Official Pokemon Regulation H announcement",
+      "url": "https://sv-news.pokemon.co.jp/en/page/245.html"
+    }
+  ],
+  "statistics": {
+    "team type": null,
+    "cutoff": 1500,
+    "cutoff deviation": 0,
+    "metagame": "gen9vgc2024regh",
+    "number of battles": 965304
+  },
+  "set_method": "Synthetic combinations of November 2024 ladder marginals, independently validated. Not observed complete sets or tournament-winning teams. IVs default to 31.",
+  "memory_used": {
+    "profile": "public-demo-2",
+    "ids": [],
+    "avoided_partner": "Incineroar"
+  }
+}

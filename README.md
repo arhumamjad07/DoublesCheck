@@ -1,4 +1,4 @@
-# DoublesCheck — Demo 1
+# DoublesCheck
 
 Build and understand a Pokémon VGC doubles team around your favourites.
 
@@ -7,10 +7,13 @@ choosing partners, legal sets and a starting play plan. Lock **one to six Pokém
 the app fills the remaining slots or reviews the six you supplied. It preserves
 your locked species and explains the choices and trade-offs.
 
-**Demo 1 is a working local planning prototype.** It uses real historical data,
-Meterless H-MEM and Pokémon Showdown validation. The current product makes
-**zero cloud AI model calls**. Nightshift/Nemotron integration is unfinished in
-the main product; separately retained legacy experiments are disabled by default.
+**Demo 2** adds an explicit, bounded **Nightshift/NVIDIA AI mode** with whitelisted tools,
+critic-blocked revisions, versioned evidence and final independent validation.
+Demo 1 remains available at tag `demo-1`.
+Local planning remains the default; Offline sample always makes zero model calls.
+See [AI reasoning](docs/AI_REASONING.md) and [verification](VERIFICATION.md) for
+implemented behaviour and the distinction between offline tests and live evidence.
+The [Demo 2 guide](docs/DEMO_2.md) describes the milestone and its limits.
 
 ## Try it without accounts or API keys
 
@@ -83,6 +86,28 @@ IVs currently default to 31. EV explanations do not claim verified survival or
 knockout benchmarks. Team scores are heuristics, not probabilities. Damage
 simulation, opponent-specific battle solving and optimized IVs remain unfinished.
 
+## Explicit Nightshift AI mode
+
+Once local Zetaris and Nightshift are ready, configure your runtime token locally
+and explicitly choose Nightshift AI in the GUI, or run:
+
+```powershell
+python team.py --ai --favourites Charizard --objective simple --profile ai-coach
+```
+
+The requested model is pinned to `nvidia/nemotron-3.5-lightning-30b-a3b`; all model
+requests go through the local Nightshift endpoint. The NVIDIA key stays in
+Nightshift, not this repository. No OpenAI API key is needed. AI mode is bounded
+to eight requests and two critic revision rounds, with no automatic transport
+retry or provider fallback. It requires connected data and cannot be combined
+with `--sample`. Read the [AI reasoning guide](docs/AI_REASONING.md) before running.
+
+A [real live balanced review](examples/demo-2/README.md) passed in three model
+requests and retained the baseline. Upstream errors still occur; complex-objective
+live adaptation remains unverified. Failed AI runs withhold the result. See the
+verification log for passing and failed attempts, rather than assuming a health
+check or the model-free test suite establishes live reliability.
+
 ## Connected Zetaris mode
 
 Use the event-supplied Zetaris Docker Compose installation; its platform and
@@ -104,11 +129,11 @@ there is no silent sample fallback. See [operations](docs/OPERATIONS.md).
 ## Verification
 
 ```powershell
-python -m unittest -q test_coaching test_hmem test_team_builder test_project_status test_battle_guidance
+python -m unittest -q test_coaching test_hmem test_team_builder test_project_status test_battle_guidance test_ai_coach
 node verify-hmem.cjs
 ```
 
-Recorded Demo 1 result: **73 application tests passed** and **13/13 official H-MEM
+Current result: **112 application tests passed** and **13/13 official H-MEM
 conformance checks passed**. The tests make no cloud model requests. Stat arithmetic
 was compared with Showdown, and separate running simulator fixtures checked
 selected speed/field mechanics. The connected Zetaris workflow and GUI HTTP form,
@@ -121,6 +146,8 @@ See [verification](VERIFICATION.md) for scope and reproduction details.
 | Guide | Contents |
 | --- | --- |
 | [Demo 1](docs/DEMO_1.md) | Milestone scope, walkthrough, expected behaviour and limitations |
+| [Demo 2](docs/DEMO_2.md) | Live AI milestone, changes from Demo 1, evidence and bounds |
+| [AI reasoning](docs/AI_REASONING.md) | Model/tool/Critic loop, safety bounds and rubric mapping |
 | [Architecture](docs/ARCHITECTURE.md) | Data flow, search, evaluator, H-MEM and module map |
 | [Data and rules](docs/DATA_AND_RULES.md) | Sources, set generation, evidence and refresh procedure |
 | [Operations](docs/OPERATIONS.md) | Setup, environment settings, storage, billing boundaries and troubleshooting |

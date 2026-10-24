@@ -1,3 +1,7 @@
+> The table retains Demo 1 context. A new explicit Nightshift/Nemotron reasoning
+> loop is implemented locally; see [AI reasoning](AI_REASONING.md) and verification
+> notes for its actual test/live status. Final usefulness/video/deck work remains.
+
 # Vision, roadmap and hackathon alignment
 
 ## Intended product
@@ -19,7 +23,7 @@ list of six Pokémon. Differentiation and usefulness still need user validation.
 | Full-team legality checks | Working through the scoped Showdown validator |
 | Roles, stats, EV explanations, conditional Speed and interaction cautions | Working within documented limits |
 | Lead and four-of-six guidance | Conditional heuristic practice plans |
-| Nightshift as the main product's AI provider | Unfinished; model calls disabled |
+| Nightshift as the main product's AI provider | Bounded explicit AI extension implemented; see current live-verification evidence |
 | Opponent-aware team preview, damage simulation, optimized IVs | Unfinished |
 | Player usefulness study, final video/deck/submission | Unfinished |
 
@@ -28,11 +32,12 @@ list of six Pokémon. Differentiation and usefulness still need user validation.
 1. Review fixed builds and explanations with experienced VGC players and actual
    beginners. Record concrete failures; do not assume passing tests prove good
    competitive recommendations.
-2. Verify a model route that satisfies the owner's no-extra-charges constraint.
+2. Complete live acceptance of the explicit Nightshift/Nemotron coach. The new
+   Planner/tool/Critic loop is implemented and regression-tested; provider errors
+   and incompatible responses must remain visible. See the verification log.
+3. Evaluate whether model-selected changes and explanations improve actual player
+   understanding. Keep legality and preference enforcement independent of approval.
    Do not infer a free NVIDIA quota from ChatGPT/Codex allowance resets.
-3. Integrate Nightshift into a useful, evidence-bound planner/critique feature.
-   Keep legality and preference enforcement independent of model approval, and
-   retain visible failures and bounded requests.
 4. Add opponent-aware team-preview guidance and meaningful damage/stat benchmarks
    with independently checked mechanics before claiming specific matchups.
 5. Improve interface clarity through user feedback. Visual browser testing is
@@ -69,9 +74,10 @@ not awarded/predicted scores or a certification of current eligibility.
   the platform runs in the event-supplied Docker Compose installation.
 - **Meterless H-MEM:** actual reference engine with provenance, retrieval,
   persistence, corrections and enforced preferences.
-- **Nightshift/NVIDIA:** retained earlier integration experiments; not called by
-  the current GUI/CLI. Final integration remains an open requirement under the
-  supplied guide, subject to the organizer's latest rules.
+- **Nightshift/NVIDIA:** current GUI/CLI has an explicitly selected, bounded
+  Planner/tool/Critic mode pinned to the approved Nemotron model. The verification
+  log distinguishes live results from scripted regression evidence. Local and
+  sample modes remain model-free.
 - **Coding tool:** development used AI coding assistance. Cursor was optional
   under the supplied organizer update; no event-provided Cursor credits are assumed.
 

@@ -31,7 +31,7 @@ removing a file in a later commit does not make the earlier value private again.
 - Zetaris requests are restricted to loopback hosts, with redirects disabled.
 - Node child processes receive an environment with token/key/password variables
   removed by the application adapters.
-- The main app has no model transport path. Legacy transports are separately gated.
+- Local/sample mode makes no model calls. Explicit AI mode permits only the local Nightshift endpoint and the pinned NVIDIA model, with request/time/tool bounds. Legacy transports remain separately gated.
 - Dependency versions/integrity and upstream source hashes are recorded.
 
 These controls and passing tests are not an exhaustive security audit. Do not

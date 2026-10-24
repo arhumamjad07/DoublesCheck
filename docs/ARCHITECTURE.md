@@ -1,3 +1,7 @@
+> Demo 1 architecture is preserved below. The current explicit AI extension is
+> documented in [AI reasoning](AI_REASONING.md); default local/sample behaviour
+> remains available. Its live verification status is in the root verification log.
+
 # Architecture
 
 ## Product boundary

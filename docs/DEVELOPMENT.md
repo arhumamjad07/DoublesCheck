@@ -11,7 +11,7 @@ are historical integration work and are not the default product.
 Install the pinned npm dependencies and the Python requirements first. Run:
 
 ```powershell
-python -m unittest -q test_coaching test_hmem test_team_builder test_project_status test_battle_guidance
+python -m unittest -q test_coaching test_hmem test_team_builder test_project_status test_battle_guidance test_ai_coach
 node verify-hmem.cjs
 ```
 
@@ -27,7 +27,8 @@ script, not part of the model-free test command.
 | GUI status/progress | Trace isolation, partial writes, terminal states, invalid/reused IDs and honest roadmap wording |
 | Battle guidance | Independent stat arithmetic, all 25 natures, selected running-simulator fixtures, terrain/priority, seed/weather/ally-hit conflicts, contradictory locks and HTML escaping |
 
-Recorded result: 73 tests and 13/13 conformance checks. See the root
+Demo 1 recorded 73 tests; Demo 2 passes 112 including controller/transport coverage,
+plus 13/13 official H-MEM checks. See the root
 `VERIFICATION.md` for the milestone's precise scope. Existing installation scripts
 and GUI HTTP checks were also exercised locally; actual browser clicking/visual
 review was not available.
@@ -88,3 +89,16 @@ the corresponding hashes.
 Check `git diff --cached --stat` and the actual staged content before pushing.
 Treat local preference/audit logs as private even when they contain no API keys.
 Do not enable a cloud-model route or a paid API as part of routine testing.
+
+## Explicit AI extension
+
+`nightshift_client.py` owns the bounded transport; `agent_tools.py` owns the tool
+contracts and evidence ledger; `ai_coach.py` owns the Planner/tool/Critic state
+machine. See AI_REASONING.md. Tests inject simulated responses, never provider
+credentials. Offline and simulated execution must not be labelled live evidence.
+The existing source snapshot and legality checks remain authoritative.
+
+Stream tests cover fragmented content, ignored private reasoning, preliminary
+routing aliases, final model identity, missing completion, provider error frames
+and truncation. A gateway success or health check alone is insufficient evidence
+of a completed coach run.

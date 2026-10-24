@@ -1,4 +1,4 @@
-"""DoublesCheck: build/review six Pokemon in historical VGC Regulation H, with no AI-credit usage."""
+"""DoublesCheck: local planning or explicit Nightshift/Nemotron AI coaching."""
 import argparse
 from datetime import datetime, timezone
 import json
@@ -22,6 +22,7 @@ class Trace:
         except FileExistsError:
             raise ValueError("This run already exists. Submit a new request.") from None
         self.events = []
+        self.model_calls = 0
     def event(self, agent, action, **details):
         event = {"timestamp": datetime.now(timezone.utc).isoformat(), "trace_id": self.id,
                  "agent": agent, "action": action, **details}
@@ -30,8 +31,14 @@ class Trace:
             handle.write(json.dumps(event) + "\n")
 
 def execute(favourites=None, avoided=None, sample=False, profile="default", output=None,
-            env_file=None, clear_avoidance=False, run_id=None):
+            env_file=None, clear_avoidance=False, run_id=None, ai=False, objective="simple", ai_client=None):
+    if type(ai) is not bool: raise ValueError("Choose a valid planning mode.")
+    if ai and sample: raise ValueError("Offline sample makes no model calls. Choose connected Zetaris data for Nightshift AI, or use local planning.")
+    from agent_tools import OBJECTIVES
+    if objective not in OBJECTIVES: raise ValueError("Choose a supported coaching objective.")
     trace = Trace(Path(output or ROOT / "runs"), run_id)
+    client = ai_client
+    own_client = False
     try:
         trace.event("DataRetriever", "catalogue_requested", mode="sample" if sample else "zetaris")
         data, origin = load_catalogue(sample, env_file)
@@ -55,14 +62,23 @@ def execute(favourites=None, avoided=None, sample=False, profile="default", outp
         trace.event("H-MEM", "preferences_recalled", profile=profile,
                     memory_ids=[m["id"] for m in memory["memories"]], locked=names, avoided=avoided_names)
         team, validation, locked = build_team(data, names, avoided_names, trace)
+        coaching = None
+        if ai:
+            from ai_coach import run_coach
+            from nightshift_client import NightshiftClient
+            if client is None:
+                client = NightshiftClient(trace, allow_live=True, env_file=env_file)
+                own_client = True
+            team, validation, coaching = run_coach(data, team, locked, avoided_names, memory,
+                                                  trace, client, objective=objective, origin=origin)
         explanation = explain_team(team, data, locked)
         trace.event("BattleCoach", "battle_guidance_checked", leads=len(explanation["possible_leads"]),
                     interaction_codes=sorted({row["code"] for row in explanation["interactions"]}),
-                    speed_scope="Neutral stages; listed conditions only", model_calls=0)
+                    speed_scope="Neutral stages; listed conditions only", model_calls=trace.model_calls)
         result = {"name": "DoublesCheck", "trace_id": trace.id,
             "mode": "sample" if sample else "zetaris", "data_source": origin,
             "format": data["format_name"], "format_id": data["format_id"],
-            "model_calls": 0, "engine": "Meterless H-MEM", "locked": locked,
+            "model_calls": trace.model_calls, "ai_coach": coaching, "engine": "Meterless H-MEM", "locked": locked,
             "legality": {"status": "passed_showdown_validator", "scope": "Historical Regulation H team and set rules; not official certification or current-event eligibility.", "errors": validation["errors"]},
             "team": team, "showdown_export": validation["export"], **explanation,
             "sources": json.loads((ROOT / "data/sources.json").read_text(encoding="utf-8"))["sources"],
@@ -73,12 +89,15 @@ def execute(favourites=None, avoided=None, sample=False, profile="default", outp
         (trace.directory / "team.txt").write_text(validation["export"], encoding="utf-8")
         from report import render
         (trace.directory / "report.html").write_text(render(result), encoding="utf-8")
-        trace.event("Orchestrator", "report_approved", legality_errors=0, model_calls=0,
+        trace.event("Orchestrator", "report_approved", legality_errors=0, model_calls=trace.model_calls,
                     team=[s["species"] for s in team])
         return result, trace.directory
     except Exception:
-        trace.event("Orchestrator", "run_failed", model_calls=0)
+        trace.event("Orchestrator", "run_failed", model_calls=trace.model_calls)
         raise
+    finally:
+        if own_client and client is not None:
+            client.close()
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -87,13 +106,15 @@ def main():
     parser.add_argument("--allow-all-partners", action="store_true")
     parser.add_argument("--sample", action="store_true", help="Bundled real-data snapshot, no services/keys required")
     parser.add_argument("--profile", default="default")
+    parser.add_argument("--ai", action="store_true", help="Explicitly call the approved Nemotron model through local Nightshift; connected data required")
+    parser.add_argument("--objective", choices=["simple", "sun", "rain", "trick-room"], default="simple")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--env-file", type=Path)
     args = parser.parse_args()
     if args.avoid_partner and args.allow_all_partners: parser.error("Choose avoidance or clearing it, not both.")
     result, folder = execute(args.favourites, args.avoid_partner, args.sample, args.profile,
-                             args.output, args.env_file, args.allow_all_partners)
-    print("DoublesCheck | Historical VGC Regulation H | No model calls")
+                             args.output, args.env_file, args.allow_all_partners, ai=args.ai, objective=args.objective)
+    print("DoublesCheck | Historical VGC Regulation H | Model calls:", result["model_calls"])
     print("Data:", result["data_source"])
     print("Team:", ", ".join(m["species"] for m in result["team"]))
     print("Legality: passed local Showdown validator for the selected historical format.")

@@ -51,8 +51,8 @@ class ProgressTests(unittest.TestCase):
 
     def test_dashboard_does_not_claim_ai_or_all_features_complete(self):
         page = dashboard(self.root)
-        self.assertIn("Model calls off", page)
-        self.assertIn("Nightshift AI integration remains unfinished", page)
+        self.assertIn("Local or Nightshift AI", page)
+        self.assertIn("See verification notes for live evidence", page)
         self.assertEqual(sum(row[1] for row in RUBRIC), 100)
         self.assertIn("not awarded or predicted scores", page)
 
