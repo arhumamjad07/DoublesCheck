@@ -1,5 +1,6 @@
 > Demo 1 architecture is preserved below. The current explicit AI extension is
-> documented in [AI reasoning](AI_REASONING.md); default local/sample behaviour
+> documented in [AI reasoning](AI_REASONING.md) and the current
+> [reasoning acceptance guide](REASONING_ACCEPTANCE.md); default local/sample behaviour
 > remains available. Its live verification status is in the root verification log.
 
 # Architecture

@@ -7,13 +7,19 @@ choosing partners, legal sets and a starting play plan. Lock **one to six Pokém
 the app fills the remaining slots or reviews the six you supplied. It preserves
 your locked species and explains the choices and trade-offs.
 
-**Demo 2** adds an explicit, bounded **Nightshift/NVIDIA AI mode** with whitelisted tools,
-critic-blocked revisions, versioned evidence and final independent validation.
-Demo 1 remains available at tag `demo-1`.
-Local planning remains the default; Offline sample always makes zero model calls.
-See [AI reasoning](docs/AI_REASONING.md) and [verification](VERIFICATION.md) for
-implemented behaviour and the distinction between offline tests and live evidence.
-The [Demo 2 guide](docs/DEMO_2.md) describes the milestone and its limits.
+**Demo 3** demonstrates real Critic-required AI repair, checked weather-goal
+adaptation, explicit recovery after interruptions and broader acceptance cases.
+The model investigates and chooses changes; independent code enforces source
+sets, preferences, evidence, repair completion and historical legality.
+
+Demo 2 introduced bounded Nightshift/NVIDIA AI mode. Demo 1 established the local
+data/memory/validation foundation. Their `demo-1` and `demo-2` tags are preserved;
+this milestone is `demo-3`. Local planning remains the default and Offline sample
+always makes zero model calls.
+
+See the [Demo 3 guide](docs/DEMO_3.md), [reasoning architecture](docs/REASONING_ACCEPTANCE.md),
+[real live repair](examples/reasoning-repair/README.md),
+[verification](VERIFICATION.md) and [release security audit](docs/SECURITY_AUDIT.md).
 
 ## Try it without accounts or API keys
 
@@ -103,10 +109,32 @@ retry or provider fallback. It requires connected data and cannot be combined
 with `--sample`. Read the [AI reasoning guide](docs/AI_REASONING.md) before running.
 
 A [real live balanced review](examples/demo-2/README.md) passed in three model
-requests and retained the baseline. Upstream errors still occur; complex-objective
-live adaptation remains unverified. Failed AI runs withhold the result. See the
+requests and retained the baseline. Current development also demonstrates a
+[Critic-required live repair](examples/reasoning-repair/README.md) and
+[explicit recovery](examples/reasoning-recovery/README.md), plus
+[live rain adaptation](examples/reasoning-rain/README.md). Upstream errors still
+occur; failed or unfinished AI runs withhold the result. See the
 verification log for passing and failed attempts, rather than assuming a health
 check or the model-free test suite establishes live reliability.
+
+## Evaluate the reasoning workflow
+
+```powershell
+# Local checks and declared cases, no services or model calls
+python evaluate_reasoning.py
+
+# Explicit real-service repair evaluation; at most eight model requests
+python evaluate_reasoning.py --live --cases seed-repair --max-model-requests 8
+```
+
+The suite distinguishes live approvals, expected input refusals, offline checks
+and unmet objectives. It keeps failures visible. `--resume-once` explicitly opts
+into one continuation per case without resetting its request budget. In the GUI,
+Continue is manual, preserves completed work, and is available for up to 30
+minutes while the app remains open. No provider switch or background retry occurs.
+
+For item/weather activation repair, choose the `reliable` AI objective. A report
+must identify an unmet objective as an alternative rather than pretend success.
 
 ## Connected Zetaris mode
 
@@ -129,11 +157,11 @@ there is no silent sample fallback. See [operations](docs/OPERATIONS.md).
 ## Verification
 
 ```powershell
-python -m unittest -q test_coaching test_hmem test_team_builder test_project_status test_battle_guidance test_ai_coach
+python -m unittest discover -q
 node verify-hmem.cjs
 ```
 
-Current result: **112 application tests passed** and **13/13 official H-MEM
+Current result: **154 application tests passed** and **13/13 official H-MEM
 conformance checks passed**. The tests make no cloud model requests. Stat arithmetic
 was compared with Showdown, and separate running simulator fixtures checked
 selected speed/field mechanics. The connected Zetaris workflow and GUI HTTP form,
@@ -146,8 +174,11 @@ See [verification](VERIFICATION.md) for scope and reproduction details.
 | Guide | Contents |
 | --- | --- |
 | [Demo 1](docs/DEMO_1.md) | Milestone scope, walkthrough, expected behaviour and limitations |
-| [Demo 2](docs/DEMO_2.md) | Live AI milestone, changes from Demo 1, evidence and bounds |
+| [Demo 2](docs/DEMO_2.md) | Preserved first live AI milestone |
+| [Demo 3](docs/DEMO_3.md) | Verified repair, weather adaptation, recovery and varied cases |
+| [Security audit](docs/SECURITY_AUDIT.md) | Demo 1/2 history and Demo 3 publication checks |
 | [AI reasoning](docs/AI_REASONING.md) | Model/tool/Critic loop, safety bounds and rubric mapping |
+| [Current reasoning acceptance](docs/REASONING_ACCEPTANCE.md) | Dynamic roles, named repair contracts, continuation, case matrix and rubric evidence |
 | [Architecture](docs/ARCHITECTURE.md) | Data flow, search, evaluator, H-MEM and module map |
 | [Data and rules](docs/DATA_AND_RULES.md) | Sources, set generation, evidence and refresh procedure |
 | [Operations](docs/OPERATIONS.md) | Setup, environment settings, storage, billing boundaries and troubleshooting |
@@ -173,5 +204,5 @@ separate licenses/rights of third-party software, data or franchise material.
 
 Independent fan project. Not affiliated with Pokémon, Nintendo, Creatures or
 GAME FREAK. No official artwork is included. This milestone does not certify
-hackathon eligibility; the remaining AI integration and submission work are
+hackathon eligibility; remaining live reliability, player-validation and submission work are
 described in the roadmap.

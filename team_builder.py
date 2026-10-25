@@ -37,6 +37,21 @@ def set_key(member):
             tuple(sorted(member["evs"].items())), tuple(member["moves"]))
 
 
+def item_assignment_possible(mons, names, used_items):
+    """Exact small matching check before pruning a locked-team search branch."""
+    domains = [sorted({s["item"] for s in mons[name]["sets"]} - set(used_items)) for name in names]
+    owner = {}
+    def assign(index, seen):
+        for item in domains[index]:
+            if item in seen: continue
+            seen.add(item)
+            if item not in owner or assign(owner[item], seen):
+                owner[item] = index
+                return True
+        return False
+    return all(assign(index, set()) for index in range(len(domains)))
+
+
 class TeamScorer:
     """Named heuristic terms and cached checks; scores are not win probabilities."""
     def __init__(self, data):
@@ -158,12 +173,12 @@ def build_team(data, favourites, avoided=None, trace=None):
     if trace: trace.event("Planner", "locked_favourites_checked", favourites=favourites, avoided=sorted(avoided))
     scorer = TeamScorer(data)
     beam = [[]]
-    for name in favourites:
+    for locked_index, name in enumerate(favourites):
         next_beam = []
         for team in beam:
             used_items = {s["item"] for s in team}
             for build in mons[name]["sets"]:
-                if build["item"] not in used_items:
+                if build["item"] not in used_items and item_assignment_possible(mons, favourites[locked_index+1:], used_items | {build["item"]}):
                     next_beam.append(team + [copy.deepcopy(build)])
         if not next_beam:
             raise ValueError("Locked Pokemon cannot satisfy Item Clause with available sets; no lock was replaced.")

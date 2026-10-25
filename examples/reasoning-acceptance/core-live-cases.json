@@ -1,0 +1,155 @@
+{
+  "kind": "reasoning_acceptance_suite",
+  "mode": "live",
+  "created_at": "2026-10-25T09:38:29.848517+00:00",
+  "implementation_sha256": "21e4826412d1d22a49c52d736cecb0c91d169325e96b6eef1db499a01f3cf64e",
+  "request_budget": 16,
+  "explicit_one_continuation_per_case": true,
+  "cases": [
+    {
+      "case": "one-favourite",
+      "run_id": "64dc42d4cca84e2b8915f9fa0808e0ad",
+      "declared_fixture": false,
+      "test_status": "passed",
+      "application_outcome": "live_approved",
+      "team_approved": true,
+      "model_requests": 4,
+      "unmet_expectations": [],
+      "explicit_continuations": 1,
+      "interruption_code": "gateway_stream_error",
+      "actual_models": [
+        "nvidia/nemotron-3.5-lightning-30b-a3b"
+      ],
+      "changed": false,
+      "revision_rounds": 0,
+      "contracts": [],
+      "goal_met": true,
+      "seconds": 174.828
+    },
+    {
+      "case": "three-favourites",
+      "run_id": "8f75d2a3583d4988bd7959595b3f87c5",
+      "declared_fixture": false,
+      "test_status": "passed",
+      "application_outcome": "live_approved",
+      "team_approved": true,
+      "model_requests": 3,
+      "unmet_expectations": [],
+      "explicit_continuations": 1,
+      "interruption_code": "gateway_stream_error",
+      "actual_models": [
+        "nvidia/nemotron-3.5-lightning-30b-a3b"
+      ],
+      "changed": false,
+      "revision_rounds": 0,
+      "contracts": [],
+      "goal_met": true,
+      "seconds": 141.657
+    },
+    {
+      "case": "six-favourites",
+      "run_id": "3ff4f13ed2c946fdab452ae8589b01f9",
+      "declared_fixture": false,
+      "test_status": "passed",
+      "application_outcome": "live_approved",
+      "team_approved": true,
+      "model_requests": 4,
+      "unmet_expectations": [],
+      "explicit_continuations": 0,
+      "actual_models": [
+        "nvidia/nemotron-3.5-lightning-30b-a3b"
+      ],
+      "changed": false,
+      "revision_rounds": 0,
+      "contracts": [],
+      "goal_met": true,
+      "seconds": 159.218
+    },
+    {
+      "case": "remembered-avoidance",
+      "run_id": "aaf87ceb1f1f4cf7b73ed88066ef5fa6",
+      "declared_fixture": false,
+      "test_status": "passed",
+      "application_outcome": "live_approved",
+      "team_approved": true,
+      "model_requests": 2,
+      "unmet_expectations": [],
+      "explicit_continuations": 0,
+      "actual_models": [
+        "nvidia/nemotron-3.5-lightning-30b-a3b"
+      ],
+      "changed": false,
+      "revision_rounds": 0,
+      "contracts": [],
+      "goal_met": true,
+      "seconds": 92.235
+    },
+    {
+      "case": "restricted-species",
+      "run_id": "8bf5687726c74b6a98f679fc910c2d83",
+      "declared_fixture": false,
+      "test_status": "passed",
+      "application_outcome": "input_refused",
+      "team_approved": false,
+      "model_requests": 0,
+      "unmet_expectations": [],
+      "explicit_continuations": 0,
+      "seconds": 2.937
+    },
+    {
+      "case": "unsupported-species",
+      "run_id": "0be4c00952ec41189cc76e98cc887c84",
+      "declared_fixture": false,
+      "test_status": "passed",
+      "application_outcome": "input_refused",
+      "team_approved": false,
+      "model_requests": 0,
+      "unmet_expectations": [],
+      "explicit_continuations": 0,
+      "seconds": 2.985
+    },
+    {
+      "case": "duplicate-species",
+      "run_id": "79a675b79d384c3298865c33e5bc183a",
+      "declared_fixture": false,
+      "test_status": "passed",
+      "application_outcome": "input_refused",
+      "team_approved": false,
+      "model_requests": 0,
+      "unmet_expectations": [],
+      "explicit_continuations": 0,
+      "seconds": 2.968
+    },
+    {
+      "case": "conflicting-preferences",
+      "run_id": "a0c980f0fbd3440a804cc50a9e7abb2e",
+      "declared_fixture": false,
+      "test_status": "passed",
+      "application_outcome": "input_refused",
+      "team_approved": false,
+      "model_requests": 0,
+      "unmet_expectations": [],
+      "explicit_continuations": 0,
+      "seconds": 3.016
+    },
+    {
+      "case": "unknown-species",
+      "run_id": "bf6ada3b8edc44a1b449a5900e08e4e9",
+      "declared_fixture": false,
+      "test_status": "passed",
+      "application_outcome": "input_refused",
+      "team_approved": false,
+      "model_requests": 0,
+      "unmet_expectations": [],
+      "explicit_continuations": 0,
+      "seconds": 2.921
+    }
+  ],
+  "metrics": {
+    "passed": 9,
+    "failed": 0,
+    "skipped": 0,
+    "model_requests": 13,
+    "live_team_approvals": 4
+  }
+}

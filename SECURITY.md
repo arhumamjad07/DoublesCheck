@@ -1,6 +1,6 @@
 # Security and private information
 
-DoublesCheck Demo 1 is a local prototype. Keep it bound to loopback and do not
+DoublesCheck is a local prototype. Keep it bound to loopback and do not
 expose it through port forwarding, public hosting or a tunnel without a separate
 security design and review. The app is not an authenticated multi-user service.
 
@@ -26,13 +26,26 @@ removing a file in a later commit does not make the earlier value private again.
 ## Existing controls and limits
 
 - GUI server binds to `127.0.0.1`, checks the Host header and requires a per-process
-  local form token for builds.
+  local form token for builds and explicit continuations.
 - Requests have input-size and identifier restrictions; report text is escaped.
 - Zetaris requests are restricted to loopback hosts, with redirects disabled.
 - Node child processes receive an environment with token/key/password variables
-  removed by the application adapters.
+  and secret variables removed by the application adapters.
 - Local/sample mode makes no model calls. Explicit AI mode permits only the local Nightshift endpoint and the pinned NVIDIA model, with request/time/tool bounds. Legacy transports remain separately gated.
 - Dependency versions/integrity and upstream source hashes are recorded.
+
+Interrupted AI reviews can retain source data, tool state and a credential-bearing
+HTTP session in this process's RAM for continuation. At most four paused reviews
+are retained, each available for 30 minutes after pausing; no session is written
+to disk. Restarting loses continuations. Expired state is removed on access or
+when another review pauses, rather than by a background cleanup timer. Continue
+rechecks preferences and preserves the original eight-request budget. Requests
+are not automatically retried or redirected to another provider.
+
+Zetaris settings are read without changing the process environment. Both service
+adapters disable inherited proxies and redirects. Model output can select only
+listed tools and current source IDs; it cannot run commands, arbitrary SQL or
+URLs. Stream completion and the approved concrete model identity are required.
 
 These controls and passing tests are not an exhaustive security audit. Do not
 weaken them to work around an installation or routing problem.

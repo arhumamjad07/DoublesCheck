@@ -1,0 +1,260 @@
+[
+  {
+    "name": "Charizard",
+    "species": "Charizard",
+    "ability": "Solar Power",
+    "item": "Choice Specs",
+    "level": 50,
+    "nature": "Timid",
+    "evs": {
+      "hp": 4,
+      "atk": 0,
+      "def": 0,
+      "spa": 252,
+      "spd": 0,
+      "spe": 252
+    },
+    "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+    },
+    "teraType": "Ghost",
+    "moves": [
+      "Heat Wave",
+      "Overheat",
+      "Weather Ball",
+      "Dragon Pulse"
+    ],
+    "evidence": {
+      "ability_share": 0.9793505023739726,
+      "item_share": 0.7618193316989808,
+      "spread_share": 0.4580950132613879,
+      "move_shares": {
+        "Heat Wave": 0.9820179494283394,
+        "Overheat": 0.7206091350191115,
+        "Weather Ball": 0.6639183478299338,
+        "Dragon Pulse": 0.5601096064113428
+      },
+      "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+    }
+  },
+  {
+    "name": "Electabuzz",
+    "species": "Electabuzz",
+    "ability": "Vital Spirit",
+    "item": "Eviolite",
+    "level": 50,
+    "nature": "Bold",
+    "evs": {
+      "hp": 244,
+      "atk": 0,
+      "def": 180,
+      "spa": 4,
+      "spd": 20,
+      "spe": 60
+    },
+    "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+    },
+    "teraType": "Ghost",
+    "moves": [
+      "Follow Me",
+      "Protect",
+      "Electroweb",
+      "Taunt"
+    ],
+    "evidence": {
+      "ability_share": 0.9306553316380825,
+      "item_share": 0.9982112810361546,
+      "spread_share": 0.045334072355874555,
+      "move_shares": {
+        "Follow Me": 0.9981416919985782,
+        "Protect": 0.835263670990816,
+        "Electroweb": 0.7466249278705623,
+        "Taunt": 0.7261071324200868
+      },
+      "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+    }
+  },
+  {
+    "name": "Rillaboom",
+    "species": "Rillaboom",
+    "ability": "Grassy Surge",
+    "item": "Assault Vest",
+    "level": 50,
+    "nature": "Adamant",
+    "evs": {
+      "hp": 252,
+      "atk": 116,
+      "def": 4,
+      "spa": 0,
+      "spd": 60,
+      "spe": 76
+    },
+    "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+    },
+    "teraType": "Fire",
+    "moves": [
+      "Grassy Glide",
+      "Fake Out",
+      "Wood Hammer",
+      "U-turn"
+    ],
+    "evidence": {
+      "ability_share": 0.9965751332922904,
+      "item_share": 0.6689553457246352,
+      "spread_share": 0.07191695718152802,
+      "move_shares": {
+        "Grassy Glide": 0.9733677642133719,
+        "Fake Out": 0.9593231115275133,
+        "Wood Hammer": 0.8538239613441206,
+        "U-turn": 0.37493641030953284
+      },
+      "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+    }
+  },
+  {
+    "name": "Torkoal",
+    "species": "Torkoal",
+    "ability": "Drought",
+    "item": "Charcoal",
+    "level": 50,
+    "nature": "Quiet",
+    "evs": {
+      "hp": 252,
+      "atk": 0,
+      "def": 0,
+      "spa": 252,
+      "spd": 4,
+      "spe": 0
+    },
+    "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+    },
+    "teraType": "Fire",
+    "moves": [
+      "Eruption",
+      "Protect",
+      "Earth Power",
+      "Heat Wave"
+    ],
+    "evidence": {
+      "ability_share": 0.997670109260247,
+      "item_share": 0.44061217883054343,
+      "spread_share": 0.5106552605822452,
+      "move_shares": {
+        "Eruption": 0.9116302777862055,
+        "Protect": 0.7198174441249126,
+        "Earth Power": 0.4067288569991445,
+        "Heat Wave": 0.34312381128791625
+      },
+      "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+    }
+  },
+  {
+    "name": "Gallade",
+    "species": "Gallade",
+    "ability": "Sharpness",
+    "item": "Clear Amulet",
+    "level": 50,
+    "nature": "Brave",
+    "evs": {
+      "hp": 252,
+      "atk": 252,
+      "def": 4,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+    },
+    "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+    },
+    "teraType": "Grass",
+    "moves": [
+      "Sacred Sword",
+      "Psycho Cut",
+      "Trick Room",
+      "Protect"
+    ],
+    "evidence": {
+      "ability_share": 0.9629772616566171,
+      "item_share": 0.6506223737102377,
+      "spread_share": 0.20977975128511028,
+      "move_shares": {
+        "Sacred Sword": 0.9826528330102331,
+        "Psycho Cut": 0.9661823308156297,
+        "Trick Room": 0.7163859732254653,
+        "Protect": 0.20175876580688598
+      },
+      "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+    }
+  },
+  {
+    "name": "Sneasler",
+    "species": "Sneasler",
+    "ability": "Unburden",
+    "item": "Psychic Seed",
+    "level": 50,
+    "nature": "Jolly",
+    "evs": {
+      "hp": 4,
+      "atk": 252,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 252
+    },
+    "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+    },
+    "teraType": "Dark",
+    "moves": [
+      "Close Combat",
+      "Dire Claw",
+      "Protect",
+      "Fake Out"
+    ],
+    "evidence": {
+      "ability_share": 0.7291817740911313,
+      "item_share": 0.25286356188193865,
+      "spread_share": 0.25000127407120387,
+      "move_shares": {
+        "Close Combat": 0.9930529336594205,
+        "Dire Claw": 0.9909599608162122,
+        "Protect": 0.7305230480948047,
+        "Fake Out": 0.4205485100371901
+      },
+      "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+    }
+  }
+]

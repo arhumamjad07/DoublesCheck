@@ -1,3 +1,7 @@
+> Historical Demo 1 submission draft below. The current working AI milestone is
+> [Demo 3](docs/DEMO_3.md). Use its real repair/recovery evidence when preparing
+> the final submission; no video, deck or entry is claimed as submitted.
+
 # DoublesCheck — submission preparation
 
 Status: working no-credit prototype; not a completed or submitted entry.

@@ -1,5 +1,27 @@
 # Changelog
 
+## Demo 3 — 25 October 2026
+
+Strengthens live reliability, actual Critic-driven repair and varied user cases.
+Commit: `Demo 3: verified AI reasoning and recovery`. Milestone tag: `demo-3`.
+The `demo-1` and `demo-2` tags remain unchanged. Publication checks include a
+fresh audit of both previous milestones and the exact staged release.
+
+- Critic-first review dynamically invokes the Planner when evidence needs a change.
+- Named revision contracts refuse unrelated edits; roles share source options.
+  Each edit validates the full team and returns fresh versioned evidence.
+- Manual continuation preserves completed work and lifetime budgets after an
+  interruption; changed preferences, expiry and duplicate continuation are checked.
+- Authenticated model discovery, strict JSON/stream handling, bounded diagnostics
+  and actual model/timing records. No automatic transport retry or provider fallback.
+- `reliable` objective, honest unmet-goal alternatives and prepared-team review.
+- Thirteen declared acceptance cases separate real model approvals, offline checks,
+  expected input refusals and failures. Public examples show real repair/recovery.
+- Invalid preferences are checked before memory writes; exact item matching fixes
+  a feasible six-favourite team previously pruned from the local search.
+- 154 application tests and 13/13 H-MEM checks; live results and limitations are
+  recorded separately in `VERIFICATION.md`.
+
 ## Demo 2 — 24 October 2026
 
 Adds an explicitly selected Nightshift/NVIDIA coach to the existing local product.

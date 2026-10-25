@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parent
 def run_showdown(request):
     from hmem_memory import node_executable
     clean_env = {k: v for k, v in os.environ.items()
-                 if not any(s in k.upper() for s in ("TOKEN", "KEY", "PASSWORD"))}
+                 if not any(s in k.upper() for s in ("TOKEN", "KEY", "PASSWORD", "SECRET"))}
     try:
         result = subprocess.run([node_executable(), str(ROOT / "showdown-bridge.cjs")],
                                 input=json.dumps(request), capture_output=True, text=True,
@@ -26,16 +26,18 @@ def run_showdown(request):
 class Zetaris:
     def __init__(self, env_file=None):
         import requests
-        from dotenv import load_dotenv
-        load_dotenv(env_file or ROOT / ".env")
-        self.base = os.getenv("ZETARIS_REST_URL", "").rstrip("/")
-        self.key = os.getenv("ZETARIS_API_KEY", "")
-        self.org = os.getenv("ZETARIS_ORG_ID", "1")
+        from dotenv import dotenv_values
+        values = dotenv_values(env_file or ROOT / ".env")
+        self.base = os.environ.get("ZETARIS_REST_URL", values.get("ZETARIS_REST_URL") or "").rstrip("/")
+        self.key = os.environ.get("ZETARIS_API_KEY", values.get("ZETARIS_API_KEY") or "")
+        self.org = os.environ.get("ZETARIS_ORG_ID", values.get("ZETARIS_ORG_ID") or "1")
         if not self.base or not self.key:
             raise RuntimeError("Zetaris settings are missing. Use --sample to run without credentials.")
-        if urlparse(self.base).hostname not in ("localhost", "127.0.0.1", "::1"):
+        parsed = urlparse(self.base)
+        if parsed.scheme != "http" or parsed.hostname not in ("localhost", "127.0.0.1", "::1") or parsed.username or parsed.password or parsed.query or parsed.fragment:
             raise RuntimeError("No-credit mode permits only a local Zetaris endpoint.")
         self.session = requests.Session()
+        self.session.trust_env = False
 
     def query(self, sql, limit=2000):
         import requests

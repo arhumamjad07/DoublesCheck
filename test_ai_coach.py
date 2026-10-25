@@ -89,12 +89,12 @@ class AgentTests(unittest.TestCase):
             row = next(r for r in p["shared_state"]["evidence"] if r.get("code") == "missing_seed_terrain")
             return {"verdict": "revise", "version": 1, "issues": [{"evidence_id": row["id"], "resolution": "change"}]}
         def change(role, p):
-            options = p["recent_tool_results"][-1]["result"]["options"]
+            options = p["shared_options"]
             option = next(r for r in options if r["item"] == "Focus Sash")
             return {"action": "tool", "tool": "change_set", "arguments": {"species": "Sneasler", "set_id": option["set_id"]}}
         client = ScriptedClient([INSPECT, submission, critique,
             {"action": "tool", "tool": "get_sets", "arguments": {"species": "Sneasler", "purpose": "different_item"}},
-            change, INSPECT, submission, approval])
+            change, submission, approval])
         revised, check, result = self.run_client(client, team)
         self.assertTrue(check["valid"])
         self.assertEqual(result["revision_rounds"], 1)
@@ -203,21 +203,21 @@ class AgentTests(unittest.TestCase):
     def test_end_to_end_ai_report_and_trace_are_saved_without_network(self):
         from team import execute
         from hmem_memory import recall_preferences
-        client = ScriptedClient([INSPECT, submission, approval])
+        client = ScriptedClient([lambda role,p:{"verdict":"tool","tool":"inspect_team","arguments":{}}, approval])
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             with patch("team.load_catalogue", return_value=(self.data, "Zetaris simulated test fixture")), \
-                 patch("team.recall_preferences", side_effect=lambda directory,profile,updates: recall_preferences(root / "memory",profile,updates)):
+                 patch("team.recall_preferences", side_effect=lambda directory,profile,updates,**kwargs: recall_preferences(root / "memory",profile,updates,**kwargs)):
                 result, directory = execute(["Charizard"], sample=False, profile="ai-test", output=root / "runs", ai=True, ai_client=client)
-            self.assertEqual(result["model_calls"], 3)
+            self.assertEqual(result["model_calls"], 2)
             self.assertEqual(result["ai_coach"]["execution"], "simulated")
             html = (directory / "report.html").read_text(encoding="utf-8")
             self.assertIn("Nightshift AI review", html)
-            self.assertIn("3 model calls", html)
+            self.assertIn("2 model calls", html)
             self.assertNotIn("0 model calls", html)
             events = [json.loads(line) for line in (directory / "trace.jsonl").read_text().splitlines()]
             self.assertEqual(events[-1]["action"], "report_approved")
-            self.assertEqual(events[-1]["model_calls"], 3)
+            self.assertEqual(events[-1]["model_calls"], 2)
             self.assertEqual(events[2]["agent"], "H-MEM")
 
     def test_failed_ai_run_never_publishes_a_local_substitute(self):
@@ -261,6 +261,8 @@ class AgentTests(unittest.TestCase):
 class TransportTests(unittest.TestCase):
     def client(self, response=None, clock=None):
         session=Mock();session.post.return_value=response or self.response()
+        discovery=Mock();discovery.status_code=200;discovery.text=json.dumps({"data":[{"id":MODEL}]});discovery.content=discovery.text.encode()
+        session.get.return_value=discovery
         with patch("nightshift_client.settings",return_value=("http://127.0.0.1:8088/v1","private-runtime-token-for-test")):
             client=NightshiftClient(Trace(),allow_live=True,session=session,**({"clock":clock} if clock else {}))
         return client,session

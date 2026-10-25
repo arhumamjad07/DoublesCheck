@@ -1,0 +1,66 @@
+Charizard @ Choice Specs  
+Ability: Solar Power  
+Level: 50  
+Tera Type: Ghost  
+EVs: 4 HP / 252 SpA / 252 Spe  
+Timid Nature  
+- Heat Wave  
+- Overheat  
+- Weather Ball  
+- Dragon Pulse  
+
+Electabuzz @ Eviolite  
+Ability: Vital Spirit  
+Level: 50  
+Tera Type: Ghost  
+EVs: 244 HP / 180 Def / 4 SpA / 20 SpD / 60 Spe  
+Bold Nature  
+- Follow Me  
+- Protect  
+- Electroweb  
+- Taunt  
+
+Rillaboom @ Assault Vest  
+Ability: Grassy Surge  
+Level: 50  
+Tera Type: Fire  
+EVs: 252 HP / 116 Atk / 4 Def / 60 SpD / 76 Spe  
+Adamant Nature  
+- Grassy Glide  
+- Fake Out  
+- Wood Hammer  
+- U-turn  
+
+Torkoal @ Charcoal  
+Ability: Drought  
+Level: 50  
+Tera Type: Fire  
+EVs: 252 HP / 252 SpA / 4 SpD  
+Quiet Nature  
+- Eruption  
+- Protect  
+- Earth Power  
+- Heat Wave  
+
+Gallade (M) @ Clear Amulet  
+Ability: Sharpness  
+Level: 50  
+Tera Type: Grass  
+EVs: 252 HP / 252 Atk / 4 Def  
+Brave Nature  
+- Sacred Sword  
+- Psycho Cut  
+- Trick Room  
+- Protect  
+
+Maushold @ Wide Lens  
+Ability: Friend Guard  
+Level: 50  
+Tera Type: Ghost  
+EVs: 4 HP / 252 Atk / 252 Spe  
+Jolly Nature  
+- Follow Me  
+- Protect  
+- Population Bomb  
+- Taunt  
+

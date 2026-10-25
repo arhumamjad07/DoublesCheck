@@ -1,0 +1,105 @@
+{
+  "kind": "reasoning_acceptance_suite",
+  "mode": "live",
+  "created_at": "2026-10-25T09:53:36.707886+00:00",
+  "implementation_sha256": "c9221b9f2d5ff9e2464b2eea9291c78573c7e8852a2359d6784777859e8d36af",
+  "request_budget": 24,
+  "explicit_one_continuation_per_case": true,
+  "cases": [
+    {
+      "case": "seed-repair",
+      "run_id": "087926cb620d4fc4b0ae0cd31d80b58a",
+      "declared_fixture": true,
+      "test_status": "passed",
+      "application_outcome": "live_approved",
+      "team_approved": true,
+      "model_requests": 7,
+      "unmet_expectations": [],
+      "explicit_continuations": 0,
+      "actual_models": [
+        "nvidia/nemotron-3.5-lightning-30b-a3b"
+      ],
+      "changed": true,
+      "revision_rounds": 1,
+      "contracts": [
+        {
+          "code": "missing_seed_terrain",
+          "resolution": "change",
+          "status": "resolved"
+        }
+      ],
+      "goal_met": true,
+      "seconds": 260.546
+    },
+    {
+      "case": "memory-changes-team",
+      "run_id": "7bae3bfca544497ab5854e27eb7d34e1",
+      "declared_fixture": false,
+      "test_status": "passed",
+      "application_outcome": "live_approved",
+      "team_approved": true,
+      "model_requests": 2,
+      "unmet_expectations": [],
+      "explicit_continuations": 0,
+      "unconstrained_reference": [
+        "Charizard",
+        "Electabuzz",
+        "Rillaboom",
+        "Torkoal",
+        "Gallade",
+        "Maushold"
+      ],
+      "memory_changed_output": true,
+      "actual_models": [
+        "nvidia/nemotron-3.5-lightning-30b-a3b"
+      ],
+      "changed": false,
+      "revision_rounds": 0,
+      "contracts": [],
+      "goal_met": true,
+      "seconds": 70.36
+    },
+    {
+      "case": "rain-request",
+      "run_id": "3d72548417b54834ab9fca7f65b08ad7",
+      "declared_fixture": false,
+      "test_status": "failed",
+      "application_outcome": "model_withheld",
+      "team_approved": false,
+      "model_requests": 5,
+      "unmet_expectations": [
+        "model_review_not_completed"
+      ],
+      "explicit_continuations": 1,
+      "interruption_code": "gateway_stream_error",
+      "error_code": "gateway_stream_error",
+      "seconds": 213.437
+    },
+    {
+      "case": "locked-tradeoffs",
+      "run_id": "ff38724908944296acbf9231fab00c84",
+      "declared_fixture": false,
+      "test_status": "passed",
+      "application_outcome": "live_approved",
+      "team_approved": true,
+      "model_requests": 3,
+      "unmet_expectations": [],
+      "explicit_continuations": 0,
+      "actual_models": [
+        "nvidia/nemotron-3.5-lightning-30b-a3b"
+      ],
+      "changed": false,
+      "revision_rounds": 0,
+      "contracts": [],
+      "goal_met": true,
+      "seconds": 98.516
+    }
+  ],
+  "metrics": {
+    "passed": 3,
+    "failed": 1,
+    "skipped": 0,
+    "model_requests": 17,
+    "live_team_approvals": 3
+  }
+}

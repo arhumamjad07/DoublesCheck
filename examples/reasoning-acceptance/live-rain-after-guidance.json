@@ -1,0 +1,42 @@
+{
+  "kind": "reasoning_acceptance_suite",
+  "mode": "live",
+  "created_at": "2026-10-25T10:19:38.394311+00:00",
+  "implementation_sha256": "d450aca6021358f68bd6df49472c9026ce8fa6147e0329a6e6e01c4449a04e20",
+  "request_budget": 8,
+  "explicit_one_continuation_per_case": true,
+  "cases": [
+    {
+      "case": "rain-request",
+      "run_id": "1c3663366e604c65b102de197a53cb09",
+      "declared_fixture": false,
+      "test_status": "passed",
+      "application_outcome": "live_approved",
+      "team_approved": true,
+      "model_requests": 6,
+      "unmet_expectations": [],
+      "explicit_continuations": 0,
+      "actual_models": [
+        "nvidia/nemotron-3.5-lightning-30b-a3b"
+      ],
+      "changed": true,
+      "revision_rounds": 1,
+      "contracts": [
+        {
+          "code": "missing_mode_rain",
+          "resolution": "change",
+          "status": "resolved"
+        }
+      ],
+      "goal_met": true,
+      "seconds": 248.656
+    }
+  ],
+  "metrics": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "model_requests": 6,
+    "live_team_approvals": 1
+  }
+}

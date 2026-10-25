@@ -1,5 +1,9 @@
 # Bounded Nightshift AI reasoning
 
+> This records the published Demo 2 architecture. The current development flow
+> starts with the Critic and adds targeted repair contracts and explicit
+> continuation. See [current reasoning acceptance](REASONING_ACCEPTANCE.md).
+
 This extends Demo 1's local tools into an explicit Planner/tool/Critic workflow.
 It uses the existing Nemotron model; it does not train a new model. The current
 live-verification status must be read in VERIFICATION.md. Mocked tests are never

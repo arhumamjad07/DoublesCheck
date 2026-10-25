@@ -147,3 +147,21 @@ not require or enable that opt-in.
 Stop the application with Ctrl+C in its terminal. Stopping the separate Zetaris
 stack with `docker compose stop` preserves its volumes. Do not use volume deletion
 commands as a routine shutdown step. Nightshift need not run for local planning or Offline sample. It must run for explicit AI coaching.
+
+## Current development: paused reviews
+
+The GUI can retain up to four interrupted reviews in memory for 30 minutes.
+Continue retries the interrupted decision within the original eight-request
+lifetime budget. It preserves completed work without changing provider. Nothing
+retries automatically. Restarting loses continuations; changing preferences
+invalidates an old review before another model call.
+
+The evaluator requires explicit `--live` and optionally accepts `--resume-once`.
+It distinguishes approved teams, expected refusals, failures and unmet objectives.
+See REASONING_ACCEPTANCE.md. A health check or offline guard test is not a live
+AI approval.
+
+Zetaris settings are read without adding them to process-wide environment
+variables. Both service clients ignore inherited HTTP proxies. Engine/validator
+adapters remove token/key/password/secret variables from child environments.
+Settings, private memory and user/evaluation run folders remain ignored.

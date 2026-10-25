@@ -1,6 +1,6 @@
-> The table retains Demo 1 context. A new explicit Nightshift/Nemotron reasoning
-> loop is implemented locally; see [AI reasoning](AI_REASONING.md) and verification
-> notes for its actual test/live status. Final usefulness/video/deck work remains.
+> Current status after the reasoning acceptance work. Published Demo 1 and Demo 2
+> tags retain their historical scope. See [reasoning acceptance](REASONING_ACCEPTANCE.md)
+> and the root verification log for actual live evidence and limitations.
 
 # Vision, roadmap and hackathon alignment
 
@@ -12,7 +12,7 @@ after seeing the opposing six. The proposed distinction is favourite-first,
 inspectable coaching with memory and checked evidence, rather than an unexplained
 list of six Pokémon. Differentiation and usefulness still need user validation.
 
-## Demo 1 position
+## Current position
 
 | Capability | State |
 | --- | --- |
@@ -23,7 +23,10 @@ list of six Pokémon. Differentiation and usefulness still need user validation.
 | Full-team legality checks | Working through the scoped Showdown validator |
 | Roles, stats, EV explanations, conditional Speed and interaction cautions | Working within documented limits |
 | Lead and four-of-six guidance | Conditional heuristic practice plans |
-| Nightshift as the main product's AI provider | Bounded explicit AI extension implemented; see current live-verification evidence |
+| Nightshift as the main product's AI provider | Real approved Nemotron reviews and Critic-required repair demonstrated |
+| Dynamic critique and repair | Named problem contracts, shared tools/evidence and actual validated edits |
+| Provider interruption recovery | Explicit continuation preserves completed work and lifetime request budget |
+| Varied preferences and constraints | Declared offline/live cases, actual memory effect and expected refusals |
 | Opponent-aware team preview, damage simulation, optimized IVs | Unfinished |
 | Player usefulness study, final video/deck/submission | Unfinished |
 
@@ -32,9 +35,10 @@ list of six Pokémon. Differentiation and usefulness still need user validation.
 1. Review fixed builds and explanations with experienced VGC players and actual
    beginners. Record concrete failures; do not assume passing tests prove good
    competitive recommendations.
-2. Complete live acceptance of the explicit Nightshift/Nemotron coach. The new
-   Planner/tool/Critic loop is implemented and regression-tested; provider errors
-   and incompatible responses must remain visible. See the verification log.
+2. Monitor and improve live reliability from recorded failures. Real repair and
+   broader acceptance are now demonstrated; upstream failures still occur and
+   unfinished runs remain withheld. See the verification log rather than treating
+   a small number of passing cases as a success-rate estimate.
 3. Evaluate whether model-selected changes and explanations improve actual player
    understanding. Keep legality and preference enforcement independent of approval.
    Do not infer a free NVIDIA quota from ChatGPT/Codex allowance resets.
@@ -52,9 +56,10 @@ explicit labels and legality checks.
 ## Track and rubric
 
 The project targets **Track 3: Reasoning Architecture**. Its local pipeline
-already demonstrates data retrieval, memory, constrained planning, independent
-validation and factual explanations. The intended final AI feature should build
-on that foundation rather than rename deterministic code as LLM agents.
+demonstrates data retrieval, memory, constrained planning, independent
+validation and factual explanations. Its real Nemotron Critic can dispatch a
+Planner to resolve a specific problem; code checks the actual change and fresh
+evidence before approval. The local builder remains explicitly deterministic.
 
 The weights below are from the supplied event overview. They are planning notes,
 not awarded/predicted scores or a certification of current eligibility.
@@ -62,11 +67,11 @@ not awarded/predicted scores or a certification of current eligibility.
 | Criterion | Weight | Evidence now | Remaining evidence |
 | --- | --- | --- | --- |
 | Impact | 30 | Concrete beginner team-building problem | User feedback and measured understanding/usefulness |
-| Technical | 20 | Working data/memory/search/validator pipeline; tests and traces | Reliable main-product AI feature and deeper battle evaluation |
+| Technical | 20 | Real dynamic Critic/Planner repair, memory, validation, bounded recovery, tests and traces | Provider reliability and deeper battle evaluation |
 | Innovation | 15 | Favourite-preserving, inspectable coach concept | Demonstrated differentiation from existing builders |
-| Demo | 15 | Runnable sample, export and walkthrough | Actual concise video and presentation |
+| Demo | 15 | Runnable sample, real repair/recovery examples and acceptance reports | Actual concise video and presentation |
 | Product & UX | 10 | Local GUI, progress and readable reports | Visual review and beginner usability testing |
-| Sponsor Tech | 10 | Zetaris and Meterless H-MEM working | Final Nightshift/Nemotron feature and truthful evidence |
+| Sponsor Tech | 10 | Zetaris, actual H-MEM and real Nightshift/Nemotron repair | Concise final sponsor demonstration |
 
 ## Sponsor boundaries
 

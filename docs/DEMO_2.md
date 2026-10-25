@@ -1,3 +1,6 @@
+> Historical Demo 2 milestone. Its limitations below describe that release;
+> see [Demo 3](DEMO_3.md) for later live repair and recovery evidence.
+
 # Demo 2 - explicit AI reasoning
 
 Demo 1 (`demo-1`) established the local data, memory, legality and coaching tools.

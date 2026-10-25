@@ -6,11 +6,11 @@ from catalogue import ROOT
 
 RUBRIC = [
     ("Impact", 30, "Clear beginner problem", "Show that beginners understand their team better; no user study yet."),
-    ("Technical", 20, "Tested foundation and live basic AI review", "Improve provider reliability, verify complex-objective adaptation and test usefulness with players."),
-    ("Innovation", 15, "Promising angle, unproven differentiation", "Demonstrate a favourite-preserving coach that critiques and improves a team."),
+    ("Technical", 20, "Real Critic-driven repair and bounded recovery", "Improve provider reliability and test advice with VGC players; acceptance is not a win-rate study."),
+    ("Innovation", 15, "Favourite-first repair with inspectable evidence", "Compare with existing builders and demonstrate usefulness to players."),
     ("Demo", 15, "Working flow, recording unfinished", "Record a repeatable 1–4 minute demonstration with sources and sponsor use."),
     ("Product & UX", 10, "Basic local GUI and reports", "Make advice actionable and test the interface with beginners."),
-    ("Sponsor Tech", 10, "Zetaris, H-MEM and live Nightshift basic review", "See verification for passed and withheld runs; prepare the final sponsor demonstration."),
+    ("Sponsor Tech", 10, "Real Zetaris, H-MEM and Nightshift/Nemotron repair", "See verification for passed and withheld runs; prepare the final sponsor demonstration."),
 ]
 
 def progress(run_id, root=ROOT):
@@ -32,6 +32,15 @@ def progress(run_id, root=ROOT):
         "candidate_revised": "A real team or set change was applied", "agent_action_refused": "Policy guard rejected an unsupported action",
         "ai_approved": "Critic and independent checks approved the AI result", "model_unavailable": "Model route did not complete",
         "report_writing": "Writing explanations and your Showdown export",
+        "run_paused": "Model service interrupted; checked work retained for explicit continuation",
+        "review_resumed": "Continuing the same review without replaying completed tools",
+        "baseline_submitted": "Local candidate handed to the independent AI critic",
+        "provided_team_checked": "Provided source team checked",
+        "candidate_checked_after_edit": "Changed team validated and fresh evidence delivered",
+        "model_discovered": "Approved Nemotron route confirmed",
+        "revision_contract_created": "Critic named a specific problem to repair",
+        "revision_contract_status": "Checked whether the requested problem was actually resolved",
+        "objective_assessed": "Checked whether the requested objective was delivered",
         "report_approved": "Report ready", "run_failed": "Build stopped; see the form's error message"}
     for line in lines:
         try: event = json.loads(line)
@@ -46,6 +55,7 @@ def progress(run_id, root=ROOT):
     status = "running"
     if events and events[-1]["action"] == "report_approved": status = "complete"
     if events and events[-1]["action"] == "run_failed": status = "failed"
+    if events and events[-1]["action"] == "run_paused": status = "paused"
     return {"run_id": run_id, "status": status, "events": events}
 
 def dashboard(root=ROOT):
@@ -66,6 +76,6 @@ def dashboard(root=ROOT):
     <div class="cards"><article><strong>Working prototype</strong><p>One to six favourites, legal historical sets, readable reports and Showdown exports.</p></article><article><strong>Real data + memory</strong><p>1,417 species/form records; 358 historical usage records; Zetaris joins and Meterless H-MEM preferences.</p></article><article><strong>Local or Nightshift AI</strong><p>Local planning and Offline sample make no model calls. Explicit AI mode uses the approved Nemotron route with tool checks and bounded critique/revision. See verification notes for live evidence.</p></article></div>
     <section><h2>Aligned with the vision</h2><ul><li><b>Working:</b> preserve locked favourites, fill team slots, validate sets and team clauses, explain original-type weaknesses and remember preferences.</li><li><b>Improved:</b> source-weighted set choices, weather/terrain and ally-hit checks, level-50 stats, conditional Speed, actionable example leads and four-of-six plans. These remain heuristics, not solved battles.</li><li><b>Missing depth:</b> damage calculations, opponent-aware plans, optimized IVs and stronger interaction checks.</li><li><b>Deliberate scope:</b> historical Scarlet/Violet VGC Regulation H, using November 2024 ladder statistics. Not current 2026 rules.</li></ul></section>
     <section><h2>GenAI marking rubric</h2><p class="muted">Weights from the supplied hackathon overview. These are candid readiness notes, not awarded or predicted scores.</p><div class="scroll"><table><thead><tr><th>Criterion</th><th>Current position</th><th>Highest-value improvement</th></tr></thead><tbody>''' + rows + '''</tbody></table></div></section>
-    <section class="notice"><h2>Next priorities</h2><ol><li><b>Finish the AI requirement safely:</b> the main-product loop is implemented. Record its actual model, tool decisions and useful critique/revision in live verification; do not count mocked tests as live model evidence.</li><li><b>Deepen coaching:</b> the local interaction and Speed checks are now implemented and regression-tested; review the resulting advice with VGC players.</li><li><b>Validate usefulness:</b> compare builds and explanations with a baseline, then have beginners try the interface.</li><li><b>Prepare the submission:</b> review public repository, sponsor explanation, slide deck, demo video and HackOS fields.</li></ol></section>
-    <section><h2>Verification already recorded</h2><p>73 application tests and 13/13 Meterless H-MEM conformance checks passed on 23 October 2026. A clean sample installation and the live local Zetaris workflow also passed.</p><p class="muted">This is the last recorded verification, not a live test runner. Backend form/report checks passed; visual browser automation was unavailable. Full submission eligibility is not certified here.</p></section>
+    <section class="notice"><h2>Next priorities</h2><ol><li><b>Review the reasoning evidence:</b> real Critic-required repair, varied user cases and recovery are recorded. Upstream failures still occur; preserve refusals and avoid treating scripted tests as live proof.</li><li><b>Deepen coaching:</b> the local interaction and Speed checks are now implemented and regression-tested; review the resulting advice with VGC players.</li><li><b>Validate usefulness:</b> compare builds and explanations with a baseline, then have beginners try the interface.</li><li><b>Prepare the submission:</b> review public repository, sponsor explanation, slide deck, demo video and HackOS fields.</li></ol></section>
+    <section><h2>Verification already recorded</h2><p>154 application tests and 13/13 Meterless H-MEM conformance checks passed on 25 October 2026. Twelve applicable offline acceptance cases passed; rain is skipped offline. Live repair, memory and recovery evidence is recorded separately.</p><p class="muted">This is the last recorded verification, not a live test runner. Authenticated build/continuation, report and progress checks passed. See the verification log for the scope of interface review. Full submission eligibility is not certified here.</p></section>
     <section><h2>Recent actual runs</h2><ul class="recent">''' + ("".join(recent) or "<li>No recorded builds yet. Build a team to see its progress here.</li>") + '''</ul></section><footer>Status is based on saved implementation and run traces. No cloud model call is made by this status page.</footer></main></html>'''

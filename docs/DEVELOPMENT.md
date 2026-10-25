@@ -11,7 +11,7 @@ are historical integration work and are not the default product.
 Install the pinned npm dependencies and the Python requirements first. Run:
 
 ```powershell
-python -m unittest -q test_coaching test_hmem test_team_builder test_project_status test_battle_guidance test_ai_coach
+python -m unittest discover -q
 node verify-hmem.cjs
 ```
 
@@ -27,8 +27,11 @@ script, not part of the model-free test command.
 | GUI status/progress | Trace isolation, partial writes, terminal states, invalid/reused IDs and honest roadmap wording |
 | Battle guidance | Independent stat arithmetic, all 25 natures, selected running-simulator fixtures, terrain/priority, seed/weather/ally-hit conflicts, contradictory locks and HTML escaping |
 
-Demo 1 recorded 73 tests; Demo 2 passes 112 including controller/transport coverage,
-plus 13/13 official H-MEM checks. See the root
+Demo 1 recorded 73 tests; Demo 2 recorded 112. Current development passes 154,
+plus 13/13 official H-MEM checks. The new suites cover named repair contracts,
+recovery, input integrity, feasible locked-item search, transport protocol and
+authenticated HTTP continuation. They use simulated model responses; H-MEM,
+source data and legality checks are real. See the root
 `VERIFICATION.md` for the milestone's precise scope. Existing installation scripts
 and GUI HTTP checks were also exercised locally; actual browser clicking/visual
 review was not available.
@@ -97,6 +100,13 @@ contracts and evidence ledger; `ai_coach.py` owns the Planner/tool/Critic state
 machine. See AI_REASONING.md. Tests inject simulated responses, never provider
 credentials. Offline and simulated execution must not be labelled live evidence.
 The existing source snapshot and legality checks remain authoritative.
+
+The current architecture is in [reasoning acceptance](REASONING_ACCEPTANCE.md).
+`reasoning_contracts.py` checks named repairs and objectives; `CoachSession`
+retains suspended decisions without replaying successful work. The GUI's manual
+Continue path and the explicitly authorised CLI continuation share that code.
+`python evaluate_reasoning.py` runs the declared offline cases. Only `--live`
+permits real connected/model requests; `--max-model-requests` bounds the suite.
 
 Stream tests cover fragmented content, ignored private reasoning, preliminary
 routing aliases, final model identity, missing completion, provider error frames

@@ -1,0 +1,2383 @@
+{
+  "name": "DoublesCheck",
+  "trace_id": "1c3663366e604c65b102de197a53cb09",
+  "mode": "zetaris",
+  "data_source": "Zetaris: joined Pokedex and historical VGC usage",
+  "format": "[Gen 9] VGC 2024 Reg H",
+  "format_id": "gen9vgc2024regh",
+  "model_calls": 6,
+  "ai_coach": {
+    "status": "approved",
+    "execution": "live",
+    "objective": "Explore a rain mode",
+    "strategy": "rain",
+    "provider": "Meterless Nightshift \u2192 NVIDIA Nemotron 3.5 Lightning",
+    "actual_models": [
+      "nvidia/nemotron-3.5-lightning-30b-a3b"
+    ],
+    "model_calls": 6,
+    "usage": [
+      {
+        "prompt_tokens": 1455,
+        "completion_tokens": 1414,
+        "total_tokens": 2869
+      },
+      {
+        "prompt_tokens": 2021,
+        "completion_tokens": 2810,
+        "total_tokens": 4831
+      },
+      {
+        "prompt_tokens": 2254,
+        "completion_tokens": 1061,
+        "total_tokens": 3315
+      },
+      {
+        "prompt_tokens": 2543,
+        "completion_tokens": 382,
+        "total_tokens": 2925
+      },
+      {
+        "prompt_tokens": 2251,
+        "completion_tokens": 4059,
+        "total_tokens": 6310
+      },
+      {
+        "prompt_tokens": 2302,
+        "completion_tokens": 2123,
+        "total_tokens": 4425
+      }
+    ],
+    "tool_calls": 3,
+    "tool_attempts": 3,
+    "revision_rounds": 1,
+    "team_version": 2,
+    "format_repairs": 0,
+    "entry_point": "critic_review",
+    "roles_used": [
+      "Critic",
+      "Planner"
+    ],
+    "proposal_origin": "model_planner",
+    "objective_assessment": {
+      "requested": "rain",
+      "selected_strategy": "rain",
+      "met": true,
+      "support": [
+        "Pelipper"
+      ],
+      "remaining_unsupported_conditions": [],
+      "explanation": "The selected plan supports the requested objective within the documented scope."
+    },
+    "baseline_kind": "local_builder",
+    "revision_contracts": [
+      {
+        "id": "R1",
+        "requested_version": 1,
+        "evidence_id": "E16",
+        "resolution": "change",
+        "kind": "objective",
+        "code": "missing_mode_rain",
+        "pokemon": [],
+        "problem": "The requested rain mode is not supported by an automatic matching weather setter or selected Trick Room move. Add checked support or explicitly offer an alternative; do not claim fulfilment.",
+        "before_members": [],
+        "status": "resolved",
+        "current_version": 2,
+        "current_evidence_ids": []
+      }
+    ],
+    "request_seconds": [
+      16.25,
+      45.203,
+      32.844,
+      42.266,
+      45.297,
+      56.282
+    ],
+    "changed_from_local_baseline": true,
+    "changes": [
+      {
+        "version": 2,
+        "operation": "build_candidate",
+        "changed_members": [
+          "Pelipper",
+          "Archaludon",
+          "Basculegion",
+          "Amoonguss",
+          "Porygon2"
+        ],
+        "removed_partners": [
+          "Electabuzz",
+          "Rillaboom",
+          "Torkoal",
+          "Gallade",
+          "Maushold"
+        ],
+        "before": "8690f2f879d8be66",
+        "after": "c0c6706469e216f0",
+        "member_changes": [
+          {
+            "species": "Pelipper",
+            "before": null,
+            "after": {
+              "species": "Pelipper",
+              "ability": "Drizzle",
+              "item": "Focus Sash",
+              "moves": [
+                "Hurricane",
+                "Weather Ball",
+                "Tailwind",
+                "Protect"
+              ],
+              "nature": "Timid",
+              "evs": {
+                "hp": 4,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 0,
+                "spe": 252
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "teraType": "Ghost",
+              "level": 50
+            }
+          },
+          {
+            "species": "Archaludon",
+            "before": null,
+            "after": {
+              "species": "Archaludon",
+              "ability": "Stamina",
+              "item": "Assault Vest",
+              "moves": [
+                "Electro Shot",
+                "Flash Cannon",
+                "Body Press",
+                "Draco Meteor"
+              ],
+              "nature": "Timid",
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 4,
+                "spe": 252
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "teraType": "Grass",
+              "level": 50
+            }
+          },
+          {
+            "species": "Basculegion",
+            "before": null,
+            "after": {
+              "species": "Basculegion",
+              "ability": "Swift Swim",
+              "item": "Choice Band",
+              "moves": [
+                "Last Respects",
+                "Wave Crash",
+                "Flip Turn",
+                "Tera Blast"
+              ],
+              "nature": "Adamant",
+              "evs": {
+                "hp": 4,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "teraType": "Water",
+              "level": 50
+            }
+          },
+          {
+            "species": "Amoonguss",
+            "before": null,
+            "after": {
+              "species": "Amoonguss",
+              "ability": "Regenerator",
+              "item": "Sitrus Berry",
+              "moves": [
+                "Spore",
+                "Rage Powder",
+                "Pollen Puff",
+                "Protect"
+              ],
+              "nature": "Bold",
+              "evs": {
+                "hp": 244,
+                "atk": 0,
+                "def": 156,
+                "spa": 0,
+                "spd": 108,
+                "spe": 0
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "teraType": "Water",
+              "level": 50
+            }
+          },
+          {
+            "species": "Porygon2",
+            "before": null,
+            "after": {
+              "species": "Porygon2",
+              "ability": "Download",
+              "item": "Eviolite",
+              "moves": [
+                "Trick Room",
+                "Recover",
+                "Ice Beam",
+                "Protect"
+              ],
+              "nature": "Modest",
+              "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 76,
+                "spa": 172,
+                "spd": 4,
+                "spe": 4
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "teraType": "Fighting",
+              "level": 50
+            }
+          }
+        ]
+      }
+    ],
+    "selected_evidence": [
+      {
+        "id": "E20",
+        "version": 2,
+        "kind": "constraint",
+        "text": "Original locked species and recalled avoidance are satisfied; all six sourced sets passed historical Regulation H team validation."
+      },
+      {
+        "id": "E21",
+        "version": 2,
+        "kind": "member",
+        "text": "Charizard: Solar Power; Choice Specs; Timid; moves: Heat Wave, Overheat, Weather Ball, Dragon Pulse. Roles: attacker.",
+        "pokemon": [
+          "Charizard"
+        ]
+      },
+      {
+        "id": "E23",
+        "version": 2,
+        "kind": "member",
+        "text": "Pelipper: Drizzle; Focus Sash; Timid; moves: Hurricane, Weather Ball, Tailwind, Protect. Roles: speed control, weather setter.",
+        "pokemon": [
+          "Pelipper"
+        ]
+      },
+      {
+        "id": "E25",
+        "version": 2,
+        "kind": "member",
+        "text": "Archaludon: Stamina; Assault Vest; Timid; moves: Electro Shot, Flash Cannon, Body Press, Draco Meteor. Roles: attacker.",
+        "pokemon": [
+          "Archaludon"
+        ]
+      },
+      {
+        "id": "E27",
+        "version": 2,
+        "kind": "member",
+        "text": "Basculegion: Swift Swim; Choice Band; Adamant; moves: Last Respects, Wave Crash, Flip Turn, Tera Blast. Roles: pivot, attacker.",
+        "pokemon": [
+          "Basculegion"
+        ]
+      },
+      {
+        "id": "E29",
+        "version": 2,
+        "kind": "member",
+        "text": "Amoonguss: Regenerator; Sitrus Berry; Bold; moves: Spore, Rage Powder, Pollen Puff, Protect. Roles: redirection.",
+        "pokemon": [
+          "Amoonguss"
+        ]
+      },
+      {
+        "id": "E31",
+        "version": 2,
+        "kind": "member",
+        "text": "Porygon2: Download; Eviolite; Modest; moves: Trick Room, Recover, Ice Beam, Protect. Roles: speed control.",
+        "pokemon": [
+          "Porygon2"
+        ]
+      }
+    ],
+    "acknowledged_cautions": [
+      {
+        "id": "E33",
+        "version": 2,
+        "kind": "caution",
+        "text": "Solar Power needs sun, but the team has no automatic sun setter. Manual weather or the opponent would have to supply it.",
+        "code": "missing_weather",
+        "pokemon": [
+          "Charizard"
+        ],
+        "severity": "caution"
+      },
+      {
+        "id": "E34",
+        "version": 2,
+        "kind": "caution",
+        "text": "Rain halves ordinary Fire-move damage. Charizard may need to attack outside rain or choose another move.",
+        "code": "rain_fire",
+        "pokemon": [
+          "Charizard"
+        ],
+        "severity": "trade-off"
+      },
+      {
+        "id": "E35",
+        "version": 2,
+        "kind": "caution",
+        "text": "Choice Specs locks Charizard into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position.",
+        "code": "choice_lock",
+        "pokemon": [
+          "Charizard"
+        ],
+        "severity": "trade-off"
+      },
+      {
+        "id": "E36",
+        "version": 2,
+        "kind": "caution",
+        "text": "Choice Band locks Basculegion into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position.",
+        "code": "choice_lock",
+        "pokemon": [
+          "Basculegion"
+        ],
+        "severity": "trade-off"
+      }
+    ],
+    "evidence_ledger": [
+      {
+        "id": "E1",
+        "version": 1,
+        "kind": "constraint",
+        "text": "Original locked species and recalled avoidance are satisfied; all six sourced sets passed historical Regulation H team validation."
+      },
+      {
+        "id": "E2",
+        "version": 1,
+        "kind": "member",
+        "text": "Charizard: Solar Power; Choice Specs; Timid; moves: Heat Wave, Overheat, Weather Ball, Dragon Pulse. Roles: attacker.",
+        "pokemon": [
+          "Charizard"
+        ]
+      },
+      {
+        "id": "E3",
+        "version": 1,
+        "kind": "speed",
+        "text": "Charizard has ordinary effective Speed 167 at neutral stages. Conditional examples: []. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Charizard"
+        ]
+      },
+      {
+        "id": "E4",
+        "version": 1,
+        "kind": "member",
+        "text": "Electabuzz: Vital Spirit; Eviolite; Bold; moves: Follow Me, Protect, Electroweb, Taunt. Roles: speed control, redirection.",
+        "pokemon": [
+          "Electabuzz"
+        ]
+      },
+      {
+        "id": "E5",
+        "version": 1,
+        "kind": "speed",
+        "text": "Electabuzz has ordinary effective Speed 133 at neutral stages. Conditional examples: []. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Electabuzz"
+        ]
+      },
+      {
+        "id": "E6",
+        "version": 1,
+        "kind": "member",
+        "text": "Rillaboom: Grassy Surge; Assault Vest; Adamant; moves: Grassy Glide, Fake Out, Wood Hammer, U-turn. Roles: Fake Out support, pivot, attacker.",
+        "pokemon": [
+          "Rillaboom"
+        ]
+      },
+      {
+        "id": "E7",
+        "version": 1,
+        "kind": "speed",
+        "text": "Rillaboom has ordinary effective Speed 115 at neutral stages. Conditional examples: []. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Rillaboom"
+        ]
+      },
+      {
+        "id": "E8",
+        "version": 1,
+        "kind": "member",
+        "text": "Torkoal: Drought; Charcoal; Quiet; moves: Eruption, Protect, Earth Power, Heat Wave. Roles: weather setter, attacker.",
+        "pokemon": [
+          "Torkoal"
+        ]
+      },
+      {
+        "id": "E9",
+        "version": 1,
+        "kind": "speed",
+        "text": "Torkoal has ordinary effective Speed 36 at neutral stages. Conditional examples: []. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Torkoal"
+        ]
+      },
+      {
+        "id": "E10",
+        "version": 1,
+        "kind": "member",
+        "text": "Gallade: Sharpness; Clear Amulet; Brave; moves: Sacred Sword, Psycho Cut, Trick Room, Protect. Roles: speed control.",
+        "pokemon": [
+          "Gallade"
+        ]
+      },
+      {
+        "id": "E11",
+        "version": 1,
+        "kind": "speed",
+        "text": "Gallade has ordinary effective Speed 90 at neutral stages. Conditional examples: []. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Gallade"
+        ]
+      },
+      {
+        "id": "E12",
+        "version": 1,
+        "kind": "member",
+        "text": "Maushold: Friend Guard; Wide Lens; Jolly; moves: Follow Me, Protect, Population Bomb, Taunt. Roles: redirection.",
+        "pokemon": [
+          "Maushold"
+        ]
+      },
+      {
+        "id": "E13",
+        "version": 1,
+        "kind": "speed",
+        "text": "Maushold has ordinary effective Speed 179 at neutral stages. Conditional examples: []. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Maushold"
+        ]
+      },
+      {
+        "id": "E14",
+        "version": 1,
+        "kind": "caution",
+        "text": "Solar Power boosts Special Attack in sun but costs 1/8 of maximum HP at each turn's end. Plan a short attacking window rather than assuming it can stay in indefinitely.",
+        "code": "solar_power_hp",
+        "pokemon": [
+          "Charizard"
+        ],
+        "severity": "trade-off"
+      },
+      {
+        "id": "E15",
+        "version": 1,
+        "kind": "caution",
+        "text": "Choice Specs locks Charizard into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position.",
+        "code": "choice_lock",
+        "pokemon": [
+          "Charizard"
+        ],
+        "severity": "trade-off"
+      },
+      {
+        "id": "E16",
+        "version": 1,
+        "kind": "objective",
+        "text": "The requested rain mode is not supported by an automatic matching weather setter or selected Trick Room move. Add checked support or explicitly offer an alternative; do not claim fulfilment.",
+        "code": "missing_mode_rain"
+      },
+      {
+        "id": "E17",
+        "version": 1,
+        "kind": "opening",
+        "text": "Charizard + Torkoal: Torkoal supplies sun for Charizard's Solar Power; the weather must remain active. If the opponent cannot immediately remove Charizard, consider Heat Wave with it while Torkoal attacks or protects. Check opposing weather setters before committing to this mode. Conditions: Solar Power boosts Special Attack in sun but costs 1/8 of maximum HP at each turn's end. Plan a short attacking window rather than assuming it can stay in indefinitely. Choice Specs locks Charizard into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position.",
+        "pokemon": [
+          "Charizard",
+          "Torkoal"
+        ]
+      },
+      {
+        "id": "E18",
+        "version": 1,
+        "kind": "opening",
+        "text": "Electabuzz + Rillaboom: A utility or attacking opening to consider after checking the opposing six. Electabuzz can use Electroweb to lower the opponents' Speed by one stage if it hits and the effect is not blocked. Damage immunity or stat-drop protection can stop this plan; it is not an immediate guaranteed outspeed. Electabuzz can use Follow Me to draw eligible single-target attacks away from Rillaboom. Spread moves bypass redirection. On Rillaboom's first turn after entering, Fake Out can disrupt one opponent while Electabuzz acts. Ghost immunity, protection, Inner Focus and other effects can stop the flinch; it is not guaranteed. Conditions: ",
+        "pokemon": [
+          "Electabuzz",
+          "Rillaboom"
+        ]
+      },
+      {
+        "id": "E19",
+        "version": 1,
+        "kind": "opening",
+        "text": "Rillaboom + Maushold: Maushold's Friend Guard reduces damage to its ally while the ability is active; it does not protect Maushold itself. On Rillaboom's first turn after entering, Fake Out can disrupt one opponent while Maushold acts. Ghost immunity, protection, Inner Focus and other effects can stop the flinch; it is not guaranteed. Maushold can use Follow Me to draw eligible single-target attacks away from Rillaboom. Spread moves bypass redirection. Conditions: ",
+        "pokemon": [
+          "Rillaboom",
+          "Maushold"
+        ]
+      },
+      {
+        "id": "E20",
+        "version": 2,
+        "kind": "constraint",
+        "text": "Original locked species and recalled avoidance are satisfied; all six sourced sets passed historical Regulation H team validation."
+      },
+      {
+        "id": "E21",
+        "version": 2,
+        "kind": "member",
+        "text": "Charizard: Solar Power; Choice Specs; Timid; moves: Heat Wave, Overheat, Weather Ball, Dragon Pulse. Roles: attacker.",
+        "pokemon": [
+          "Charizard"
+        ]
+      },
+      {
+        "id": "E22",
+        "version": 2,
+        "kind": "speed",
+        "text": "Charizard has ordinary effective Speed 167 at neutral stages. Conditional examples: [{\"condition\": \"After your side successfully sets Tailwind\", \"speed\": 334}]. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Charizard"
+        ]
+      },
+      {
+        "id": "E23",
+        "version": 2,
+        "kind": "member",
+        "text": "Pelipper: Drizzle; Focus Sash; Timid; moves: Hurricane, Weather Ball, Tailwind, Protect. Roles: speed control, weather setter.",
+        "pokemon": [
+          "Pelipper"
+        ]
+      },
+      {
+        "id": "E24",
+        "version": 2,
+        "kind": "speed",
+        "text": "Pelipper has ordinary effective Speed 128 at neutral stages. Conditional examples: [{\"condition\": \"After your side successfully sets Tailwind\", \"speed\": 256}]. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Pelipper"
+        ]
+      },
+      {
+        "id": "E25",
+        "version": 2,
+        "kind": "member",
+        "text": "Archaludon: Stamina; Assault Vest; Timid; moves: Electro Shot, Flash Cannon, Body Press, Draco Meteor. Roles: attacker.",
+        "pokemon": [
+          "Archaludon"
+        ]
+      },
+      {
+        "id": "E26",
+        "version": 2,
+        "kind": "speed",
+        "text": "Archaludon has ordinary effective Speed 150 at neutral stages. Conditional examples: [{\"condition\": \"After your side successfully sets Tailwind\", \"speed\": 300}]. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Archaludon"
+        ]
+      },
+      {
+        "id": "E27",
+        "version": 2,
+        "kind": "member",
+        "text": "Basculegion: Swift Swim; Choice Band; Adamant; moves: Last Respects, Wave Crash, Flip Turn, Tera Blast. Roles: pivot, attacker.",
+        "pokemon": [
+          "Basculegion"
+        ]
+      },
+      {
+        "id": "E28",
+        "version": 2,
+        "kind": "speed",
+        "text": "Basculegion has ordinary effective Speed 130 at neutral stages. Conditional examples: [{\"condition\": \"After your side successfully sets Tailwind\", \"speed\": 260}, {\"condition\": \"While rain is active (Pelipper)\", \"speed\": 260}, {\"condition\": \"While both rain and your Tailwind are active\", \"speed\": 520}]. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Basculegion"
+        ]
+      },
+      {
+        "id": "E29",
+        "version": 2,
+        "kind": "member",
+        "text": "Amoonguss: Regenerator; Sitrus Berry; Bold; moves: Spore, Rage Powder, Pollen Puff, Protect. Roles: redirection.",
+        "pokemon": [
+          "Amoonguss"
+        ]
+      },
+      {
+        "id": "E30",
+        "version": 2,
+        "kind": "speed",
+        "text": "Amoonguss has ordinary effective Speed 50 at neutral stages. Conditional examples: [{\"condition\": \"After your side successfully sets Tailwind\", \"speed\": 100}]. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Amoonguss"
+        ]
+      },
+      {
+        "id": "E31",
+        "version": 2,
+        "kind": "member",
+        "text": "Porygon2: Download; Eviolite; Modest; moves: Trick Room, Recover, Ice Beam, Protect. Roles: speed control.",
+        "pokemon": [
+          "Porygon2"
+        ]
+      },
+      {
+        "id": "E32",
+        "version": 2,
+        "kind": "speed",
+        "text": "Porygon2 has ordinary effective Speed 81 at neutral stages. Conditional examples: [{\"condition\": \"After your side successfully sets Tailwind\", \"speed\": 162}]. No opposing speed or damage benchmark was calculated.",
+        "pokemon": [
+          "Porygon2"
+        ]
+      },
+      {
+        "id": "E33",
+        "version": 2,
+        "kind": "caution",
+        "text": "Solar Power needs sun, but the team has no automatic sun setter. Manual weather or the opponent would have to supply it.",
+        "code": "missing_weather",
+        "pokemon": [
+          "Charizard"
+        ],
+        "severity": "caution"
+      },
+      {
+        "id": "E34",
+        "version": 2,
+        "kind": "caution",
+        "text": "Rain halves ordinary Fire-move damage. Charizard may need to attack outside rain or choose another move.",
+        "code": "rain_fire",
+        "pokemon": [
+          "Charizard"
+        ],
+        "severity": "trade-off"
+      },
+      {
+        "id": "E35",
+        "version": 2,
+        "kind": "caution",
+        "text": "Choice Specs locks Charizard into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position.",
+        "code": "choice_lock",
+        "pokemon": [
+          "Charizard"
+        ],
+        "severity": "trade-off"
+      },
+      {
+        "id": "E36",
+        "version": 2,
+        "kind": "caution",
+        "text": "Choice Band locks Basculegion into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position.",
+        "code": "choice_lock",
+        "pokemon": [
+          "Basculegion"
+        ],
+        "severity": "trade-off"
+      },
+      {
+        "id": "E37",
+        "version": 2,
+        "kind": "opening",
+        "text": "Pelipper + Basculegion: Pelipper supplies rain for Basculegion's Swift Swim; the weather must remain active. If the opponent cannot immediately remove Basculegion, consider Last Respects with it while Pelipper attacks or protects. Check opposing weather setters before committing to this mode. Consider Tailwind with Pelipper; Basculegion can attack or protect. The setter must successfully act first; do not assume Tailwind is already active. Conditions: Choice Band locks Basculegion into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position.",
+        "pokemon": [
+          "Pelipper",
+          "Basculegion"
+        ]
+      },
+      {
+        "id": "E38",
+        "version": 2,
+        "kind": "opening",
+        "text": "Pelipper + Amoonguss: A utility or attacking opening to consider after checking the opposing six. Consider Tailwind with Pelipper; Amoonguss can attack or protect. The setter must successfully act first; do not assume Tailwind is already active. Amoonguss can use Rage Powder to draw eligible single-target attacks away from Pelipper. Spread moves bypass redirection; Grass types, Overcoat and Safety Goggles can ignore Rage Powder. Conditions: ",
+        "pokemon": [
+          "Pelipper",
+          "Amoonguss"
+        ]
+      },
+      {
+        "id": "E39",
+        "version": 2,
+        "kind": "opening",
+        "text": "Amoonguss + Porygon2: A utility or attacking opening to consider after checking the opposing six. Amoonguss can use Rage Powder to draw eligible single-target attacks away from Porygon2. Spread moves bypass redirection; Grass types, Overcoat and Safety Goggles can ignore Rage Powder. If the opponent is faster, consider Trick Room with Porygon2 while Amoonguss protects or attacks. Trick Room has -7 priority, so it usually starts after ordinary attacks. Conditions: ",
+        "pokemon": [
+          "Amoonguss",
+          "Porygon2"
+        ]
+      }
+    ],
+    "scope": "The AI selected tool requests, review decisions and checked evidence; actual changes and roles used are recorded above. The local builder is deterministic. Planner and Critic are separate roles using the same model, not independent sources of truth. Published factual text comes from checked tools; no private chain-of-thought is requested or published."
+  },
+  "engine": "Meterless H-MEM",
+  "locked": [
+    "Charizard"
+  ],
+  "legality": {
+    "status": "passed_showdown_validator",
+    "scope": "Historical Regulation H team and set rules; not official certification or current-event eligibility.",
+    "errors": []
+  },
+  "team": [
+    {
+      "name": "Charizard",
+      "species": "Charizard",
+      "ability": "Solar Power",
+      "item": "Choice Specs",
+      "level": 50,
+      "nature": "Timid",
+      "evs": {
+        "hp": 4,
+        "atk": 0,
+        "def": 0,
+        "spa": 252,
+        "spd": 0,
+        "spe": 252
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "teraType": "Ghost",
+      "moves": [
+        "Heat Wave",
+        "Overheat",
+        "Weather Ball",
+        "Dragon Pulse"
+      ],
+      "evidence": {
+        "ability_share": 0.9793505023739726,
+        "item_share": 0.7618193316989808,
+        "spread_share": 0.4580950132613879,
+        "move_shares": {
+          "Heat Wave": 0.9820179494283394,
+          "Overheat": 0.7206091350191115,
+          "Weather Ball": 0.6639183478299338,
+          "Dragon Pulse": 0.5601096064113428
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "gender": ""
+    },
+    {
+      "name": "Pelipper",
+      "species": "Pelipper",
+      "ability": "Drizzle",
+      "item": "Focus Sash",
+      "level": 50,
+      "nature": "Timid",
+      "evs": {
+        "hp": 4,
+        "atk": 0,
+        "def": 0,
+        "spa": 252,
+        "spd": 0,
+        "spe": 252
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "teraType": "Ghost",
+      "moves": [
+        "Hurricane",
+        "Weather Ball",
+        "Tailwind",
+        "Protect"
+      ],
+      "evidence": {
+        "ability_share": 0.9976620198476636,
+        "item_share": 0.5573747477985347,
+        "spread_share": 0.18923154638948939,
+        "move_shares": {
+          "Hurricane": 0.9871688472054913,
+          "Weather Ball": 0.8563924063493633,
+          "Tailwind": 0.7908469243402684,
+          "Protect": 0.584462442902606
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "gender": ""
+    },
+    {
+      "name": "Archaludon",
+      "species": "Archaludon",
+      "ability": "Stamina",
+      "item": "Assault Vest",
+      "level": 50,
+      "nature": "Timid",
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 252,
+        "spd": 4,
+        "spe": 252
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "teraType": "Grass",
+      "moves": [
+        "Electro Shot",
+        "Flash Cannon",
+        "Body Press",
+        "Draco Meteor"
+      ],
+      "evidence": {
+        "ability_share": 0.7797876611818783,
+        "item_share": 0.6598953312134613,
+        "spread_share": 0.10069572573634232,
+        "move_shares": {
+          "Electro Shot": 0.9454575879697902,
+          "Flash Cannon": 0.7389183030960551,
+          "Body Press": 0.7263933016846148,
+          "Draco Meteor": 0.4651439538152487
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "gender": ""
+    },
+    {
+      "name": "Basculegion",
+      "species": "Basculegion",
+      "ability": "Swift Swim",
+      "item": "Choice Band",
+      "level": 50,
+      "nature": "Adamant",
+      "evs": {
+        "hp": 4,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 252
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "teraType": "Water",
+      "moves": [
+        "Last Respects",
+        "Wave Crash",
+        "Flip Turn",
+        "Tera Blast"
+      ],
+      "evidence": {
+        "ability_share": 0.6533574148065874,
+        "item_share": 0.38942869695758303,
+        "spread_share": 0.21061474430307875,
+        "move_shares": {
+          "Last Respects": 0.9920413465956966,
+          "Wave Crash": 0.9661412512077489,
+          "Flip Turn": 0.6735559148621777,
+          "Tera Blast": 0.10069416727550363
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "gender": "M"
+    },
+    {
+      "name": "Amoonguss",
+      "species": "Amoonguss",
+      "ability": "Regenerator",
+      "item": "Sitrus Berry",
+      "level": 50,
+      "nature": "Bold",
+      "evs": {
+        "hp": 244,
+        "atk": 0,
+        "def": 156,
+        "spa": 0,
+        "spd": 108,
+        "spe": 0
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "teraType": "Water",
+      "moves": [
+        "Spore",
+        "Rage Powder",
+        "Pollen Puff",
+        "Protect"
+      ],
+      "evidence": {
+        "ability_share": 0.9619561722174826,
+        "item_share": 0.5231457777459909,
+        "spread_share": 0.12840760215958347,
+        "move_shares": {
+          "Spore": 0.9938129186901683,
+          "Rage Powder": 0.9804012361685546,
+          "Pollen Puff": 0.8076429171193117,
+          "Protect": 0.558906457418473
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "gender": ""
+    },
+    {
+      "name": "Porygon2",
+      "species": "Porygon2",
+      "ability": "Download",
+      "item": "Eviolite",
+      "level": 50,
+      "nature": "Modest",
+      "evs": {
+        "hp": 252,
+        "atk": 0,
+        "def": 76,
+        "spa": 172,
+        "spd": 4,
+        "spe": 4
+      },
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "teraType": "Fighting",
+      "moves": [
+        "Trick Room",
+        "Recover",
+        "Ice Beam",
+        "Protect"
+      ],
+      "evidence": {
+        "ability_share": 0.9124174928306654,
+        "item_share": 0.9980836491449103,
+        "spread_share": 0.1250774568289415,
+        "move_shares": {
+          "Trick Room": 0.9780313539318406,
+          "Recover": 0.9417214789158886,
+          "Ice Beam": 0.9156151283598731,
+          "Protect": 0.04968845573923665
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "gender": "N"
+    }
+  ],
+  "showdown_export": "Charizard @ Choice Specs  \nAbility: Solar Power  \nLevel: 50  \nTera Type: Ghost  \nEVs: 4 HP / 252 SpA / 252 Spe  \nTimid Nature  \n- Heat Wave  \n- Overheat  \n- Weather Ball  \n- Dragon Pulse  \n\nPelipper @ Focus Sash  \nAbility: Drizzle  \nLevel: 50  \nTera Type: Ghost  \nEVs: 4 HP / 252 SpA / 252 Spe  \nTimid Nature  \n- Hurricane  \n- Weather Ball  \n- Tailwind  \n- Protect  \n\nArchaludon @ Assault Vest  \nAbility: Stamina  \nLevel: 50  \nTera Type: Grass  \nEVs: 252 SpA / 4 SpD / 252 Spe  \nTimid Nature  \n- Electro Shot  \n- Flash Cannon  \n- Body Press  \n- Draco Meteor  \n\nBasculegion (M) @ Choice Band  \nAbility: Swift Swim  \nLevel: 50  \nTera Type: Water  \nEVs: 4 HP / 252 Atk / 252 Spe  \nAdamant Nature  \n- Last Respects  \n- Wave Crash  \n- Flip Turn  \n- Tera Blast  \n\nAmoonguss @ Sitrus Berry  \nAbility: Regenerator  \nLevel: 50  \nTera Type: Water  \nEVs: 244 HP / 156 Def / 108 SpD  \nBold Nature  \n- Spore  \n- Rage Powder  \n- Pollen Puff  \n- Protect  \n\nPorygon2 @ Eviolite  \nAbility: Download  \nLevel: 50  \nTera Type: Fighting  \nEVs: 252 HP / 76 Def / 172 SpA / 4 SpD / 4 Spe  \nModest Nature  \n- Trick Room  \n- Recover  \n- Ice Beam  \n- Protect  \n\n",
+  "members": [
+    {
+      "name": "Charizard",
+      "locked": true,
+      "selection_reason": "You locked this Pokemon, so the search preserved it.",
+      "roles": [
+        "attacker"
+      ],
+      "types": [
+        "Fire",
+        "Flying"
+      ],
+      "usage_percent": 3.802,
+      "base_stats": {
+        "hp": 78,
+        "atk": 84,
+        "def": 78,
+        "spa": 109,
+        "spd": 85,
+        "spe": 100
+      },
+      "type_weaknesses": {
+        "Electric": 2,
+        "Rock": 4,
+        "Water": 2
+      },
+      "ability_description": "If Sunny Day is active, this Pokemon's Sp. Atk is 1.5x; loses 1/8 max HP per turn.",
+      "item_description": "Holder's Sp. Atk is 1.5x, but it can only select the first move it executes.",
+      "moves": [
+        {
+          "name": "Heat Wave",
+          "type": "Fire",
+          "category": "Special",
+          "power": 95,
+          "accuracy": 90,
+          "priority": 0,
+          "target": "allAdjacentFoes",
+          "description": "10% chance to burn the foe(s)."
+        },
+        {
+          "name": "Overheat",
+          "type": "Fire",
+          "category": "Special",
+          "power": 130,
+          "accuracy": 90,
+          "priority": 0,
+          "target": "normal",
+          "description": "Lowers the user's Sp. Atk by 2."
+        },
+        {
+          "name": "Weather Ball",
+          "type": "Normal",
+          "category": "Special",
+          "power": 50,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "Power doubles and type varies in each weather."
+        },
+        {
+          "name": "Dragon Pulse",
+          "type": "Dragon",
+          "category": "Special",
+          "power": 85,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "any",
+          "description": "No additional effect."
+        }
+      ],
+      "set": {
+        "name": "Charizard",
+        "species": "Charizard",
+        "ability": "Solar Power",
+        "item": "Choice Specs",
+        "level": 50,
+        "nature": "Timid",
+        "evs": {
+          "hp": 4,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 0,
+          "spe": 252
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "teraType": "Ghost",
+        "moves": [
+          "Heat Wave",
+          "Overheat",
+          "Weather Ball",
+          "Dragon Pulse"
+        ],
+        "evidence": {
+          "ability_share": 0.9793505023739726,
+          "item_share": 0.7618193316989808,
+          "spread_share": 0.4580950132613879,
+          "move_shares": {
+            "Heat Wave": 0.9820179494283394,
+            "Overheat": 0.7206091350191115,
+            "Weather Ball": 0.6639183478299338,
+            "Dragon Pulse": 0.5601096064113428
+          },
+          "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+        },
+        "gender": ""
+      },
+      "actual_stats": {
+        "hp": 154,
+        "atk": 93,
+        "def": 98,
+        "spa": 161,
+        "spd": 105,
+        "spe": 167
+      },
+      "speed": {
+        "base_stat": 167,
+        "ordinary_speed": 167,
+        "scenarios": [
+          {
+            "condition": "After your side successfully sets Tailwind",
+            "speed": 334
+          }
+        ],
+        "scope": "Neutral stat stages; no paralysis, opponent effects or ability suppression. Listed conditional modifiers only. Trick Room changes order, not this number."
+      },
+      "spread_explanation": "Historical EV investment: 4 HP / 252 SPA / 252 SPE. Timid raises SPE and lowers ATK. These EVs produce the shown level-50 stats; no survival or knockout benchmark has been verified.",
+      "set_cautions": [
+        "This is a special-attacking set. The default 31 Attack IVs are not optimized; lower Attack can sometimes reduce Foul Play and confusion self-damage.",
+        "No personal protection move is selected. Plan switches and support carefully rather than assuming this Pokemon can Protect."
+      ],
+      "move_guidance": [
+        {
+          "move": "Heat Wave",
+          "guidance": "10% chance to burn the foe(s). It targets both adjacent opponents; redirection does not turn it into a single-target attack."
+        },
+        {
+          "move": "Overheat",
+          "guidance": "Lowers the user's Sp. Atk by 2."
+        },
+        {
+          "move": "Weather Ball",
+          "guidance": "Power doubles and type varies in each weather."
+        },
+        {
+          "move": "Dragon Pulse",
+          "guidance": "No additional effect."
+        }
+      ],
+      "historical_evidence": {
+        "ability_share": 0.9793505023739726,
+        "item_share": 0.7618193316989808,
+        "spread_share": 0.4580950132613879,
+        "move_shares": {
+          "Heat Wave": 0.9820179494283394,
+          "Overheat": 0.7206091350191115,
+          "Weather Ball": 0.6639183478299338,
+          "Dragon Pulse": 0.5601096064113428
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "heuristic_contribution": {
+        "historical_usage": 1.726,
+        "set_evidence_and_usability": -0.473,
+        "support_roles": 0.0,
+        "original_type_balance": -4.05,
+        "field_and_partner_interactions": -4.0,
+        "historical_cooccurrence": 0.689
+      }
+    },
+    {
+      "name": "Pelipper",
+      "locked": false,
+      "selection_reason": "Adds speed control, weather setter to the candidate team. Its Drizzle supplies rain for Basculegion; that benefit depends on keeping the weather active. Its original types resist or are immune to Water, to which Charizard is weak. It also appears alongside a locked favourite in this historical ladder snapshot. This is a search heuristic, not proof it is the best partner.",
+      "roles": [
+        "speed control",
+        "weather setter"
+      ],
+      "types": [
+        "Water",
+        "Flying"
+      ],
+      "usage_percent": 16.621,
+      "base_stats": {
+        "hp": 60,
+        "atk": 50,
+        "def": 100,
+        "spa": 95,
+        "spd": 70,
+        "spe": 65
+      },
+      "type_weaknesses": {
+        "Electric": 4,
+        "Rock": 2
+      },
+      "ability_description": "On switch-in, this Pokemon summons Rain Dance.",
+      "item_description": "If holder's HP is full, will survive an attack that would KO it with 1 HP. Single use.",
+      "moves": [
+        {
+          "name": "Hurricane",
+          "type": "Flying",
+          "category": "Special",
+          "power": 110,
+          "accuracy": 70,
+          "priority": 0,
+          "target": "any",
+          "description": "30% chance to confuse target. Can't miss in rain."
+        },
+        {
+          "name": "Weather Ball",
+          "type": "Normal",
+          "category": "Special",
+          "power": 50,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "Power doubles and type varies in each weather."
+        },
+        {
+          "name": "Tailwind",
+          "type": "Flying",
+          "category": "Status",
+          "power": 0,
+          "accuracy": true,
+          "priority": 0,
+          "target": "allySide",
+          "description": "For 4 turns, allies' Speed is doubled."
+        },
+        {
+          "name": "Protect",
+          "type": "Normal",
+          "category": "Status",
+          "power": 0,
+          "accuracy": true,
+          "priority": 4,
+          "target": "self",
+          "description": "Prevents moves from affecting the user this turn."
+        }
+      ],
+      "set": {
+        "name": "Pelipper",
+        "species": "Pelipper",
+        "ability": "Drizzle",
+        "item": "Focus Sash",
+        "level": 50,
+        "nature": "Timid",
+        "evs": {
+          "hp": 4,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 0,
+          "spe": 252
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "teraType": "Ghost",
+        "moves": [
+          "Hurricane",
+          "Weather Ball",
+          "Tailwind",
+          "Protect"
+        ],
+        "evidence": {
+          "ability_share": 0.9976620198476636,
+          "item_share": 0.5573747477985347,
+          "spread_share": 0.18923154638948939,
+          "move_shares": {
+            "Hurricane": 0.9871688472054913,
+            "Weather Ball": 0.8563924063493633,
+            "Tailwind": 0.7908469243402684,
+            "Protect": 0.584462442902606
+          },
+          "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+        },
+        "gender": ""
+      },
+      "actual_stats": {
+        "hp": 136,
+        "atk": 63,
+        "def": 120,
+        "spa": 147,
+        "spd": 90,
+        "spe": 128
+      },
+      "speed": {
+        "base_stat": 128,
+        "ordinary_speed": 128,
+        "scenarios": [
+          {
+            "condition": "After your side successfully sets Tailwind",
+            "speed": 256
+          }
+        ],
+        "scope": "Neutral stat stages; no paralysis, opponent effects or ability suppression. Listed conditional modifiers only. Trick Room changes order, not this number."
+      },
+      "spread_explanation": "Historical EV investment: 4 HP / 252 SPA / 252 SPE. Timid raises SPE and lowers ATK. These EVs produce the shown level-50 stats; no survival or knockout benchmark has been verified.",
+      "set_cautions": [
+        "This is a special-attacking set. The default 31 Attack IVs are not optimized; lower Attack can sometimes reduce Foul Play and confusion self-damage."
+      ],
+      "move_guidance": [
+        {
+          "move": "Hurricane",
+          "guidance": "30% chance to confuse target. Can't miss in rain."
+        },
+        {
+          "move": "Weather Ball",
+          "guidance": "Power doubles and type varies in each weather."
+        },
+        {
+          "move": "Tailwind",
+          "guidance": "For 4 turns, allies' Speed is doubled."
+        },
+        {
+          "move": "Protect",
+          "guidance": "Prevents moves from affecting the user this turn. Use it to cover an exposed turn or let your partner act; repeated use is unreliable."
+        }
+      ],
+      "historical_evidence": {
+        "ability_share": 0.9976620198476636,
+        "item_share": 0.5573747477985347,
+        "spread_share": 0.18923154638948939,
+        "move_shares": {
+          "Hurricane": 0.9871688472054913,
+          "Weather Ball": 0.8563924063493633,
+          "Tailwind": 0.7908469243402684,
+          "Protect": 0.584462442902606
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "heuristic_contribution": {
+        "historical_usage": 3.156,
+        "set_evidence_and_usability": -0.298,
+        "support_roles": 0.0,
+        "original_type_balance": -3.6,
+        "field_and_partner_interactions": 8.0,
+        "historical_cooccurrence": 2.432
+      }
+    },
+    {
+      "name": "Archaludon",
+      "locked": false,
+      "selection_reason": "Adds attacker to the candidate team. Its original types resist or are immune to Electric, Rock, Water, to which Charizard is weak. It also appears alongside a locked favourite in this historical ladder snapshot. This is a search heuristic, not proof it is the best partner.",
+      "roles": [
+        "attacker"
+      ],
+      "types": [
+        "Steel",
+        "Dragon"
+      ],
+      "usage_percent": 22.601,
+      "base_stats": {
+        "hp": 90,
+        "atk": 105,
+        "def": 130,
+        "spa": 125,
+        "spd": 65,
+        "spe": 85
+      },
+      "type_weaknesses": {
+        "Fighting": 2,
+        "Ground": 2
+      },
+      "ability_description": "This Pokemon's Defense is raised by 1 stage after it is damaged by a move.",
+      "item_description": "Holder's Sp. Def is 1.5x, but it can only select damaging moves.",
+      "moves": [
+        {
+          "name": "Electro Shot",
+          "type": "Electric",
+          "category": "Special",
+          "power": 130,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "Raises Sp. Atk by 1, hits turn 2. Rain: no charge."
+        },
+        {
+          "name": "Flash Cannon",
+          "type": "Steel",
+          "category": "Special",
+          "power": 80,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "10% chance to lower the target's Sp. Def by 1."
+        },
+        {
+          "name": "Body Press",
+          "type": "Fighting",
+          "category": "Physical",
+          "power": 80,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "Uses user's Def stat as Atk in damage calculation."
+        },
+        {
+          "name": "Draco Meteor",
+          "type": "Dragon",
+          "category": "Special",
+          "power": 130,
+          "accuracy": 90,
+          "priority": 0,
+          "target": "normal",
+          "description": "Lowers the user's Sp. Atk by 2."
+        }
+      ],
+      "set": {
+        "name": "Archaludon",
+        "species": "Archaludon",
+        "ability": "Stamina",
+        "item": "Assault Vest",
+        "level": 50,
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "teraType": "Grass",
+        "moves": [
+          "Electro Shot",
+          "Flash Cannon",
+          "Body Press",
+          "Draco Meteor"
+        ],
+        "evidence": {
+          "ability_share": 0.7797876611818783,
+          "item_share": 0.6598953312134613,
+          "spread_share": 0.10069572573634232,
+          "move_shares": {
+            "Electro Shot": 0.9454575879697902,
+            "Flash Cannon": 0.7389183030960551,
+            "Body Press": 0.7263933016846148,
+            "Draco Meteor": 0.4651439538152487
+          },
+          "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+        },
+        "gender": ""
+      },
+      "actual_stats": {
+        "hp": 165,
+        "atk": 112,
+        "def": 150,
+        "spa": 177,
+        "spd": 86,
+        "spe": 150
+      },
+      "speed": {
+        "base_stat": 150,
+        "ordinary_speed": 150,
+        "scenarios": [
+          {
+            "condition": "After your side successfully sets Tailwind",
+            "speed": 300
+          }
+        ],
+        "scope": "Neutral stat stages; no paralysis, opponent effects or ability suppression. Listed conditional modifiers only. Trick Room changes order, not this number."
+      },
+      "spread_explanation": "Historical EV investment: 252 SPA / 4 SPD / 252 SPE. Timid raises SPE and lowers ATK. These EVs produce the shown level-50 stats; no survival or knockout benchmark has been verified.",
+      "set_cautions": [
+        "No personal protection move is selected. Plan switches and support carefully rather than assuming this Pokemon can Protect."
+      ],
+      "move_guidance": [
+        {
+          "move": "Electro Shot",
+          "guidance": "Raises Sp. Atk by 1, hits turn 2. Rain: no charge."
+        },
+        {
+          "move": "Flash Cannon",
+          "guidance": "10% chance to lower the target's Sp. Def by 1."
+        },
+        {
+          "move": "Body Press",
+          "guidance": "Uses user's Def stat as Atk in damage calculation."
+        },
+        {
+          "move": "Draco Meteor",
+          "guidance": "Lowers the user's Sp. Atk by 2."
+        }
+      ],
+      "historical_evidence": {
+        "ability_share": 0.7797876611818783,
+        "item_share": 0.6598953312134613,
+        "spread_share": 0.10069572573634232,
+        "move_shares": {
+          "Electro Shot": 0.9454575879697902,
+          "Flash Cannon": 0.7389183030960551,
+          "Body Press": 0.7263933016846148,
+          "Draco Meteor": 0.4651439538152487
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "heuristic_contribution": {
+        "historical_usage": 3.477,
+        "set_evidence_and_usability": -1.11,
+        "support_roles": 0.0,
+        "original_type_balance": 0.6,
+        "field_and_partner_interactions": 0.0,
+        "historical_cooccurrence": 2.404
+      }
+    },
+    {
+      "name": "Basculegion",
+      "locked": false,
+      "selection_reason": "Adds pivot, attacker to the candidate team. Its original types resist or are immune to Water, to which Charizard is weak. It also appears alongside a locked favourite in this historical ladder snapshot. This is a search heuristic, not proof it is the best partner.",
+      "roles": [
+        "pivot",
+        "attacker"
+      ],
+      "types": [
+        "Water",
+        "Ghost"
+      ],
+      "usage_percent": 9.658,
+      "base_stats": {
+        "hp": 120,
+        "atk": 112,
+        "def": 65,
+        "spa": 80,
+        "spd": 75,
+        "spe": 78
+      },
+      "type_weaknesses": {
+        "Dark": 2,
+        "Electric": 2,
+        "Ghost": 2,
+        "Grass": 2
+      },
+      "ability_description": "If Rain Dance is active, this Pokemon's Speed is doubled.",
+      "item_description": "Holder's Attack is 1.5x, but it can only select the first move it executes.",
+      "moves": [
+        {
+          "name": "Last Respects",
+          "type": "Ghost",
+          "category": "Physical",
+          "power": 50,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "+50 power for each time a party member fainted."
+        },
+        {
+          "name": "Wave Crash",
+          "type": "Water",
+          "category": "Physical",
+          "power": 120,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "Has 33% recoil."
+        },
+        {
+          "name": "Flip Turn",
+          "type": "Water",
+          "category": "Physical",
+          "power": 60,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "User switches out after damaging the target."
+        },
+        {
+          "name": "Tera Blast",
+          "type": "Normal",
+          "category": "Special",
+          "power": 80,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "If Terastallized: Phys. if Atk > SpA, type = Tera."
+        }
+      ],
+      "set": {
+        "name": "Basculegion",
+        "species": "Basculegion",
+        "ability": "Swift Swim",
+        "item": "Choice Band",
+        "level": 50,
+        "nature": "Adamant",
+        "evs": {
+          "hp": 4,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 0,
+          "spe": 252
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "teraType": "Water",
+        "moves": [
+          "Last Respects",
+          "Wave Crash",
+          "Flip Turn",
+          "Tera Blast"
+        ],
+        "evidence": {
+          "ability_share": 0.6533574148065874,
+          "item_share": 0.38942869695758303,
+          "spread_share": 0.21061474430307875,
+          "move_shares": {
+            "Last Respects": 0.9920413465956966,
+            "Wave Crash": 0.9661412512077489,
+            "Flip Turn": 0.6735559148621777,
+            "Tera Blast": 0.10069416727550363
+          },
+          "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+        },
+        "gender": "M"
+      },
+      "actual_stats": {
+        "hp": 196,
+        "atk": 180,
+        "def": 85,
+        "spa": 90,
+        "spd": 95,
+        "spe": 130
+      },
+      "speed": {
+        "base_stat": 130,
+        "ordinary_speed": 130,
+        "scenarios": [
+          {
+            "condition": "After your side successfully sets Tailwind",
+            "speed": 260
+          },
+          {
+            "condition": "While rain is active (Pelipper)",
+            "speed": 260
+          },
+          {
+            "condition": "While both rain and your Tailwind are active",
+            "speed": 520
+          }
+        ],
+        "scope": "Neutral stat stages; no paralysis, opponent effects or ability suppression. Listed conditional modifiers only. Trick Room changes order, not this number."
+      },
+      "spread_explanation": "Historical EV investment: 4 HP / 252 ATK / 252 SPE. Adamant raises ATK and lowers SPA. These EVs produce the shown level-50 stats; no survival or knockout benchmark has been verified.",
+      "set_cautions": [
+        "No personal protection move is selected. Plan switches and support carefully rather than assuming this Pokemon can Protect."
+      ],
+      "move_guidance": [
+        {
+          "move": "Last Respects",
+          "guidance": "+50 power for each time a party member fainted."
+        },
+        {
+          "move": "Wave Crash",
+          "guidance": "Has 33% recoil."
+        },
+        {
+          "move": "Flip Turn",
+          "guidance": "User switches out after damaging the target."
+        },
+        {
+          "move": "Tera Blast",
+          "guidance": "If Terastallized: Phys. if Atk > SpA, type = Tera."
+        }
+      ],
+      "historical_evidence": {
+        "ability_share": 0.6533574148065874,
+        "item_share": 0.38942869695758303,
+        "spread_share": 0.21061474430307875,
+        "move_shares": {
+          "Last Respects": 0.9920413465956966,
+          "Wave Crash": 0.9661412512077489,
+          "Flip Turn": 0.6735559148621777,
+          "Tera Blast": 0.10069416727550363
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "heuristic_contribution": {
+        "historical_usage": 2.603,
+        "set_evidence_and_usability": -1.34,
+        "support_roles": 1.25,
+        "original_type_balance": -3.6,
+        "field_and_partner_interactions": 5.0,
+        "historical_cooccurrence": 2.005
+      }
+    },
+    {
+      "name": "Amoonguss",
+      "locked": false,
+      "selection_reason": "Adds redirection to the candidate team. Its original types resist or are immune to Electric, Water, to which Charizard is weak. It also appears alongside a locked favourite in this historical ladder snapshot. This is a search heuristic, not proof it is the best partner.",
+      "roles": [
+        "redirection"
+      ],
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "usage_percent": 14.234,
+      "base_stats": {
+        "hp": 114,
+        "atk": 85,
+        "def": 70,
+        "spa": 85,
+        "spd": 80,
+        "spe": 30
+      },
+      "type_weaknesses": {
+        "Fire": 2,
+        "Flying": 2,
+        "Ice": 2,
+        "Psychic": 2
+      },
+      "ability_description": "This Pokemon restores 1/3 of its maximum HP, rounded down, when it switches out.",
+      "item_description": "Restores 1/4 max HP when at 1/2 max HP or less. Single use.",
+      "moves": [
+        {
+          "name": "Spore",
+          "type": "Grass",
+          "category": "Status",
+          "power": 0,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "Causes the target to fall asleep."
+        },
+        {
+          "name": "Rage Powder",
+          "type": "Bug",
+          "category": "Status",
+          "power": 0,
+          "accuracy": true,
+          "priority": 2,
+          "target": "self",
+          "description": "The foes' moves target the user on the turn used."
+        },
+        {
+          "name": "Pollen Puff",
+          "type": "Bug",
+          "category": "Special",
+          "power": 90,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "If the target is an ally, heals 50% of its max HP."
+        },
+        {
+          "name": "Protect",
+          "type": "Normal",
+          "category": "Status",
+          "power": 0,
+          "accuracy": true,
+          "priority": 4,
+          "target": "self",
+          "description": "Prevents moves from affecting the user this turn."
+        }
+      ],
+      "set": {
+        "name": "Amoonguss",
+        "species": "Amoonguss",
+        "ability": "Regenerator",
+        "item": "Sitrus Berry",
+        "level": 50,
+        "nature": "Bold",
+        "evs": {
+          "hp": 244,
+          "atk": 0,
+          "def": 156,
+          "spa": 0,
+          "spd": 108,
+          "spe": 0
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "teraType": "Water",
+        "moves": [
+          "Spore",
+          "Rage Powder",
+          "Pollen Puff",
+          "Protect"
+        ],
+        "evidence": {
+          "ability_share": 0.9619561722174826,
+          "item_share": 0.5231457777459909,
+          "spread_share": 0.12840760215958347,
+          "move_shares": {
+            "Spore": 0.9938129186901683,
+            "Rage Powder": 0.9804012361685546,
+            "Pollen Puff": 0.8076429171193117,
+            "Protect": 0.558906457418473
+          },
+          "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+        },
+        "gender": ""
+      },
+      "actual_stats": {
+        "hp": 220,
+        "atk": 94,
+        "def": 121,
+        "spa": 105,
+        "spd": 114,
+        "spe": 50
+      },
+      "speed": {
+        "base_stat": 50,
+        "ordinary_speed": 50,
+        "scenarios": [
+          {
+            "condition": "After your side successfully sets Tailwind",
+            "speed": 100
+          }
+        ],
+        "scope": "Neutral stat stages; no paralysis, opponent effects or ability suppression. Listed conditional modifiers only. Trick Room changes order, not this number."
+      },
+      "spread_explanation": "Historical EV investment: 244 HP / 156 DEF / 108 SPD. Bold raises DEF and lowers ATK. These EVs produce the shown level-50 stats; no survival or knockout benchmark has been verified.",
+      "set_cautions": [
+        "0 Speed EVs is not 0 Speed IVs. This build still has 31 Speed IVs; a dedicated Trick Room spread may want fewer, but IVs have not been optimized.",
+        "This is a special-attacking set. The default 31 Attack IVs are not optimized; lower Attack can sometimes reduce Foul Play and confusion self-damage."
+      ],
+      "move_guidance": [
+        {
+          "move": "Spore",
+          "guidance": "Causes the target to fall asleep."
+        },
+        {
+          "move": "Rage Powder",
+          "guidance": "The foes' moves target the user on the turn used."
+        },
+        {
+          "move": "Pollen Puff",
+          "guidance": "If the target is an ally, heals 50% of its max HP."
+        },
+        {
+          "move": "Protect",
+          "guidance": "Prevents moves from affecting the user this turn. Use it to cover an exposed turn or let your partner act; repeated use is unreliable."
+        }
+      ],
+      "historical_evidence": {
+        "ability_share": 0.9619561722174826,
+        "item_share": 0.5231457777459909,
+        "spread_share": 0.12840760215958347,
+        "move_shares": {
+          "Spore": 0.9938129186901683,
+          "Rage Powder": 0.9804012361685546,
+          "Pollen Puff": 0.8076429171193117,
+          "Protect": 0.558906457418473
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "heuristic_contribution": {
+        "historical_usage": 2.996,
+        "set_evidence_and_usability": -0.461,
+        "support_roles": 2.5,
+        "original_type_balance": -1.8,
+        "field_and_partner_interactions": 1.5,
+        "historical_cooccurrence": 1.552
+      }
+    },
+    {
+      "name": "Porygon2",
+      "locked": false,
+      "selection_reason": "Adds speed control to the candidate team. It also appears alongside a locked favourite in this historical ladder snapshot. This is a search heuristic, not proof it is the best partner.",
+      "roles": [
+        "speed control"
+      ],
+      "types": [
+        "Normal"
+      ],
+      "usage_percent": 7.707,
+      "base_stats": {
+        "hp": 85,
+        "atk": 80,
+        "def": 90,
+        "spa": 105,
+        "spd": 95,
+        "spe": 60
+      },
+      "type_weaknesses": {
+        "Fighting": 2
+      },
+      "ability_description": "On switch-in, Attack or Sp. Atk is raised 1 stage based on the foes' weaker Defense.",
+      "item_description": "If holder's species can evolve, its Defense and Sp. Def are 1.5x.",
+      "moves": [
+        {
+          "name": "Trick Room",
+          "type": "Psychic",
+          "category": "Status",
+          "power": 0,
+          "accuracy": true,
+          "priority": -7,
+          "target": "all",
+          "description": "Goes last. For 5 turns, turn order is reversed."
+        },
+        {
+          "name": "Recover",
+          "type": "Normal",
+          "category": "Status",
+          "power": 0,
+          "accuracy": true,
+          "priority": 0,
+          "target": "self",
+          "description": "Heals the user by 50% of its max HP."
+        },
+        {
+          "name": "Ice Beam",
+          "type": "Ice",
+          "category": "Special",
+          "power": 90,
+          "accuracy": 100,
+          "priority": 0,
+          "target": "normal",
+          "description": "10% chance to freeze the target."
+        },
+        {
+          "name": "Protect",
+          "type": "Normal",
+          "category": "Status",
+          "power": 0,
+          "accuracy": true,
+          "priority": 4,
+          "target": "self",
+          "description": "Prevents moves from affecting the user this turn."
+        }
+      ],
+      "set": {
+        "name": "Porygon2",
+        "species": "Porygon2",
+        "ability": "Download",
+        "item": "Eviolite",
+        "level": 50,
+        "nature": "Modest",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 76,
+          "spa": 172,
+          "spd": 4,
+          "spe": 4
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "teraType": "Fighting",
+        "moves": [
+          "Trick Room",
+          "Recover",
+          "Ice Beam",
+          "Protect"
+        ],
+        "evidence": {
+          "ability_share": 0.9124174928306654,
+          "item_share": 0.9980836491449103,
+          "spread_share": 0.1250774568289415,
+          "move_shares": {
+            "Trick Room": 0.9780313539318406,
+            "Recover": 0.9417214789158886,
+            "Ice Beam": 0.9156151283598731,
+            "Protect": 0.04968845573923665
+          },
+          "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+        },
+        "gender": "N"
+      },
+      "actual_stats": {
+        "hp": 192,
+        "atk": 90,
+        "def": 120,
+        "spa": 161,
+        "spd": 116,
+        "spe": 81
+      },
+      "speed": {
+        "base_stat": 81,
+        "ordinary_speed": 81,
+        "scenarios": [
+          {
+            "condition": "After your side successfully sets Tailwind",
+            "speed": 162
+          }
+        ],
+        "scope": "Neutral stat stages; no paralysis, opponent effects or ability suppression. Listed conditional modifiers only. Trick Room changes order, not this number."
+      },
+      "spread_explanation": "Historical EV investment: 252 HP / 76 DEF / 172 SPA / 4 SPD / 4 SPE. Modest raises SPA and lowers ATK. These EVs produce the shown level-50 stats; no survival or knockout benchmark has been verified.",
+      "set_cautions": [
+        "This is a special-attacking set. The default 31 Attack IVs are not optimized; lower Attack can sometimes reduce Foul Play and confusion self-damage."
+      ],
+      "move_guidance": [
+        {
+          "move": "Trick Room",
+          "guidance": "Goes last. For 5 turns, turn order is reversed."
+        },
+        {
+          "move": "Recover",
+          "guidance": "Heals the user by 50% of its max HP."
+        },
+        {
+          "move": "Ice Beam",
+          "guidance": "10% chance to freeze the target."
+        },
+        {
+          "move": "Protect",
+          "guidance": "Prevents moves from affecting the user this turn. Use it to cover an exposed turn or let your partner act; repeated use is unreliable."
+        }
+      ],
+      "historical_evidence": {
+        "ability_share": 0.9124174928306654,
+        "item_share": 0.9980836491449103,
+        "spread_share": 0.1250774568289415,
+        "move_shares": {
+          "Trick Room": 0.9780313539318406,
+          "Recover": 0.9417214789158886,
+          "Ice Beam": 0.9156151283598731,
+          "Protect": 0.04968845573923665
+        },
+        "scope": "Separate November 2024 weighted ladder marginals; spread share is among reported spreads. Not a jointly observed set or a win rate."
+      },
+      "heuristic_contribution": {
+        "historical_usage": 2.381,
+        "set_evidence_and_usability": -0.22,
+        "support_roles": 0.0,
+        "original_type_balance": -1.35,
+        "field_and_partner_interactions": 1.5,
+        "historical_cooccurrence": 1.179
+      }
+    }
+  ],
+  "weaknesses": [
+    {
+      "type": "Electric",
+      "weak": [
+        "Charizard",
+        "Pelipper",
+        "Basculegion"
+      ],
+      "resist_or_immune": [
+        "Archaludon",
+        "Amoonguss"
+      ],
+      "severity": "high"
+    },
+    {
+      "type": "Fighting",
+      "weak": [
+        "Archaludon",
+        "Porygon2"
+      ],
+      "resist_or_immune": [
+        "Charizard",
+        "Pelipper",
+        "Basculegion",
+        "Amoonguss"
+      ],
+      "severity": "watch"
+    },
+    {
+      "type": "Rock",
+      "weak": [
+        "Charizard",
+        "Pelipper"
+      ],
+      "resist_or_immune": [
+        "Archaludon"
+      ],
+      "severity": "watch"
+    }
+  ],
+  "possible_leads": [
+    {
+      "pokemon": [
+        "Pelipper",
+        "Basculegion"
+      ],
+      "score": 11,
+      "reasons": [
+        "Pelipper supplies rain for Basculegion's Swift Swim; the weather must remain active."
+      ],
+      "opening_actions": [
+        "If the opponent cannot immediately remove Basculegion, consider Last Respects with it while Pelipper attacks or protects. Check opposing weather setters before committing to this mode.",
+        "Consider Tailwind with Pelipper; Basculegion can attack or protect. The setter must successfully act first; do not assume Tailwind is already active."
+      ],
+      "cautions": [
+        "Choice Band locks Basculegion into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position."
+      ],
+      "interaction_codes": [
+        "choice_lock"
+      ]
+    },
+    {
+      "pokemon": [
+        "Amoonguss",
+        "Porygon2"
+      ],
+      "score": 6,
+      "reasons": [
+        "A utility or attacking opening to consider after checking the opposing six."
+      ],
+      "opening_actions": [
+        "Amoonguss can use Rage Powder to draw eligible single-target attacks away from Porygon2. Spread moves bypass redirection; Grass types, Overcoat and Safety Goggles can ignore Rage Powder.",
+        "If the opponent is faster, consider Trick Room with Porygon2 while Amoonguss protects or attacks. Trick Room has -7 priority, so it usually starts after ordinary attacks."
+      ],
+      "cautions": [],
+      "interaction_codes": []
+    },
+    {
+      "pokemon": [
+        "Pelipper",
+        "Amoonguss"
+      ],
+      "score": 6,
+      "reasons": [
+        "A utility or attacking opening to consider after checking the opposing six."
+      ],
+      "opening_actions": [
+        "Consider Tailwind with Pelipper; Amoonguss can attack or protect. The setter must successfully act first; do not assume Tailwind is already active.",
+        "Amoonguss can use Rage Powder to draw eligible single-target attacks away from Pelipper. Spread moves bypass redirection; Grass types, Overcoat and Safety Goggles can ignore Rage Powder."
+      ],
+      "cautions": [],
+      "interaction_codes": []
+    }
+  ],
+  "four_of_six_examples": [
+    {
+      "lead": [
+        "Pelipper",
+        "Basculegion"
+      ],
+      "back": [
+        "Archaludon",
+        "Amoonguss"
+      ],
+      "reasons": [
+        "Archaludon supplies attacker from the back; switching still costs positioning and may expose it to an attack.",
+        "Amoonguss supplies redirection from the back; switching still costs positioning and may expose it to an attack."
+      ],
+      "cautions": [
+        "Choice Band locks Basculegion into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position."
+      ],
+      "note": "A conditional four-of-six practice plan, not an opponent-specific selection. Change it after inspecting the opponent's six."
+    },
+    {
+      "lead": [
+        "Amoonguss",
+        "Porygon2"
+      ],
+      "back": [
+        "Pelipper",
+        "Basculegion"
+      ],
+      "reasons": [
+        "Pelipper supplies speed control, weather setter from the back; switching still costs positioning and may expose it to an attack.",
+        "Basculegion supplies pivot, attacker from the back; switching still costs positioning and may expose it to an attack.",
+        "Split modes: Amoonguss, Porygon2 can use the slow mode; Pelipper, Basculegion usually prefer turns outside Trick Room. Opponent Speed still decides whether to reverse order."
+      ],
+      "cautions": [
+        "Choice Band locks Basculegion into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position."
+      ],
+      "note": "A conditional four-of-six practice plan, not an opponent-specific selection. Change it after inspecting the opponent's six."
+    },
+    {
+      "lead": [
+        "Pelipper",
+        "Amoonguss"
+      ],
+      "back": [
+        "Archaludon",
+        "Basculegion"
+      ],
+      "reasons": [
+        "Archaludon supplies attacker from the back; switching still costs positioning and may expose it to an attack.",
+        "Basculegion supplies pivot, attacker from the back; switching still costs positioning and may expose it to an attack."
+      ],
+      "cautions": [
+        "Choice Band locks Basculegion into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position."
+      ],
+      "note": "A conditional four-of-six practice plan, not an opponent-specific selection. Change it after inspecting the opponent's six."
+    }
+  ],
+  "warnings": [
+    "Historical Regulation H only; this is not a check against current 2026 tournament rules.",
+    "Sets combine historical aggregate choices; they are not proven winning sets, and a legal team is not necessarily strong.",
+    "Type charts describe original types before Terastallization and ignore abilities, items and field effects.",
+    "No damage simulation or battle win probability is computed. Leads and four-of-six selections are conditional practice plans.",
+    "IVs default to 31 because aggregate usage does not provide them. They are not optimized.",
+    "Speed examples cover listed conditions only, with neutral stat stages and no status or suppression. Unknown opponent sets prevent guaranteed move-order claims."
+  ],
+  "interactions": [
+    {
+      "code": "missing_weather",
+      "severity": "caution",
+      "pokemon": [
+        "Charizard"
+      ],
+      "explanation": "Solar Power needs sun, but the team has no automatic sun setter. Manual weather or the opponent would have to supply it.",
+      "penalty": 3
+    },
+    {
+      "code": "rain_fire",
+      "severity": "trade-off",
+      "pokemon": [
+        "Charizard"
+      ],
+      "explanation": "Rain halves ordinary Fire-move damage. Charizard may need to attack outside rain or choose another move.",
+      "penalty": 1
+    },
+    {
+      "code": "choice_lock",
+      "severity": "trade-off",
+      "pokemon": [
+        "Charizard"
+      ],
+      "explanation": "Choice Specs locks Charizard into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position.",
+      "penalty": 0
+    },
+    {
+      "code": "choice_lock",
+      "severity": "trade-off",
+      "pokemon": [
+        "Basculegion"
+      ],
+      "explanation": "Choice Band locks Basculegion into its first selected move until it switches out. Choose an attack that remains useful if the opponent protects or changes position.",
+      "penalty": 0
+    }
+  ],
+  "speed_overview": {
+    "ordinary_order": [
+      {
+        "pokemon": "Charizard",
+        "speed": 167
+      },
+      {
+        "pokemon": "Archaludon",
+        "speed": 150
+      },
+      {
+        "pokemon": "Basculegion",
+        "speed": 130
+      },
+      {
+        "pokemon": "Pelipper",
+        "speed": 128
+      },
+      {
+        "pokemon": "Porygon2",
+        "speed": 81
+      },
+      {
+        "pokemon": "Amoonguss",
+        "speed": 50
+      }
+    ],
+    "trick_room_setters": [
+      "Porygon2"
+    ],
+    "explanation": "Higher effective Speed normally acts first within the same move-priority bracket. Ties are not guaranteed. Trick Room reverses Speed order within that bracket for five turns including the activation turn; priority moves still use their own bracket. Tailwind lasts four turns including its activation turn.",
+    "trick_room_plan": "Use the slow mode only when the opposing active Pokemon are faster. Keep fast partners for turns without Trick Room; do not set Tailwind automatically in the slow mode."
+  },
+  "team_evaluation": {
+    "components": {
+      "historical_usage": 16.339,
+      "set_evidence_and_usability": -3.902,
+      "support_roles": 7.75,
+      "original_type_balance": -11.7,
+      "field_and_partner_interactions": 2.5,
+      "historical_cooccurrence": 5.13
+    },
+    "score": 16.11744,
+    "scope": "Transparent bounded-search heuristic; neither a win probability nor a benchmark of competitive strength. The search does not examine every legal team."
+  },
+  "sources": [
+    {
+      "title": "Pokemon Showdown dex and validator",
+      "url": "https://github.com/smogon/pokemon-showdown",
+      "package": "pokemon-showdown@0.11.11",
+      "license": "MIT"
+    },
+    {
+      "title": "Historical Showdown format definition",
+      "commit": "9fa4647eb5967fe59a0d18ec63f5b23f6e231cff",
+      "url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/9fa4647eb5967fe59a0d18ec63f5b23f6e231cff/config/formats.ts",
+      "license": "MIT"
+    },
+    {
+      "title": "Smogon November 2024 VGC Regulation H ladder statistics",
+      "url": "https://www.smogon.com/stats/2024-11/chaos/gen9vgc2024regh-1500.json",
+      "sha256": "4ef0bd9769f4172a45e98ca774f8fb4ef86f18a3bf9cb5efe1ed7441fe27a934",
+      "battles": 965304,
+      "cutoff": 1500,
+      "interpretation": "Aggregate weighted ladder usage, not official tournament history or a win-rate predictor."
+    },
+    {
+      "title": "Official Pokemon Regulation H announcement",
+      "url": "https://sv-news.pokemon.co.jp/en/page/245.html"
+    }
+  ],
+  "statistics": {
+    "team type": null,
+    "cutoff": 1500,
+    "cutoff deviation": 0,
+    "metagame": "gen9vgc2024regh",
+    "number of battles": 965304
+  },
+  "set_method": "Synthetic combinations of November 2024 ladder marginals, independently validated. Not observed complete sets or tournament-winning teams. IVs default to 31.",
+  "memory_used": {
+    "profile": "public-rain-evaluation",
+    "ids": [],
+    "avoided_partner": "Incineroar"
+  }
+}

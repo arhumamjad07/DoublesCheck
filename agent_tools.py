@@ -8,11 +8,12 @@ from team_builder import build_team, resolve_names, roles, set_key, TeamScorer
 from nightshift_client import CoachError
 
 OBJECTIVES = {"simple": "Beginner-friendly balanced play", "sun": "Explore a sun mode",
-              "rain": "Explore a rain mode", "trick-room": "Explore a slow Trick Room mode"}
+              "rain": "Explore a rain mode", "trick-room": "Explore a slow Trick Room mode",
+              "reliable": "Repair unsupported item/weather activation plans; disclose remaining conditional effects honestly"}
 TOOLS = {
     "inspect_team": "No arguments. Check the current team's legality, constraints, stats, supported interactions and evidence.",
     "search_partners": "{for_species: name, role: any|weather|speed|redirection|pivot, weather: any|sun|rain}. Return up to six supported source choices.",
-    "get_sets": "{species: name, purpose: recommended|protection|no_ally_hit|different_item}. Return up to six prepared set IDs in current context.",
+    "get_sets": "{species: name, purpose: recommended|protection|no_ally_hit|different_item|repair_condition, issue_id?: current caution ID}. repair_condition requires issue_id. Return up to three diverse source options with checked effects.",
     "build_candidate": "{partners: [up to five names]}. Preserve all original locks/avoidance, keep these additional partners and fill remaining slots locally.",
     "change_set": "{species: current name, set_id: ID returned by get_sets}. Change that member's sourced set, then check the full team.",
 }
@@ -32,14 +33,17 @@ class ToolRefused(ValueError):
 
 
 class CoachTools:
-    def __init__(self, data, team, locked, avoided, trace, origin):
+    def __init__(self, data, team, locked, avoided, trace, origin, objective="simple"):
         self.data, self.team = data, copy.deepcopy(team)
         self.locked, self.avoided = list(locked), list(avoided)
         self.trace, self.origin = trace, origin
+        self.objective = objective
         self.version, self.calls, self.successful_calls = 1, 0, 0
         self.ledger, self.issued_sets, self.snapshots = {}, {}, {}
+        self.issued_versions = {}
         self.changes = []
         self.completed_reads = []
+        self.delivered_versions = set()
         self.scorer = TeamScorer(data)
         self.assert_constraints(self.team)
 
@@ -78,7 +82,18 @@ class CoachTools:
         warnings = []
         for check in interaction_checks(self.team, self.data):
             row = self.fact("caution", check["explanation"], code=check["code"], pokemon=check["pokemon"])
+            row["severity"] = check["severity"]
             warnings.append(row["id"]); evidence.append(row)
+        support = {"sun": any(m["ability"] == "Drought" for m in self.team),
+                   "rain": any(m["ability"] == "Drizzle" for m in self.team),
+                   "trick-room": any("Trick Room" in m["moves"] for m in self.team)}
+        if self.objective in support and not support[self.objective]:
+            evidence.append(self.fact("objective", "The requested " + self.objective + " mode is not supported by an automatic matching weather setter or selected Trick Room move. Add checked support or explicitly offer an alternative; do not claim fulfilment.", code="missing_mode_" + self.objective))
+        if self.objective == "reliable":
+            from reasoning_contracts import UNSUPPORTED_PLANS
+            unsupported = sorted({r["code"] for r in evidence if r.get("code") in UNSUPPORTED_PLANS})
+            if unsupported:
+                evidence.append(self.fact("objective", "The user requests repair of unsupported item/weather plans. These checked conditions remain: " + ", ".join(unsupported) + ". Merely disclosing them does not fulfil the repair objective; investigate source-backed changes or explicitly decline fulfilment.", code="missing_quality_reliable"))
         from battle_guidance import pair_plan
         from itertools import combinations
         pairs = sorted((pair_plan(a, b, self.data) for a, b in combinations(self.team, 2)), key=lambda p: -p["score"])[:3]
@@ -103,11 +118,19 @@ class CoachTools:
         removed = [m["species"] for m in self.team if m["species"] not in {s["species"] for s in check["team"]}]
         self.team = check["team"]; self.version += 1
         row = {"version": self.version, "operation": operation, "changed_members": changed, "removed_partners": removed,
-               "before": before, "after": after}
+               "before": before, "after": after,
+               "member_changes": [{"species": name, "before": member_identity(old[name]) if name in old else None,
+                                   "after": member_identity(next(m for m in check["team"] if m["species"] == name))}
+                                  for name in changed]}
         self.changes.append(row)
         self.trace.event(actor, "candidate_revised", **row)
+        snapshot = self.inspect()
+        self.delivered_versions.add(self.version)
+        self.trace.event("Validator", "candidate_checked_after_edit", version=self.version,
+                         evidence_ids=[fact["id"] for fact in snapshot["evidence"]], legality_errors=0)
         return {"changed": True, "version": self.version, "changed_members": changed, "removed_partners": removed,
-                "next": "Inspect this version before submitting. Older evidence cannot support it."}
+                "checked_state": snapshot,
+                "next": "This edit returned fresh checked evidence in shared_state. Submit the current version; older evidence cannot support it."}
 
     def invoke(self, name, arguments, actor="Planner"):
         self.calls += 1
@@ -147,29 +170,56 @@ class CoachTools:
             selected.sort(reverse=True)
             return {"source": self.origin, "for_species": source, "choices": [{"species": n, "historical_usage_percent": round(u * 100, 3), "roles": tags} for w, u, n, tags in selected[:6]], "note": "Historical co-occurrence/usage, not a win rate or proof of the best partner."}
         if name == "get_sets":
-            if set(args) - {"species", "purpose"}: raise ToolRefused("Unsupported set argument")
+            if set(args) - {"species", "purpose", "issue_id"}: raise ToolRefused("Unsupported set argument")
             species = resolve_names([args.get("species")], self.data)[0]
             if species in self.avoided: raise ToolRefused("That species is avoided")
             purpose = args.get("purpose", "recommended")
-            if purpose not in {"recommended", "protection", "no_ally_hit", "different_item"}: raise ToolRefused("Unsupported set purpose")
+            if purpose not in {"recommended", "protection", "no_ally_hit", "different_item", "repair_condition"}: raise ToolRefused("Unsupported set purpose")
+            target = None
+            if purpose == "repair_condition":
+                target = self.cited([args.get("issue_id")])[0]
+                if target["kind"] != "caution" or species not in target.get("pokemon", []):
+                    raise ToolRefused("Repair search requires a current condition affecting that species")
+            elif "issue_id" in args:
+                raise ToolRefused("An issue_id is only accepted for repair_condition")
             current = next((m for m in self.team if m["species"] == species), None)
             others = [m for m in self.team if m["species"] != species]
             used = {m["item"] for m in others}
+            current_findings = interaction_checks(self.team, self.data)
+            current_keys = {(c["code"], tuple(sorted(c["pokemon"]))) for c in current_findings}
             options = []
             for index, member in enumerate(self.data["species"][species]["sets"]):
                 if member["item"] in used: continue
                 if purpose == "protection" and not set(member["moves"]) & {"Protect", "Detect", "Spiky Shield"}: continue
                 if purpose == "no_ally_hit" and any(self.data["moves"][m]["target"] == "allAdjacent" for m in member["moves"]): continue
                 if purpose == "different_item" and current and member["item"] == current["item"]: continue
+                if target:
+                    proposed = interaction_checks(others + [member], self.data)
+                    if any(c["code"] == target["code"] and set(c["pokemon"]) == set(target["pokemon"]) for c in proposed): continue
                 options.append((self.scorer.score(others + [member]), index, member))
             options.sort(key=lambda row: -row[0])
+            # Give the model meaningful alternatives instead of six near-identical
+            # EV variants of the same item/ability. The model still selects the ID.
+            diverse, seen = [], set()
+            for option in options:
+                key = (option[2]["item"], option[2]["ability"])
+                if key not in seen:
+                    diverse.append(option); seen.add(key)
+                if len(diverse) == 3: break
+            if len(diverse) < 3:
+                diverse.extend(option for option in options if option not in diverse)
             result = []
-            for score, index, member in options[:6]:
+            for score, index, member in diverse[:3]:
                 set_id = self.data["species"][species]["id"] + ":" + str(index)
                 self.issued_sets[set_id] = copy.deepcopy(member)
+                self.issued_versions[set_id] = self.version
+                findings = interaction_checks(others + [member], self.data)
+                new_keys = {(c["code"], tuple(sorted(c["pokemon"]))) for c in findings}
                 result.append({"set_id": set_id, "species": species, "ability": member["ability"], "item": member["item"], "moves": member["moves"],
-                               "nature": member["nature"], "evs": member["evs"], "evidence": member.get("evidence"),
-                               "conditional_cautions": [c["explanation"] for c in interaction_checks(others + [member], self.data) if species in c["pokemon"]]})
+                               "nature": member["nature"], "evs": member["evs"], "version": self.version,
+                               "resolves": sorted({code for code, names in current_keys - new_keys}),
+                               "introduces": sorted({code for code, names in new_keys - current_keys}),
+                               "conditional_cautions": [c["explanation"] for c in findings if species in c["pokemon"]]})
             return {"source": self.origin, "purpose": purpose, "options": result}
         if name == "build_candidate":
             if set(args) != {"partners"} or not isinstance(args["partners"], list) or len(args["partners"]) > 5: raise ToolRefused("Expected up to five partner names")
@@ -183,6 +233,7 @@ class CoachTools:
             species = resolve_names([args["species"]], self.data)[0]
             option = self.issued_sets.get(args["set_id"])
             if not option or option["species"] != species: raise ToolRefused("Set ID was not supplied by get_sets for that species")
+            if self.issued_versions.get(args["set_id"]) != self.version: raise ToolRefused("Set options came from an older team version; request current options")
             if species not in {m["species"] for m in self.team}: raise ToolRefused("Species is not in the current team")
             return self.commit([copy.deepcopy(option) if m["species"] == species else m for m in self.team], actor, name)
 

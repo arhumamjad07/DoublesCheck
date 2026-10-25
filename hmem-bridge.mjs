@@ -18,7 +18,20 @@ try {
   const memory = new HMEM({persistDir: directory, actor: 'doublescheck-user'});
   const active = key => memory.store.all().filter(r => r.chatId === chatId &&
     r.tags.includes('pref:' + key) && !r.supersededBy);
-  for (const [key, value] of Object.entries(input.updates || {})) {
+  // Validate the entire update and effective constraints under the profile lock,
+  // before mutating either preference. Invalid requests cannot overwrite memory.
+  const updates = input.updates || {};
+  if (typeof updates !== 'object' || Array.isArray(updates)) throw new Error('Invalid updates.');
+  for (const [key, value] of Object.entries(updates)) {
+    if (!['favourite', 'avoided_partner'].includes(key)) throw new Error('Unknown preference.');
+    if (!(value === null && key === 'avoided_partner') && !ALLOWED.has(value)) throw new Error('Unsupported demo species.');
+  }
+  const valueFor = key => Object.hasOwn(updates, key) ? updates[key] : active(key).at(-1)?.tags.find(t => t.startsWith('value:'))?.slice(6);
+  const locked = input.locked_species || [];
+  if (!Array.isArray(locked) || locked.length > 6 || locked.some(name => !ALLOWED.has(name))) throw new Error('Invalid locked species.');
+  const effectiveAvoid = valueFor('avoided_partner');
+  if (effectiveAvoid && (valueFor('favourite') === effectiveAvoid || locked.includes(effectiveAvoid))) throw new Error('Preference conflicts with avoidance.');
+  for (const [key, value] of Object.entries(updates)) {
     if (!['favourite', 'avoided_partner'].includes(key)) throw new Error('Unknown preference.');
     const previous = active(key);
     if (value === null && key === 'avoided_partner') {
