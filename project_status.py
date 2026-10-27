@@ -19,6 +19,7 @@ def progress(run_id, root=ROOT):
     file = root / "runs" / run_id / "trace.jsonl"
     if not file.is_file(): return {"run_id": run_id, "status": "waiting", "events": []}
     events = []
+    evidence_html = ""
     with file.open(encoding="utf-8") as handle:
         lines = handle.read(256_000).splitlines()
     labels = {"catalogue_requested": "Loading the selected Pokemon dataset",
@@ -46,6 +47,9 @@ def progress(run_id, root=ROOT):
         try: event = json.loads(line)
         except ValueError: continue  # An actively written last line may be incomplete.
         if not isinstance(event, dict) or event.get("trace_id") != run_id: continue
+        if event.get("action") == "zetaris_evidence":
+            from evidence_lens import render_lens
+            evidence_html = render_lens(event["evidence_lens"])
         action = event.get("action")
         label = labels.get(action)
         if action == "model_request": label = f"{event.get('agent', 'AI')} is consulting Nemotron (request {event.get('call')})"
@@ -56,7 +60,7 @@ def progress(run_id, root=ROOT):
     if events and events[-1]["action"] == "report_approved": status = "complete"
     if events and events[-1]["action"] == "run_failed": status = "failed"
     if events and events[-1]["action"] == "run_paused": status = "paused"
-    return {"run_id": run_id, "status": status, "events": events}
+    return {"run_id": run_id, "status": status, "events": events, "evidence_html": evidence_html}
 
 def dashboard(root=ROOT):
     rows = "".join(f'<tr><th>{escape(name)}<small>{points} points</small></th><td>{escape(state)}</td><td>{escape(next_step)}</td></tr>'

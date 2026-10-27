@@ -67,6 +67,9 @@ def write_team_report(data, team, validation, locked, memory, trace, *, sample, 
         "sources": json.loads((ROOT / "data/sources.json").read_text(encoding="utf-8"))["sources"],
         "statistics": data["statistics"], "set_method": data["set_method"],
         "memory_used": {"profile": profile, "ids": [m["id"] for m in memory["memories"]], "avoided_partner": memory.get("avoided_partner")}}
+    if not sample and data.get("evidence_lens"):
+        result["evidence_lens"] = copy.deepcopy(data["evidence_lens"])
+        result["evidence_lens"]["selected_partners"] = [m["species"] for m in team if m["species"] not in locked]
     trace.event("ReportWriter", "report_writing")
     (trace.directory / "report.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
     (trace.directory / "team.txt").write_text(validation["export"], encoding="utf-8")
@@ -172,6 +175,9 @@ def execute(favourites=None, avoided=None, sample=False, profile="default", outp
         avoided_names = [memory["avoided_partner"]] if memory.get("avoided_partner") else []
         trace.event("H-MEM", "preferences_recalled", profile=profile,
                     memory_ids=[m["id"] for m in memory["memories"]], locked=names, avoided=avoided_names)
+        if data.get("evidence_lens"):
+            data["evidence_lens"]["favourites"] = list(names)
+            trace.event("DataRetriever", "zetaris_evidence", evidence_lens=data["evidence_lens"])
         if provided is None:
             team, validation, locked = build_team(data, names, avoided_names, trace)
         else:

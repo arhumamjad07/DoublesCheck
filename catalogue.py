@@ -72,9 +72,13 @@ def load_catalogue(sample=False, env_file=None):
         return json.loads((ROOT / "data/catalogue.json").read_text(encoding="utf-8")), "bundled sample snapshot"
     api = Zetaris(env_file)
     try:
-        rows = api.query("SELECT p.name, p.record_b64, u.record_b64 FROM DOUBLES_CHECK.pokedex p "
-                         "LEFT JOIN DOUBLES_CHECK.vgc_usage u ON p.name = u.name ORDER BY p.name", limit=2000)
-        meta = api.query("SELECT record_b64 FROM DOUBLES_CHECK.reference WHERE name = 'metadata'", limit=1)
+        from evidence_lens import measured_query
+        receipts = []
+        rows = measured_query(api, "SELECT p.name, p.record_b64, u.record_b64 FROM DOUBLES_CHECK.pokedex p "
+                         "LEFT JOIN DOUBLES_CHECK.vgc_usage u ON p.name = u.name ORDER BY p.name",
+                         "catalogue_join", ["pokedex", "vgc_usage"], receipts)
+        meta = measured_query(api, "SELECT record_b64 FROM DOUBLES_CHECK.reference WHERE name = 'metadata'",
+                              "historical_reference", ["reference"], receipts, limit=2)
         expected = json.loads((ROOT / "data/sources.json").read_text(encoding="utf-8"))
         if len(rows) != 1417 or len(meta) != 1:
             raise RuntimeError("Zetaris returned an incomplete catalogue; expected 1417 species/form rows.")
@@ -90,6 +94,13 @@ def load_catalogue(sample=False, env_file=None):
             if mon["name"] != name or name in data["species"]:
                 raise RuntimeError("Zetaris returned inconsistent species identifiers.")
             data["species"][name] = mon
+        # Live rows must represent the exact pinned snapshot, not merely its format label.
+        pinned = json.loads((ROOT / "data/catalogue.json").read_text(encoding="utf-8"))
+        if data != pinned:
+            raise RuntimeError("Zetaris data differs from the pinned historical snapshot; refresh registration before continuing.")
+        data["evidence_lens"] = {"receipts": receipts, "catalogue_rows": len(rows),
+            "usage_rows": sum(1 for row in rows if row[2] is not None),
+            "set_options": sum(len(mon["sets"]) for mon in data["species"].values()), "sql_ranking": False}
         return data, "Zetaris: joined Pokedex and historical VGC usage"
     finally:
         api.session.close()
