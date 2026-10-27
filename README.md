@@ -170,6 +170,10 @@ python -m unittest discover -q
 node verify-hmem.cjs
 ```
 
+The Evidence Lens upgrade passed **174 application tests in each of two clean
+installations**. Its [submission gate](docs/EVIDENCE_VERIFICATION.md) records actual
+SQL/GUI rehearsal timings and the genuine AI repair regression.
+
 Frozen Demo 3 result: **154 application tests passed** and **13/13 official H-MEM
 conformance checks passed**. The tests make no cloud model requests. Stat arithmetic
 was compared with Showdown, and separate running simulator fixtures checked
