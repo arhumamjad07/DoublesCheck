@@ -7,17 +7,22 @@ choosing partners, legal sets and a starting play plan. Lock **one to six Pokém
 the app fills the remaining slots or reviews the six you supplied. It preserves
 your locked species and explains the choices and trade-offs.
 
-**Demo 3** demonstrates real Critic-required AI repair, checked weather-goal
+**Demo 4** adds the visible Zetaris Evidence Lens and a live SQL-ranked partner
+pool. The user can inspect which historical sources support the shortlist,
+change their favourite and see different query evidence and recommendations.
+See the [Demo 4 guide](docs/DEMO_4.md) and [passing submission gate](docs/EVIDENCE_VERIFICATION.md).
+
+Demo 3 established real Critic-required AI repair, checked weather-goal
 adaptation, explicit recovery after interruptions and broader acceptance cases.
 The model investigates and chooses changes; independent code enforces source
 sets, preferences, evidence, repair completion and historical legality.
 
 Demo 2 introduced bounded Nightshift/NVIDIA AI mode. Demo 1 established the local
-data/memory/validation foundation. Their `demo-1` and `demo-2` tags are preserved;
-this milestone is `demo-3`. Local planning remains the default and Offline sample
+data/memory/validation foundation. The `demo-1`, `demo-2` and `demo-3` tags are preserved;
+this milestone is `demo-4`. Local planning remains the default and Offline sample
 always makes zero model calls.
 
-The submission upgrade adds a **Zetaris Evidence Lens**: live query receipts and
+Demo 4's **Zetaris Evidence Lens** provides live query receipts and
 queryable historical tables, with a favourite-specific SQL shortlist constraining
 automatic partner selection. The frozen `demo-3` tag remains available.
 Read the [Evidence Lens guide](docs/ZETARIS_EVIDENCE_LENS.md) for exact registration,
@@ -189,6 +194,8 @@ See [verification](VERIFICATION.md) for scope and reproduction details.
 | [Demo 1](docs/DEMO_1.md) | Milestone scope, walkthrough, expected behaviour and limitations |
 | [Demo 2](docs/DEMO_2.md) | Preserved first live AI milestone |
 | [Demo 3](docs/DEMO_3.md) | Verified repair, weather adaptation, recovery and varied cases |
+| [Demo 4](docs/DEMO_4.md) | Visible Zetaris evidence, normalised tables and favourite-specific SQL ranking |
+| [Demo 4 security audit](docs/SECURITY_AUDIT_DEMO_4.md) | Fresh history and exact release checks |
 | [Security audit](docs/SECURITY_AUDIT.md) | Demo 1/2 history and Demo 3 publication checks |
 | [AI reasoning](docs/AI_REASONING.md) | Model/tool/Critic loop, safety bounds and rubric mapping |
 | [Current reasoning acceptance](docs/REASONING_ACCEPTANCE.md) | Dynamic roles, named repair contracts, continuation, case matrix and rubric evidence |

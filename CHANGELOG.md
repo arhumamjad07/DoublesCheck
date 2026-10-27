@@ -1,5 +1,28 @@
 # Changelog
 
+## Demo 4 - 27 October 2026
+
+Makes Zetaris evidence visible and moves a real partner-shortlisting decision
+into live SQL. Milestone tag: `demo-4`. Earlier demo tags are preserved.
+
+- Evidence Lens in the app flow and generated report: historical scope, sources,
+  row counts, battle coverage, query timings and allowlisted receipts.
+- Five queryable normalised tables supplement the preserved encoded catalogue.
+- Favourite-specific SQL ranks at most 48 partners; automatic connected planning
+  uses the returned pool. Changing the favourite changes evidence and output.
+- Connected failures withhold the result; the original explicit offline mode and
+  genuine saved Sneasler repair remain available.
+- 174 application tests passed in each of two clean installations, 13/13 H-MEM
+  checks passed, and the exact browser recording path passed twice.
+- The genuine Nightshift/Nemotron repair regression passed with seven requests,
+  one gateway interruption and one authorised continuation.
+- No second month, opponent preview, PokeAPI ingestion or unperformed Grok work.
+
+Implementation and tests were completed in the preceding challenge commits.
+The Demo 4 release commit labels that verified work and updates documentation;
+it introduces no further application behaviour. See `docs/DEMO_4.md`,
+`docs/EVIDENCE_VERIFICATION.md` and `docs/SECURITY_AUDIT_DEMO_4.md`.
+
 ## Demo 3 — 25 October 2026
 
 Strengthens live reliability, actual Critic-driven repair and varied user cases.
