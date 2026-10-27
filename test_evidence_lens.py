@@ -78,5 +78,11 @@ class LensTests(unittest.TestCase):
         with patch('catalogue.Zetaris',side_effect=RuntimeError('service stopped')),self.assertRaises(RuntimeError):
             load_catalogue(False)
 
+    def test_review_context_does_not_claim_sql_generated_a_provided_or_six_locked_team(self):
+        data,_=self.connected();lens=data['evidence_lens'];lens.update(sql_ranking=True,decision_use='provided_team_context')
+        self.assertIn('shortlist did not generate that input',render_lens(lens))
+        lens.update(decision_use='automatic_partner_slots',favourites=['Charizard','Venusaur','Blastoise','Garchomp','Pelipper','Sneasler'])
+        self.assertIn('no automatic partner slots',render_lens(lens))
+
 
 if __name__ == '__main__': unittest.main()

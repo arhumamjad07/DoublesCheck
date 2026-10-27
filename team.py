@@ -178,6 +178,7 @@ def execute(favourites=None, avoided=None, sample=False, profile="default", outp
         if data.get("evidence_lens"):
             from zetaris_partners import retrieve_partners
             retrieve_partners(data, names, avoided_names, env_file)
+            data["evidence_lens"]["decision_use"] = "provided_team_context" if provided is not None else "automatic_partner_slots"
             trace.event("DataRetriever", "zetaris_evidence", evidence_lens=data["evidence_lens"])
         if provided is None:
             team, validation, locked = build_team(data, names, avoided_names, trace)

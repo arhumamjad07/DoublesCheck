@@ -58,6 +58,10 @@ def render_lens(lens):
                 'teammate association, then usage. Python still checks team fit, source sets and legality.</p>'
                 if lens.get("sql_ranking") else
                 '<p>These queries load the joined catalogue. Partner ranking in this slice still runs in Python.</p>')
+    if lens.get("sql_ranking") and lens.get("decision_use") == "provided_team_context":
+        decision = '<p><b>SQL evidence for comparison:</b> this run began with a provided six-member team. The shortlist did not generate that input. The existing repair workflow checks its sourced alternatives separately.</p>'
+    elif lens.get("sql_ranking") and len(lens.get("favourites", [])) == 6:
+        decision = '<p><b>All six species are locked.</b> The SQL pool is context only; no automatic partner slots are being filled.</p>'
     ranking = ('<div class="scroll"><table><thead><tr><th>SQL partner evidence (top six + selected)</th><th>Association weight</th>'
                '<th>Weighted usage</th><th>Source set choices</th></tr></thead><tbody>' + rows + '</tbody></table></div>' if rows else '')
     return f'''<section class="evidence-lens" aria-label="Zetaris Evidence Lens" style="border:1px solid #6f9981;border-radius:16px;padding:24px;background:#172c2b;margin:24px 0">
