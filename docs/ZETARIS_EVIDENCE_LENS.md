@@ -87,7 +87,7 @@ the repository never supplies a private `.env`.
 git clone https://github.com/arhumamjad07/DoublesCheck.git
 cd DoublesCheck
 # Check out the reviewed submission commit/branch containing this guide.
-npm ci --ignore-scripts --omit=optional --no-audit --no-fund
+npm.cmd ci --ignore-scripts --omit=optional --no-audit --no-fund
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 Copy-Item .env.example .env
@@ -106,6 +106,18 @@ node verify-hmem.cjs
 and dedicated driver folder. It does not drop or overwrite Demo 3's original
 tables or folders. Repeating registration copies the same pinned public CSVs;
 existing registrations are retained. It does not erase saved app runs or memory.
+
+On Windows PowerShell, `npm.cmd` avoids the script execution-policy error from
+`npm.ps1`; do not weaken the system execution policy. On macOS/Linux use `npm`.
+
+To repeat the actual HTTP recording path after starting a fresh app:
+
+```powershell
+.\.venv\Scripts\python.exe verify-evidence-path.py
+```
+
+This makes two real connected builds and checks the clearly labelled saved repair,
+with zero model requests. A browser rehearsal is still required.
 
 For an offline-only demonstration, skip `.env`, Docker and both registration
 commands, start the app and explicitly select **Offline sample**. The original

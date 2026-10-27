@@ -35,7 +35,7 @@ The bundled sample is real historical data; it is not a random mock catalogue.
 ```powershell
 git clone https://github.com/arhumamjad07/DoublesCheck.git
 cd DoublesCheck
-npm ci --ignore-scripts --omit=optional --no-audit --no-fund
+npm.cmd ci --ignore-scripts --omit=optional --no-audit --no-fund
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe app.py
@@ -46,7 +46,7 @@ choose **Build and check my team**. The form initially selects connected Zetaris
 mode, so switch it for this account-free demonstration.
 
 If you already have the Python dependencies installed, `python app.py` works too.
-`Start-DoublesCheck.bat` uses the `python` on your PATH. On macOS/Linux, use
+`Start-DoublesCheck.bat` uses the `python` on your PATH. On macOS/Linux, use `npm` instead of `npm.cmd`, and use
 `python3 -m venv .venv` and `.venv/bin/python` in place of the Windows venv path;
 those platforms have not been independently verified for this milestone.
 
@@ -170,7 +170,7 @@ python -m unittest discover -q
 node verify-hmem.cjs
 ```
 
-Current result: **154 application tests passed** and **13/13 official H-MEM
+Frozen Demo 3 result: **154 application tests passed** and **13/13 official H-MEM
 conformance checks passed**. The tests make no cloud model requests. Stat arithmetic
 was compared with Showdown, and separate running simulator fixtures checked
 selected speed/field mechanics. The connected Zetaris workflow and GUI HTTP form,
