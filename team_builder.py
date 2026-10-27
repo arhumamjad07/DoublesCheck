@@ -183,11 +183,15 @@ def build_team(data, favourites, avoided=None, trace=None):
         if not next_beam:
             raise ValueError("Locked Pokemon cannot satisfy Item Clause with available sets; no lock was replaced.")
         beam = sorted(next_beam, key=scorer.score, reverse=True)[:10]
-    ranked = sorted((m for m in mons.values() if m["sets"] and m["eligible_species"] and m["name"] not in avoided),
-                    key=lambda m: (-m["usage"], m["name"]))
-    candidates = {m["name"] for m in ranked[:45]}
-    for name in favourites:
-        candidates.update(sorted(mons[name]["teammate_weights"], key=mons[name]["teammate_weights"].get, reverse=True)[:10])
+    if "zetaris_partner_pool" in data:
+        # Connected search cannot silently widen beyond the live SQL shortlist.
+        candidates = set(data["zetaris_partner_pool"])
+    else:
+        ranked = sorted((m for m in mons.values() if m["sets"] and m["eligible_species"] and m["name"] not in avoided),
+                        key=lambda m: (-m["usage"], m["name"]))
+        candidates = {m["name"] for m in ranked[:45]}
+        for name in favourites:
+            candidates.update(sorted(mons[name]["teammate_weights"], key=mons[name]["teammate_weights"].get, reverse=True)[:10])
     candidates = sorted(n for n in candidates if n in mons and mons[n]["eligible_species"] and mons[n]["sets"] and n not in avoided)
     while len(beam[0]) < 6:
         expansions = []

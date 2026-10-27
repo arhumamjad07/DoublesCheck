@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "format_id": "gen9vgc2024regh",
+  "snapshot": "2024-11",
+  "cutoff": 1500,
+  "catalogue_sha256": "c8ced853f6f310df7b07fac5c12aa533bf03f64d9f30d5459082ab01a06b51cc",
+  "usage_sha256": "4ef0bd9769f4172a45e98ca774f8fb4ef86f18a3bf9cb5efe1ed7441fe27a934",
+  "tables": {
+    "pokemon_facts": {
+      "rows": 1417,
+      "sha256": "6e27bcc200d9d387cc184c86d2067d420b3eb588469ffcfaa19e3c5c7f6c342e",
+      "columns": [
+        "name",
+        "species_id",
+        "base_species",
+        "type_1",
+        "type_2",
+        "eligible",
+        "set_count"
+      ]
+    },
+    "usage_snapshots": {
+      "rows": 358,
+      "sha256": "b53c3aca3ae9c62362e825967ef1a391e5634d8a54d535dd63b48a7adf394a6d",
+      "columns": [
+        "name",
+        "format_id",
+        "snapshot_month",
+        "cutoff",
+        "usage",
+        "raw_count"
+      ]
+    },
+    "teammate_relationships": {
+      "rows": 114142,
+      "sha256": "c50b30fbed587b410f9c70954497142ba85d387163c1340929d21943f0106788",
+      "columns": [
+        "favourite",
+        "favourite_id",
+        "partner",
+        "format_id",
+        "snapshot_month",
+        "cutoff",
+        "association_weight"
+      ]
+    },
+    "sourced_sets": {
+      "rows": 11376,
+      "sha256": "30f10dc4fa03272f4d0c5f94a8f1d2dfce39a3384e437fc0b31cb1b80ba41c0e",
+      "columns": [
+        "set_id",
+        "name",
+        "format_id",
+        "snapshot_month",
+        "cutoff",
+        "ability",
+        "item",
+        "nature",
+        "tera_type",
+        "level",
+        "move_1",
+        "move_2",
+        "move_3",
+        "move_4",
+        "ev_hp",
+        "ev_atk",
+        "ev_def",
+        "ev_spa",
+        "ev_spd",
+        "ev_spe",
+        "iv_hp",
+        "iv_atk",
+        "iv_def",
+        "iv_spa",
+        "iv_spd",
+        "iv_spe",
+        "ability_share",
+        "item_share",
+        "spread_share",
+        "set_sha256"
+      ]
+    },
+    "source_metadata": {
+      "rows": 1,
+      "sha256": "645f764bcbb6c0479ece998128f41cc078769fb342a0dbc9b39e31fa3e9a1c40",
+      "columns": [
+        "schema_version",
+        "format_id",
+        "snapshot_month",
+        "cutoff",
+        "battles",
+        "catalogue_sha256",
+        "usage_sha256",
+        "showdown_version"
+      ]
+    }
+  }
+}

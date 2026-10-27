@@ -52,7 +52,9 @@ class Zetaris:
                 if "already exist" in response.text.lower():
                     raise FileExistsError("Zetaris object already exists.")
                 raise RuntimeError(f"Zetaris returned HTTP {response.status_code}. Check the query engine and data registration.")
-            doc = response.json()
+            try: doc = response.json()
+            except ValueError:
+                raise RuntimeError("Zetaris returned invalid JSON; result withheld.") from None
         except requests.RequestException:
             raise RuntimeError("Local Zetaris did not respond. Start Docker/Zetaris or choose --sample explicitly.") from None
         if not isinstance(doc, dict) or not isinstance(doc.get("data"), list):
@@ -83,14 +85,22 @@ def load_catalogue(sample=False, env_file=None):
         if len(rows) != 1417 or len(meta) != 1:
             raise RuntimeError("Zetaris returned an incomplete catalogue; expected 1417 species/form rows.")
         data = decode(meta[0][0])
+        if not isinstance(data, dict):
+            raise RuntimeError("Malformed Zetaris reference metadata; result withheld.")
         if data["format_id"] != expected["format_id"]:
             raise RuntimeError("Zetaris catalogue and historical ruleset do not match.")
         if data.get("schema", 1) < 2:
             raise RuntimeError("Zetaris still has the older set snapshot. Run register-data.py to refresh DoublesCheck's dedicated files, then retry.")
         data["species"] = {}
-        for name, dex_record, usage_record in rows:
+        for row in rows:
+            if not isinstance(row, (list, tuple)) or len(row) != 3:
+                raise RuntimeError("Malformed Zetaris catalogue row; result withheld.")
+            name, dex_record, usage_record = row
             mon = decode(dex_record)
-            mon.update(decode(usage_record) or {"usage": 0, "raw_count": 0, "teammate_weights": {}, "sets": []})
+            history = decode(usage_record) if usage_record is not None else {"usage": 0, "raw_count": 0, "teammate_weights": {}, "sets": []}
+            if not isinstance(mon, dict) or not isinstance(history, dict):
+                raise RuntimeError("Malformed Zetaris species data; result withheld.")
+            mon.update(history)
             if mon["name"] != name or name in data["species"]:
                 raise RuntimeError("Zetaris returned inconsistent species identifiers.")
             data["species"][name] = mon

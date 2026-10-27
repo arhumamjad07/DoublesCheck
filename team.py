@@ -176,7 +176,8 @@ def execute(favourites=None, avoided=None, sample=False, profile="default", outp
         trace.event("H-MEM", "preferences_recalled", profile=profile,
                     memory_ids=[m["id"] for m in memory["memories"]], locked=names, avoided=avoided_names)
         if data.get("evidence_lens"):
-            data["evidence_lens"]["favourites"] = list(names)
+            from zetaris_partners import retrieve_partners
+            retrieve_partners(data, names, avoided_names, env_file)
             trace.event("DataRetriever", "zetaris_evidence", evidence_lens=data["evidence_lens"])
         if provided is None:
             team, validation, locked = build_team(data, names, avoided_names, trace)

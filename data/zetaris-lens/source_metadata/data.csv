@@ -1,0 +1,2 @@
+schema_version,format_id,snapshot_month,cutoff,battles,catalogue_sha256,usage_sha256,showdown_version
+1,gen9vgc2024regh,2024-11,1500,965304,c8ced853f6f310df7b07fac5c12aa533bf03f64d9f30d5459082ab01a06b51cc,4ef0bd9769f4172a45e98ca774f8fb4ef86f18a3bf9cb5efe1ed7441fe27a934,0.11.11

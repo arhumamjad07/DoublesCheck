@@ -54,7 +54,7 @@ defaults, including Speed and Attack where a specialized build may prefer less.
 
 ## Zetaris representation
 
-The dedicated `DOUBLES_CHECK` database contains:
+The preserved Demo 3 `DOUBLES_CHECK` database contains:
 
 | Table | Rows | Contents |
 | --- | --- | --- |
@@ -71,11 +71,20 @@ Full connected/sample equality was verified locally for Demo 1. The runtime
 adapter's structural checks do not constitute a cryptographic verification of
 every live database value on every request.
 
+The submission upgrade supplements these tables with five queryable tables in
+`DOUBLES_CHECK_LENS`. It does not replace or expand the underlying source snapshot.
+The connected builder now uses a favourite-specific SQL shortlist for automatic
+partner slots. See [Evidence Lens](ZETARIS_EVIDENCE_LENS.md) for table grains, hashes,
+registration and precise validation boundaries. Offline mode preserves the original
+builder, so default team outputs across modes need not be identical.
+
 ## Reproduce and refresh
 
 ```powershell
 python refresh-data.py
 python register-data.py --compose-dir C:/zetaris-platform
+python zetaris_schema.py
+python register-evidence.py --compose-dir C:/zetaris-platform
 ```
 
 The refresh script downloads only the pinned public aggregate, checks its expected

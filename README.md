@@ -17,6 +17,12 @@ data/memory/validation foundation. Their `demo-1` and `demo-2` tags are preserve
 this milestone is `demo-3`. Local planning remains the default and Offline sample
 always makes zero model calls.
 
+The submission upgrade adds a **Zetaris Evidence Lens**: live query receipts and
+queryable historical tables, with a favourite-specific SQL shortlist constraining
+automatic partner selection. The frozen `demo-3` tag remains available.
+Read the [Evidence Lens guide](docs/ZETARIS_EVIDENCE_LENS.md) for exact registration,
+recording steps, source grains, boundaries and the separate Grok review task.
+
 See the [Demo 3 guide](docs/DEMO_3.md), [reasoning architecture](docs/REASONING_ACCEPTANCE.md),
 [real live repair](examples/reasoning-repair/README.md),
 [verification](VERIFICATION.md) and [release security audit](docs/SECURITY_AUDIT.md).
@@ -146,12 +152,15 @@ local settings:
 Copy-Item .env.example .env
 # Edit .env locally with your own Zetaris token. Never commit it.
 python register-data.py --compose-dir C:/zetaris-platform
+python zetaris_schema.py
+python register-evidence.py --compose-dir C:/zetaris-platform
 python team.py --favourites Charizard --profile connected-demo
 ```
 
 Start the supplied stack first. Registration copies public snapshot files to
 DoublesCheck's dedicated driver folder and creates/retains its three tables.
-Connected mode queries a real Pokedex/usage SQL join. It stops on service failure;
+Connected mode retains the real Pokedex/usage SQL join and also queries the
+separate normalised Evidence Lens tables for a ranked partner shortlist. It stops on service failure;
 there is no silent sample fallback. See [operations](docs/OPERATIONS.md).
 
 ## Verification

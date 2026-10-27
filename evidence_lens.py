@@ -27,7 +27,7 @@ def receipt(purpose, tables, returned_rows, started_at, duration_ms, *, candidat
     if type(duration_ms) not in (int, float) or not math.isfinite(duration_ms) or not 0 <= duration_ms <= 3600000:
         raise ValueError("Invalid query duration.")
     return {"query_id": "dcq-" + uuid.uuid4().hex, "purpose": purpose,
-            "tables": ["DOUBLES_CHECK." + t for t in sorted(set(tables))],
+            "tables": [("DOUBLES_CHECK." if t in {"pokedex","vgc_usage","reference"} else "DOUBLES_CHECK_LENS.") + t for t in sorted(set(tables))],
             "format_id": FORMAT, "snapshot": MONTH, "cutoff": CUTOFF,
             "returned_rows": returned_rows, "candidates_considered": candidates,
             "started_at": stamp.astimezone(timezone.utc).isoformat(), "duration_ms": round(duration_ms, 2)}
@@ -50,15 +50,16 @@ def render_lens(lens):
     tables = sorted({t for r in receipts for t in r["tables"]})
     total = sum(r["duration_ms"] for r in receipts)
     ranks, selected = lens.get("partners", []), set(lens.get("selected_partners", []))
+    visible = [r for i,r in enumerate(ranks) if i < 6 or r["species"] in selected]
     rows = "".join('<tr><td>' + text(r["species"]) + (' · selected' if r["species"] in selected else '') +
-                   '</td><td>' + text(r.get("association", 0)) + '</td><td>' +
-                   text(round(r.get("usage", 0)*100, 3)) + '%</td></tr>' for r in ranks[:12])
+                   '</td><td>' + format(r.get("association", 0), ',.2f') + '</td><td>' +
+                   text(round(r.get("usage", 0)*100, 3)) + '%</td><td>' + text(r.get("set_options", 0)) + '</td></tr>' for r in visible)
     decision = ('<p><b>Decision in Zetaris:</b> favourite-specific partner shortlist, ranked by historical '
                 'teammate association, then usage. Python still checks team fit, source sets and legality.</p>'
                 if lens.get("sql_ranking") else
                 '<p>These queries load the joined catalogue. Partner ranking in this slice still runs in Python.</p>')
-    ranking = ('<div class="scroll"><table><thead><tr><th>SQL partner evidence</th><th>Association weight</th>'
-               '<th>Weighted usage</th></tr></thead><tbody>' + rows + '</tbody></table></div>' if rows else '')
+    ranking = ('<div class="scroll"><table><thead><tr><th>SQL partner evidence (top six + selected)</th><th>Association weight</th>'
+               '<th>Weighted usage</th><th>Source set choices</th></tr></thead><tbody>' + rows + '</tbody></table></div>' if rows else '')
     return f'''<section class="evidence-lens" aria-label="Zetaris Evidence Lens" style="border:1px solid #6f9981;border-radius:16px;padding:24px;background:#172c2b;margin:24px 0">
       <div class="brand">ZETARIS EVIDENCE LENS</div><h2>Connected evidence you can inspect</h2>
       <p><b>Live Zetaris queries completed for this run.</b> This is a timestamped receipt, not a continuous health monitor.</p>
